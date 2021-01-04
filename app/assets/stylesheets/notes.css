@@ -393,7 +393,7 @@ main {
 
 .information-lists li {
   list-style: none;
-  border-bottom: solid 1px #3b3b3b;
+  border: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
 }
@@ -409,7 +409,7 @@ main {
 
 .information-lists-second li {
   list-style: none;
-  border-bottom: solid 1px #3b3b3b;
+  border: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
 }
@@ -427,16 +427,16 @@ main {
   color: white;
 }
 
+.example-lists li {
+  list-style: none;
+  color: #b3b3b3;
+  margin-top: 3px;
+  border: solid 1px #3b3b3b;
+}
+
 .example-lists li:hover {
   display: inline-block;
   border-bottom: solid 1px #b3b3b3;
-}
-
-.example-lists li {
-  list-style: none;
-  border-bottom: solid 1px #3b3b3b;
-  color: #b3b3b3;
-  margin-top: 3px;
 }
 
 .example-lists a {
