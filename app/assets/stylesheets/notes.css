@@ -393,14 +393,8 @@ main {
 
 .information-lists li {
   list-style: none;
-  border: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
-}
-
-.information-lists li:hover {
-  display: inline-block;
-  border-bottom: solid 1px #b3b3b3;
 }
 
 .information-lists a {
@@ -409,14 +403,8 @@ main {
 
 .information-lists-second li {
   list-style: none;
-  border: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
-}
-
-.information-lists-second li:hover {
-  display: inline-block;
-  border-bottom: solid 1px #b3b3b3;
 }
 
 .information-lists-second a {
@@ -431,12 +419,6 @@ main {
   list-style: none;
   color: #b3b3b3;
   margin-top: 3px;
-  border: solid 1px #3b3b3b;
-}
-
-.example-lists li:hover {
-  display: inline-block;
-  border-bottom: solid 1px #b3b3b3;
 }
 
 .example-lists a {
