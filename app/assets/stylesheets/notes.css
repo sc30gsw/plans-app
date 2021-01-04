@@ -44,6 +44,10 @@ header {
   background-color: rgba(192, 237, 232, 0.5);
 }
 
+.upper-session {
+  border-bottom: solid 1px rgb(56, 135, 224);
+}
+
 .upper-session:hover {
   border-bottom: solid 1px white;
 }
@@ -128,10 +132,9 @@ header {
 
 .twitter-session:hover {
   background-color: lightgray;
-  border: solid 1px lightgrey;
+  border: solid 1px lightgray;
   border-width: medium;
   border-radius: 7%;
-  padding: 7px 15px;
 }
 
 .twitter-icon {
@@ -153,10 +156,9 @@ header {
 
 .facebook-session:hover {
   background-color: lightgray;
-  border: solid 1px lightgrey;
+  border: solid 1px lightgray;
   border-width: medium;
   border-radius: 7%;
-  padding: 7px 15px;
 }
 
 .facebook-icon {
@@ -257,6 +259,14 @@ main {
   padding-left: 15px;
 }
 
+.note-title h2 {
+  border-bottom: solid 1px white;
+}
+
+.note-title h2:hover {
+  display: inline-block;
+  border-bottom: solid 1px black;
+}
 .note-tag {
   padding-left: 15px;
   padding-bottom: 10px;
@@ -265,6 +275,11 @@ main {
 .tag {
   text-decoration: none;
   color: black;
+  border-bottom: solid 1px white;
+}
+
+.tag:hover {
+  border-bottom: solid 1px black;
 }
 
 .note-opt {
@@ -295,6 +310,7 @@ main {
 .more-link {
   text-decoration: none;
   color: black;
+  border-bottom: solid 1px white;
 }
 
 .more-link:hover {
@@ -377,6 +393,7 @@ main {
 
 .information-lists li {
   list-style: none;
+  border-bottom: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
 }
@@ -392,6 +409,7 @@ main {
 
 .information-lists-second li {
   list-style: none;
+  border-bottom: solid 1px #3b3b3b;
   margin-top: 5px;
   color: #b3b3b3;
 }
@@ -416,6 +434,7 @@ main {
 
 .example-lists li {
   list-style: none;
+  border-bottom: solid 1px #3b3b3b;
   color: #b3b3b3;
   margin-top: 3px;
 }
