@@ -4,6 +4,7 @@
 
 header {
   height: 40vh;
+  width: 100vw;
   background-color: rgb(56, 135, 224);
 }
 
@@ -374,10 +375,6 @@ main {
   color: white;
 }
 
-.information-lists {
-  margin-left: 10px;
-}
-
 .information-lists li {
   list-style: none;
   margin-top: 5px;
@@ -394,6 +391,7 @@ main {
 }
 
 .information-lists-second li {
+  list-style: none;
   margin-top: 5px;
   color: #b3b3b3;
 }
@@ -407,16 +405,8 @@ main {
   text-decoration: none;
 }
 
-.example {
-  margin-left: 15px;
-}
-
 .increments {
   color: white;
-}
-
-.example-lists {
-  margin-left: 15px;
 }
 
 .example-lists li:hover {
