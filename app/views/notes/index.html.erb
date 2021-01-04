@@ -1,7 +1,7 @@
 <div class="wrqpper">
   <header>
-    <%# if user_signed_in? %>
-      <%# <div class="upper-header">
+    <% if user_signed_in? %>
+      <div class="upper-header">
         <div class="upper-left">
           <a href="#">Plans App</a>
         </div>
@@ -9,8 +9,8 @@
           <a href="#" class="upper-notifi">通知</a>
           <a href="#" class="upper-icon">ユーザーアイコン</a>
         </div>
-      </div> %>
-    <%# else %> 
+      </div> 
+    <% else %>  
       <div class="upper-header">
         <div class="upper-left">
           <%= link_to "Plans App", root_path %>
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-    <%# end %>
+    <% end %>
   </header>
   <main>
     <div class="search-form">
