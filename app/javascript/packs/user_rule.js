@@ -1,20 +1,37 @@
 function rule(){
   const userId = document.getElementById("user_id");
   const password = document.getElementById("user_password");
+  const passwordConfirmation = document.getElementById("user_password_confirmation");
+
   userId.addEventListener("click", () => {
     const userNameRule = document.getElementById("username-rule");
     const userMessage = "半角英数字のみ16文字以内"
     const userHTML = `
-      <p>${userMessage}</p>`;
+      <div class="username-rule">
+        <p>${userMessage}</p>
+      </div>`;
     userNameRule.insertAdjacentHTML("afterend", userHTML);
     userNameRule.remove();
   })
   
   password.addEventListener("click", () => {
-    const passwordRule = document.getElementById("password-rule");
-    const passwordMessage = "半角英数字(両方含む)8文字以上"
-    const passwordHTML = `
-      <p>${passwordMessage}</p>`;
+    let passwordRule = document.getElementById("password-rule");
+    let passwordMessage = "半角英数字のみ(両方含む)8文字以上"
+    let passwordHTML = `
+      <div class="password-rule">
+        <p>${passwordMessage}</p>
+      </div>`;
+    passwordRule.insertAdjacentHTML("afterend", passwordHTML);
+    passwordRule.remove();
+  })
+
+  passwordConfirmation.addEventListener("click", () => {
+    let passwordRule = document.getElementById("password-rule");
+    let passwordMessage = "半角英数字のみ(両方含む)8文字以上"
+    let passwordHTML = `
+      <div class="password-rule">
+        <p>${passwordMessage}</p>
+      </div>`;
     passwordRule.insertAdjacentHTML("afterend", passwordHTML);
     passwordRule.remove();
   })
