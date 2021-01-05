@@ -31,8 +31,9 @@
 }
 
 .session-right a {
-  margin-left: 10px;
+  margin-left: 20px;
   text-decoration: none;
+  font-size: 17px;
   color: white;
 }
 
