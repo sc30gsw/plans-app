@@ -1,6 +1,6 @@
 <div class="wrqpper">
   <% if user_signed_in? %>
-    <%= render 'shared/session_header' %>
+    <%= render partial: 'shared/session_header', locals: {user: @user} %>
   <% else %>
   <header>  
     <div class="upper-header">
