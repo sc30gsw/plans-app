@@ -87,6 +87,10 @@
   margin-bottom: 10px;
 }
 
+.twitter-regist:hover {
+  opacity: 0.7;
+}
+
 .facebook-regist {
   padding: 10px;
   text-align: center;
@@ -99,6 +103,10 @@
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
+}
+
+.facebook-regist:hover {
+  opacity: 0.7;
 }
 
 .regist-icon {
