@@ -12,6 +12,6 @@ function feed() {
   });
   trend.addEventListener('mouseover', () => {
     asc.removeAttribute('style', 'background-color:rgb(87, 154, 255);');
-  })
+  });
 }
 window.addEventListener('load', feed);
