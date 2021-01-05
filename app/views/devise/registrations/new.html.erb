@@ -1,57 +1,62 @@
-
+<div class="regist-wrapper">
   <div class="header">
-    <%= link_to root_path do %>
-      <div class="header-title">
-        <h2>Plans App</h2>
-      </div>
-    <% end %>
-    <div class="welcome">
-      <h1>Plans APPへようこそ！</h1>
-      <h2>ユーザー登録し利用を開始しましょう。</h2>
+    <div class="header-title">
+      <%= link_to "Plans App", root_path, class: "header-link" %>
     </div>
   </div>
 
-
+  <div class="regist-content">
+    <div class="contents">
+      <div class="welcome">Plans Appへようこそ！</div>
+      <div class="welcome-sub">新規登録して利用を開始しましょう。</div>
+    </div>
+  </div>
 
   <div class="registration">
     <div class="regist-left">
-      <a href="#" class="twitter-regist"><i class="fab fa-twitter twitter-icon"></i>Twitter</a>
-      <a href="#" class="facebook-regist"><i class="fab fa-facebook-square facebook-icon"></i>Facebook</a>
+      <a href="#" class="twitter-regist"><i class="fab fa-twitter regist-icon"></i>Twitterアカウントで登録</a>
+      <a href="#" class="facebook-regist"><i class="fab fa-facebook-square regist-icon"></i>Facebookアカウントで登録</a>
+      <p>Plans Appが許可なくTwitter・Facebookに投稿することはありません。</p>
+      <p>もしPlans Appのアカウントを持っている場合は<%= link_to 'ログイン', new_user_session_path, class: "regist_session" %>をクリック</p>
     </div>
     <div class="regist-right">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
+        <div class="username-rule hidden" id="username-rule">
+        </div>
         <div class="field">
-          <%= f.text_field :id, autofocus: true, placeholder: "ユーザー名" %>
+          <%= f.text_field :id, autofocus: true, placeholder: "ユーザー名", class: "user-regist" %>
         </div>
 
         <div class="field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "user-regist" %>
+        </div>
+
+        <div class="password-rule hidden" id="password-rule">
+        </div>
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "user-regist" %>
         </div>
 
         <div class="field">
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)", class: "user-regist" %>
         </div>
 
         <div class="check">
-          <input type="checkbox" value=""><a href="#">利用規約</a>に同意する
+          <input type="checkbox" value="" class="checkbox"><a href="#">利用規約</a>に同意する
         </div>
 
         <div class="check">
-          <input type="checkbox" value=""><a href="#">プライバシーポリシー</a>に同意する
+          <input type="checkbox" value="" class="checkbox"><a href="#">プライバシーポリシー</a>に同意する
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up" %>
+          <%= f.submit "登録する" , class: "regist-btn" %>
         </div>
       <% end %>
     </div>
   </div>
 
 
-<%= render "devise/shared/links" %>
+</div>
