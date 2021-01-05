@@ -4,6 +4,7 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
+| nickname | string | null: false |
 | image    | string |             |
 | profile  | text   |             |
 | email    | string | null: false |
