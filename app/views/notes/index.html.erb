@@ -1,18 +1,6 @@
 <div class="wrqpper">
   <% if user_signed_in? %>
-    <div class="session-header">
-      <div class="session-left">
-        <%= link_to "Plans App", root_path %>
-      </div>
-      <div class="session-right">
-        <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
-        <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
-        <a href ="#" class="upper-usericon">丸</a>
-      </div>
-      <div class="user-menu">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      </div>
-    </div>
+    <%= render 'shared/session_header' %>
   <% else %>
   <header>  
     <div class="upper-header">
