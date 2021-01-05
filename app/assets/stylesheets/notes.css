@@ -2,6 +2,49 @@
   overflow: scroll;
 }
 
+.session-header {
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(56, 135, 224);
+}
+
+.session-left {
+  margin-top: 15px;
+}
+
+.session-left a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.session-left a:hover {
+  color: lightgrey;
+}
+
+.session-right {
+  display: flex;
+  margin-top: 20px;
+}
+
+.session-right a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.user-menu {
+  height: 20px;
+  width: 3vw;
+  margin-top: 2px;
+  margin-left: 5px;
+  padding: 5px 2px 5px 5px;
+  border: solid1;
+}
+
 header {
   height: 40vh;
   width: 100vw;

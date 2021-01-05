@@ -1,41 +1,45 @@
 <div class="wrqpper">
-  <header>
-    <% if user_signed_in? %>
-      <div class="upper-header">
-        <div class="upper-left">
-          <a href="#">Plans App</a>
-        </div>
-        <div class="upper-right">
-          <a href="#" class="upper-notifi">通知</a>
-          <a href="#" class="upper-icon">ユーザーアイコン</a>
-        </div>
-      </div> 
-    <% else %>  
-      <div class="upper-header">
-        <div class="upper-left">
-          <%= link_to "Plans App", root_path %>
-        </div>
-        <div class="upper-right">
-          <%= link_to "ユーザー登録", new_user_registration_path, class: "upper-regist" %>
-          <%= link_to "ログイン", new_user_session_path, class: "upper-session" %>
+  <% if user_signed_in? %>
+    <div class="session-header">
+      <div class="session-left">
+        <%= link_to "Plans App", root_path %>
+      </div>
+      <div class="session-right">
+        <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
+        <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
+        <a href ="#" class="upper-usericon">丸</a>
+      </div>
+      <div class="user-menu">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  <% else %>
+  <header>  
+    <div class="upper-header">
+      <div class="upper-left">
+        <%= link_to "Plans App", root_path %>
+      </div>
+      <div class="upper-right">
+        <%= link_to "ユーザー登録", new_user_registration_path, class: "upper-regist" %>
+        <%= link_to "ログイン", new_user_session_path, class: "upper-session" %>
+      </div>
+    </div>
+    <div class="lower-header">
+      <div class="lower-left">
+        <h2 class="catch-copy">Tell me your plan.</h2>
+        <p class="explain">Plans Appは本や論文に関する知識を記録・共有するためのサービスです。<br>
+        あなたのアクションプランを共有しましょう！</p>
+      </div>
+      <div class="lower-right">
+        <div class="sns-session">
+          <p class="sns-login">SNSで登録</p>
+          <a href="#" class="twitter-session"><i class="fab fa-twitter twitter-icon"></i>Twitter</a>
+          <a href="#" class="facebook-session"><i class="fab fa-facebook-square facebook-icon"></i>Facebook</a>
         </div>
       </div>
-      <div class="lower-header">
-        <div class="lower-left">
-          <h2 class="catch-copy">Tell me your plan.</h2>
-          <p class="explain">Plans Appは本や論文に関する知識を記録・共有するためのサービスです。<br>
-          あなたのアクションプランを共有しましょう！</p>
-        </div>
-        <div class="lower-right">
-          <div class="sns-session">
-            <p class="sns-login">SNSで登録</p>
-            <a href="#" class="twitter-session"><i class="fab fa-twitter twitter-icon"></i>Twitter</a>
-            <a href="#" class="facebook-session"><i class="fab fa-facebook-square facebook-icon"></i>Facebook</a>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    </div>
   </header>
+  <% end %>
   <main>
     <div class="search-form">
       <input type="text" name="keyword" class="search-input" placeholder="キーワードを入力">
