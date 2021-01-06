@@ -5,7 +5,7 @@ function rule(){
 
   userNickname.addEventListener("click", () => {
     const userNameRule = document.getElementById("username-rule");
-    const userMessage = "半角英数字のみ16文字以内";
+    const userMessage = "半角英数字のみ4文字以上";
     const userHTML = `
       <div class="username-rule">
         <p>${userMessage}</p>
