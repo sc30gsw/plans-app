@@ -23,6 +23,7 @@
 
 .session-left a:hover {
   color: lightgrey;
+  text-decoration: none;
 }
 
 .session-right {
@@ -35,6 +36,11 @@
   text-decoration: none;
   font-size: 17px;
   color: white;
+}
+
+.session-right a:hover {
+  text-decoration: none;
+  color: lightgray;
 }
 
 .user-menu {
@@ -72,6 +78,7 @@ header {
 
 .upper-left a:hover {
   color: lightgrey;
+  text-decoration: none;
 }
 
 .upper-right {
@@ -86,6 +93,8 @@ header {
 
 .upper-regist:hover {
   background-color: rgba(192, 237, 232, 0.5);
+  color: white;
+  text-decoration: none;
 }
 
 .upper-session {
@@ -171,6 +180,8 @@ header {
   border: solid 1px lightgray;
   border-width: medium;
   border-radius: 7%;
+  text-decoration: none;
+  color: black;
 }
 
 .twitter-icon {
@@ -195,6 +206,8 @@ header {
   border: solid 1px lightgray;
   border-width: medium;
   border-radius: 7%;
+  text-decoration: none;
+  color: black;
 }
 
 .facebook-icon {
@@ -245,6 +258,8 @@ main {
 
 .feed a:hover {
   background-color: lightgray;
+  text-decoration: none;
+  color: gray;
 }
 
 .notes-trend {
@@ -279,9 +294,20 @@ main {
   border-radius: 100%;
   padding: 3px;
   margin-right: 5px;
+  text-decoration: none;
+}
+
+.user-icon:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .user-id {
+  color: black;
+}
+
+.user-id:hover {
   color: black;
 }
 
@@ -317,6 +343,8 @@ main {
 
 .tag:hover {
   border-bottom: solid 1px black;
+  text-decoration: none;
+  color: black;
 }
 
 .note-opt {
@@ -352,6 +380,8 @@ main {
 
 .more-link:hover {
   border-bottom: solid 1px black;
+  text-decoration: none;
+  color: black;
 }
 
 .footer {
@@ -375,6 +405,12 @@ main {
   color: white;
   font-size: 25px;
   font-weight: bold;
+}
+
+.footer-title:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
 }
 
 .footer-copy {
