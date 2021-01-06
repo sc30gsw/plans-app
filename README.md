@@ -2,19 +2,16 @@
 
 ## users テーブル
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| nickname   | string | null: false |
-| first_name | string |             |
-| last_name  | string |             |
-| website    | text   |             |
-| image      | string |             |
-| profile    | text   |             |
-| email      | string | null: false |
-| password   | string | null: false |
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| nickname | string | null: false |
+| profile  | text   |             |
+| email    | string | null: false |
+| password | string | null: false |
 
 ### Associations
 
+- has_one :mypage
 - has_many :active_relationships
 - has_many :followed_users
 - has_many :passive_relationships
@@ -25,6 +22,19 @@
 - has_many :passive_notifications
 - has_many :notes
 - has_many :comments
+
+## mypages テーブル
+
+| Column     | Type   | Options |
+| ---------- | ------ | ------- |
+| first_name | string | ------- |
+| last_name  | string | ------- |
+| website    | text   | ------- |
+| image      | string | ------- |
+
+### Associations
+
+- belongs_to :user
 
 ## relationships テーブル
 
