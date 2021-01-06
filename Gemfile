@@ -57,3 +57,4 @@ end
 gem 'devise'
 gem 'rubocop', require: false
 gem 'pry-rails'
+gem 'rails-i18n'
