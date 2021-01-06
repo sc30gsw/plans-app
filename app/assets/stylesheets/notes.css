@@ -96,14 +96,6 @@ header {
   border-bottom: solid 1px white;
 }
 
-/* .upper-notifi {
-
-}
-
-.upper-icon {
-
-} */
-
 .upper-regist {
   border: solid 1px white;
   border-width: medium;
@@ -311,6 +303,7 @@ main {
   display: inline-block;
   border-bottom: solid 1px black;
 }
+
 .note-tag {
   padding-left: 15px;
   padding-bottom: 10px;
