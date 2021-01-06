@@ -24,13 +24,14 @@
 
 ## mypages テーブル
 
-| Column     | Type   | Options |
-| ---------- | ------ | ------- |
-| first_name | string | ------- |
-| last_name  | string | ------- |
-| website    | string | ------- |
-| image      | string | ------- |
-| profile    | text   | ------- |
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| first_name | string     | ----------------- |
+| last_name  | string     | ----------------- |
+| website    | string     | ----------------- |
+| image      | string     | ----------------- |
+| profile    | text       | ----------------- |
+| usre       | references | foreign_key: true |
 
 ### Associations
 
