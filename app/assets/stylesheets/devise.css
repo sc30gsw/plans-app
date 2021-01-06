@@ -118,6 +118,10 @@
   margin-top: 10px;
 }
 
+.error-flash-message {
+  color: red;
+}
+
 .username-rule {
   width: 26vw;
   margin-bottom: 2px;
