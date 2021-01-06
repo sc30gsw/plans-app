@@ -122,6 +122,10 @@
   color: red;
 }
 
+.error-alert li {
+  list-style: none;
+}
+
 .username-rule {
   width: 26vw;
   margin-bottom: 2px;
