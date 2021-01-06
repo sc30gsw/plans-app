@@ -5,7 +5,6 @@
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
-| profile  | text   |             |
 | email    | string | null: false |
 | password | string | null: false |
 
@@ -29,8 +28,9 @@
 | ---------- | ------ | ------- |
 | first_name | string | ------- |
 | last_name  | string | ------- |
-| website    | text   | ------- |
+| website    | string | ------- |
 | image      | string | ------- |
+| profile    | text   | ------- |
 
 ### Associations
 

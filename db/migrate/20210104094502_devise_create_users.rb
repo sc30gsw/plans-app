@@ -6,11 +6,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       ## プロフィール画像用カラム
       t.string :nickname, null: false
-      t.string :first_name
-      t.string :last_name
-      t.text   :website
-      t.string :image
-      t.text   :profile
       t.string :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
       ## Recoverable
