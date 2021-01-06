@@ -17,19 +17,19 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('ユーザー名を入力してください')
       end
-      
+
       it 'nicknameが3文字以下だと登録できない' do
         @user.nickname = 111
         @user.valid?
         expect(@user.errors.full_messages).to include('ユーザー名が4文字以上の半角英数字ではありません')
       end
-      
+
       it 'nicknameが全角かな/カナ/漢字だと登録できない' do
-        @user.nickname = "あんアン龥"
+        @user.nickname = 'あんアン龥'
         @user.valid?
         expect(@user.errors.full_messages).to include('ユーザー名が4文字以上の半角英数字ではありません')
       end
-      
+
       it 'emialが空だと登録できない' do
         @user.email = nil
         @user.valid?
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'emailに@を含んでいなければ登録できない' do
-        @user.email = "test.com"
+        @user.email = 'test.com'
         @user.valid?
         expect(@user.errors.full_messages).to include('Eメールは不正な値です')
       end
@@ -57,29 +57,29 @@ RSpec.describe User, type: :model do
       end
 
       it 'passwordが7文字以下だと登録できない' do
-        @user.password = 1111111
-        @user.password_confirmation = 1111111
+        @user.password = 1_111_111
+        @user.password_confirmation = 1_111_111
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは8文字以上の半角英数字ではありません')
       end
 
       it 'passwordとpassword_confirmationが一致しないと登録できない' do
-        @user.password = 11111111
-        @user.password_confirmation = 22222222
+        @user.password = 11_111_111
+        @user.password_confirmation = 22_222_222
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'passwordが存在してもpassword_confirmationが存在しなければ登録できない' do
-        @user.password = 11111111
-        @user.password_confirmation = ""
+        @user.password = 11_111_111
+        @user.password_confirmation = ''
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'passwordが数字のみだと登録できない' do
-        @user.password = 11111111
-        @user.password_confirmation = 11111111
+        @user.password = 11_111_111
+        @user.password_confirmation = 11_111_111
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは8文字以上の半角英数字ではありません')
       end
