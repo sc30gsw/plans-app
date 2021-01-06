@@ -60,8 +60,6 @@
   margin: 0 auto;
   width: 80%;
   text-align: center;
-  text-decoration: none;
-  color: #fff;
   background-color: #777;
   border: #777;
   border-width: medium;
@@ -72,6 +70,16 @@
 .profile-btn:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.profile-edit-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-edit-btn:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .user-activity {
