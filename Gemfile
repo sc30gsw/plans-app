@@ -56,3 +56,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise'
 gem 'rubocop', require: false
+gem 'pry-rails'
