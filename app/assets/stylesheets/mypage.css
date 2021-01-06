@@ -1,0 +1,89 @@
+.mypage {
+  background-color: rgb(240, 236, 236);
+  height: calc(100vh - 8vh);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.mypage-left {
+  width: 30vw;
+  height: 70vh;
+  margin: 30px;
+  margin-right: 5px;
+  background-color: white;
+}
+
+.mypage-drop {
+  float: right;
+  height: 10px;
+}
+
+.mypage-usericon {
+  margin: 30px auto 0;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  background-color: red;
+}
+
+.mypage-username {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mypage-profile {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.mypage-user-details {
+  margin: 20px;
+}
+
+.mypage-count {
+  text-align: center;
+}
+
+.mypage-count a {
+  color: gray;
+}
+
+.mypage-count p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profile-btn {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #777;
+  border: #777;
+  border-width: medium;
+  padding: 7px 15px;
+  font-weight: bold;
+}
+
+.profile-btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.user-activity {
+  width: 60vw;
+  margin: 30px;
+  margin-left: 5px;
+  background-color: skyblue;
+}
+
+.mypage-footer {
+  width: 100vw;
+  padding: 30px 0;
+  display: flex;
+  background-color: #3e3e3e;
+}

@@ -6,7 +6,7 @@
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
 | image    | string |             |
-| profile  | text   | null: false |
+| profile  | text   |             |
 | email    | string | null: false |
 | password | string | null: false |
 
