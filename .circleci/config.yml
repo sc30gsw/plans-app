@@ -21,8 +21,10 @@ jobs:
     executor: heroku/default
     steps:
       - checkout
-      - run: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-      - run: heroku run rails db:migrate
+      - run:
+          name: Heroku への master のデプロイ
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
 workflows:
   version: 2.1
