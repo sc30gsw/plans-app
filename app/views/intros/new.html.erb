@@ -9,7 +9,7 @@
         <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
             <div class="session-usericon">
-              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン">
+              <%= image_tag ''%>
             </div>
         <% end %>
       </div>
@@ -26,7 +26,7 @@
             </div>
         <% end %>
         <div class="profile-nickname">
-          <%= @intro.user.nickname %><span>アカウント</span>
+          <%#= @intro.user.nickname %><span>アカウント</span>
         </div>
       </div>
       <h3 class="profile-title">公開用プロフィール</h3>
