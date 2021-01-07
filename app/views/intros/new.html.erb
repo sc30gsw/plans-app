@@ -48,9 +48,11 @@
       </div>
 
       <%= f.label 'プロフィール画像', class: 'user_image_label'%>
+        <span class="preview-sentence">プレビュー</span>
       <div class="profile-image-field">
         <span class="user_image">画像</span>
         <%= f.file_field :image, class: "usericon_image", id: "user_image" %>
+        <span id='image-list' class="image-list"></span>
       </div>
 
       <div class="actions">
