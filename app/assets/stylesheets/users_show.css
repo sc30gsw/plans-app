@@ -21,10 +21,15 @@
 
 .mypage-usericon {
   margin: 30px auto 0;
-  width: 75px;
-  height: 75px;
   text-align: center;
-  background-color: red;
+}
+
+.intro-icon {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border: solid 1px #fff;
+  border-radius: 70px;
 }
 
 .mypage-username {
