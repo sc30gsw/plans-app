@@ -28,7 +28,6 @@
 
 .session-right {
   display: flex;
-  margin-top: 20px;
 }
 
 .session-right a {
@@ -43,13 +42,30 @@
   color: lightgray;
 }
 
-.user-menu {
-  height: 20px;
-  width: 3vw;
-  margin-top: 2px;
-  margin-left: 5px;
-  padding: 5px 2px 5px 5px;
-  border: solid1;
+.home {
+  margin-top: 20px;
+}
+
+.post {
+  margin-top: 20px;
+}
+
+.upper-notification {
+  margin-top: 20px;
+}
+
+.index-icon {
+  height: 40px;
+  width: 40px;
+  margin-top: 13px;
+  object-fit: cover;
+  border: solid 1px #fff;
+  border-radius: 70px;
+}
+
+.index-icon:hover {
+  opacity: 0.7;
+  text-decoration: none;
 }
 
 header {
