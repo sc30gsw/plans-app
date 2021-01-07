@@ -42,17 +42,19 @@
           </div>
         </div>
       </div>
-      <% unless @user.intro.present? %>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="profile-btn">
-            <%= link_to 'プロフィールを編集する', new_intro_path(@user.id), class: "profile-edit-btn" %>
-          </div>
+      <% if user_signed_in? %>
+        <% unless @user.intro.present? %>
+          <% if current_user.id == @user.id %>
+            <div class="profile-btn">
+              <%= link_to 'プロフィールを編集する', new_intro_path, class: "profile-edit-btn" %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if user_signed_in? && @user.intro.present? %>
+        <% if current_user.id == @user.id && @user.intro.present? %>
           <div class="profile-btn">
             <%= link_to 'プロフィールを編集する', edit_intro_path(@user.intro.id), class: "profile-edit-btn" %>
           </div>
+        <% end %>
       <% end %>
     </div>
     <div class="user-activity">
