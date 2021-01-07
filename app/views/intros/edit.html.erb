@@ -1,30 +1,34 @@
 <div class="wrapper">
-<%= render 'shared/session_header' %>
+  <%= render 'shared/session_header' %>
 
-<div class="profile-form">
-  <%= form_with model: @intro, local: true do |f| %>
-    <%= f.file_field :image, class: "user_image", id: "user_image" %>
-    <%= f.label '名前', class: 'user_name_label' %>
-    <div class="profile-name-field">
-      <%= f.text_field :first_name, class: "first_name", id: "firstname" %>
-      <%= f.text_field :last_name, class: "last_name", id: "lastname" %>
-    </div>
+  <div class="profile-form">
+    <%= form_with model: @intro, local: true do |f| %>
     
-    <%= f.label 'サイト/ブログ', class:'website_label' %>
-    <div class="profile-website-field">
-      <%= f.text_field :website, class:"website", id: "website" %>
-    </div>
+      <%= f.label '名前', class: 'user_name_label' %>
+      <div class="profile-name-field">
+        <%= f.text_field :first_name, class: "first_name", id: "firstname", placeholder: "名" %>
+        <%= f.text_field :last_name, class: "last_name", id: "lastname", placeholder: "姓" %>
+      </div>
+    
+      <%= f.label 'サイト/ブログ', class:'website_label' %>
+      <div class="profile-website-field">
+        <%= f.text_field :website, class:"website", id: "website" %>
+      </div>
 
-    <%= f.label '自己紹介', class: 'profile_label' %>
-    <div class="profile-intro-field">
-      <%= f.text_area :profile, class: "profile", id: "profile", maxlength: 200 %>
-      <div class="field-help">200文字以内</div>
-    </div>
+      <%= f.label '自己紹介', class: 'profile_label' %>
+      <div class="profile-intro-field">
+        <%= f.text_area :profile, class: "profile", id: "profile", maxlength: 200 %>
+        <div class="field-help">200文字以内</div>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
-  <% end %>
-</div>
+      <%= f.label 'プロフィール画像', class: 'user_image_label'%>
+      <div class="profile-image-field">
+        <%= f.file_field :image, class: "user_image", id: "user_image" %>
+      </div>
 
+      <div class="actions">
+        <%= f.submit "更新する" %>
+      </div>
+    <% end %>
+  </div>
 </div>
