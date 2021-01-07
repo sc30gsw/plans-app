@@ -10,7 +10,7 @@
 
 ### Associations
 
-- has_one :mypage
+- has_one :intro
 - has_many :active_relationships
 - has_many :followed_users
 - has_many :passive_relationships
@@ -22,7 +22,7 @@
 - has_many :notes
 - has_many :comments
 
-## mypages テーブル
+## intro テーブル
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
@@ -31,7 +31,7 @@
 | website    | string     | ----------------- |
 | image      | string     | ----------------- |
 | profile    | text       | ----------------- |
-| usre       | references | foreign_key: true |
+| user       | references | foreign_key: true |
 
 ### Associations
 
