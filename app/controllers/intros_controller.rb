@@ -1,4 +1,5 @@
 class IntrosController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_intro, only: [:edit, :update]
 
   def new
@@ -34,5 +35,6 @@ class IntrosController < ApplicationController
   def intro_params
     params.require(:intro).permit(:first_name, :last_name, :website, :profile, :image).merge(user_id: current_user.id)
   end
+
 end
 
