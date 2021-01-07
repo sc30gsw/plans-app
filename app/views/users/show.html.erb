@@ -14,9 +14,15 @@
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </div>
-      <div class="mypage-usericon">
-        <img src=<%= @user.intro.image %> class="intro-icon">
-      </div>
+      <% if @user.intro.image? %>
+        <div class="mypage-usericon">
+          <img src=<%= @user.intro.image %> class="intro-icon" alt="ユーザーアイコン">
+        </div>
+      <% else %>
+        <div class="mypage-usericon">
+          <img src="/assets/default.png" class="intro-icon" alt="ユーザーアイコン">
+        </div>
+      <% end %>
       <div class="mypage-username">
         <%= @user.nickname%>
       </div>
