@@ -26,11 +26,11 @@
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
-| first_name | string     | ----------------- |
-| last_name  | string     | ----------------- |
-| website    | string     | ----------------- |
-| image      | string     | ----------------- |
-| profile    | text       | ----------------- |
+| first_name | string     |                   |
+| last_name  | string     |                   |
+| website    | string     |                   |
+| image      | string     |                   |
+| profile    | text       |                   |
 | user       | references | foreign_key: true |
 
 ### Associations
