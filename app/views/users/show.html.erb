@@ -1,5 +1,25 @@
 <div class="wrapper">
-  <%= render 'shared/session_header' %>
+  <div class="session-header">
+    <%= render 'shared/session_header' %>
+    <div class="session-right">
+    <%= link_to root_path do %>
+      <i class="fas fa-home home"></i>
+    <% end %>
+    <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
+    <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
+    <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+      <% if @user.intro.image? %>
+        <div class="mypage-usericon">
+          <img src=<%= @user.intro.image %> class="intro-icon" alt="ユーザーアイコン">
+        </div>
+      <% else %>
+        <div class="mypage-usericon">
+          <img src="/assets/default.png" class="intro-icon" alt="ユーザーアイコン">
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  </div>
   <div class="mypage">
     <div class="mypage-left">
       <div class="mypage-drop">
