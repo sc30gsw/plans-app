@@ -5,13 +5,12 @@
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
-| image    | string |             |
-| profile  | text   |             |
 | email    | string | null: false |
 | password | string | null: false |
 
 ### Associations
 
+- has_one :intro
 - has_many :active_relationships
 - has_many :followed_users
 - has_many :passive_relationships
@@ -22,6 +21,21 @@
 - has_many :passive_notifications
 - has_many :notes
 - has_many :comments
+
+## intro テーブル
+
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| first_name | string     | ----------------- |
+| last_name  | string     | ----------------- |
+| website    | string     | ----------------- |
+| image      | string     | ----------------- |
+| profile    | text       | ----------------- |
+| user       | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :user
 
 ## relationships テーブル
 

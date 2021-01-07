@@ -21,10 +21,15 @@
 
 .mypage-usericon {
   margin: 30px auto 0;
-  width: 75px;
-  height: 75px;
   text-align: center;
-  background-color: red;
+}
+
+.intro-icon {
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
+  border: solid 1px #fff;
+  border-radius: 70px;
 }
 
 .mypage-username {
@@ -56,12 +61,14 @@
   font-size: 20px;
 }
 
+.mypage-count a:hover {
+  color: gray;
+}
+
 .profile-btn {
   margin: 0 auto;
   width: 80%;
   text-align: center;
-  text-decoration: none;
-  color: #fff;
   background-color: #777;
   border: #777;
   border-width: medium;
@@ -72,6 +79,16 @@
 .profile-btn:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.profile-edit-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-edit-btn:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .user-activity {

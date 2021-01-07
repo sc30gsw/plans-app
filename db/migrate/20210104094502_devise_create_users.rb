@@ -4,10 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      ## プロフィール画像用カラム
       t.string :nickname, null: false
-      t.string :image
-      t.text   :profile
       t.string :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
       ## Recoverable

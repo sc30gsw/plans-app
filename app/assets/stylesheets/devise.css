@@ -22,6 +22,11 @@
   opacity: 0.7;
 }
 
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .contents {
   margin-left: 20vw;
 }
@@ -71,6 +76,7 @@
 .regist_session:hover {
   border-bottom: solid 1px #3b5998;
   color: #3b5998;
+  text-decoration: none;
 }
 
 .twitter-regist {
@@ -89,6 +95,8 @@
 
 .twitter-regist:hover {
   opacity: 0.7;
+  text-decoration: none;
+  color: white;
 }
 
 .facebook-regist {
@@ -107,6 +115,8 @@
 
 .facebook-regist:hover {
   opacity: 0.7;
+  text-decoration: none;
+  color: white;
 }
 
 .regist-icon {
@@ -192,6 +202,10 @@
   border: solid 1px grey;
 }
 
+.hidden-regist {
+  display: none;
+}
+
 .check {
   margin-top: 10px;
 }
@@ -211,6 +225,7 @@
 .check a:hover {
   border-bottom: solid 1px #3b5998;
   color: #3b5998;
+  text-decoration: none;
 }
 
 .actions {

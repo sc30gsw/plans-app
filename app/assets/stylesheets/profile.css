@@ -1,0 +1,189 @@
+.profile-form {
+  width: 100vw;
+  height: 70vh;
+  padding-top: 20px;
+  background-color: rgb(240, 236, 236);
+}
+
+.profile-fields {
+  height: 580px;
+  width: 60vw;
+  margin: 1vh 20vw;
+  background-color: white;
+}
+
+.who-profile {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.profile-usericon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.profile-usericon:hover {
+  opacity: 0.8;
+}
+
+.profile-nickname {
+  margin-left: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid white;
+}
+
+.profile-nickname:hover {
+  border-bottom: 1px solid black;
+}
+
+.profile-nickname span {
+  margin-left: 5px;
+}
+
+.profile-title {
+  margin-top: 10px;
+  margin-left: 50px;
+  font-weight: bold;
+  color: #3e3e3e;
+}
+
+.user_name_label {
+  margin-left: 50px;
+  color: #999;
+  font-size: 1rem;
+}
+
+.profile-name-field {
+  margin-left: 50px;
+}
+
+.first_name {
+  background-color: white;
+  border-radius: 3px;
+  border: solid 1px #ccc;
+  padding: 4px 12px;
+  cursor: text;
+}
+
+.last_name {
+  background-color: white;
+  border-radius: 3px;
+  border: solid 1px #ccc;
+  padding: 4px 12px;
+  cursor: text;
+}
+
+.website_label {
+  margin-left: 50px;
+  margin-top: 15px;
+  color: #999;
+  font-size: 1rem;
+}
+
+.profile-website-field {
+  margin-left: 50px;
+}
+
+.website {
+  background-color: white;
+  border-radius: 3px;
+  border: solid 1px #ccc;
+  padding: 4px 12px;
+  cursor: text;
+}
+
+.profile_label {
+  margin-left: 50px;
+  margin-top: 15px;
+  color: #999;
+  font-size: 1rem;
+}
+
+.field-help {
+  color: #999;
+  font-size: 1rem;
+  margin-top: 3px;
+}
+
+.profile-intro-field {
+  margin-left: 50px;
+}
+
+.profile {
+  display: block;
+  width: 86%;
+  background-color: white;
+  border-radius: 3px;
+  border: solid 1px #ccc;
+  padding: 4px 12px;
+  cursor: text;
+}
+
+.user_image_label {
+  margin-top: 10px;
+  margin-left: 50px;
+  color: #999;
+  font-size: 1rem;
+}
+
+.profile-image-field {
+  margin-left: 50px;
+  position: relative;
+}
+
+.user_image {
+  display: inline-block;
+  color: white;
+  background-color: rgb(56, 135, 224);
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  padding: 8px 24px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user_image:hover {
+  opacity: 0.8;
+}
+
+.usericon_image {
+  position: absolute;
+  top: 5;
+  left: 0;
+  font-size: 1px;
+  opacity: 0;
+}
+
+.usericon_image:hover {
+  cursor: pointer;
+}
+
+.actions {
+  margin-left: 50px;
+}
+
+.update {
+  display: inline-block;
+  color: white;
+  background-color: rgb(56, 135, 224);
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  padding: 8px 24px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.update:hover {
+  opacity: 0.8;
+}
+
+.profile-footer {
+  width: 100vw;
+  padding: 30px 0;
+  display: flex;
+  background-color: #3e3e3e;
+}
