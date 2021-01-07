@@ -3,7 +3,7 @@
 
   <div class="profile-form">
     <%= form_with model: @intro, local: true do |f| %>
-    
+
       <%= f.label '名前', class: 'user_name_label' %>
       <div class="profile-name-field">
         <%= f.text_field :first_name, class: "first_name", id: "firstname", placeholder: "名" %>
@@ -30,5 +30,8 @@
         <%= f.submit "更新する" %>
       </div>
     <% end %>
+  </div>
+  <div class="profile-footer">
+    <%= render 'shared/footer' %>
   </div>
 </div>
