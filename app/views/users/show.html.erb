@@ -8,7 +8,9 @@
         <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
         <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <% if @user.intro.present? %>
+          <%# if @user.intro.present? %>
+          <%# image?にしないとエラーが起こる時がある %>
+          <% if @user.intro.image? %>
             <div class="session-usericon">
               <img src='<%= @user.intro.image %>' class="index-icon" alt="ユーザーアイコン">
              </div> 
@@ -36,7 +38,9 @@
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </div>
-      <% if @user.intro.present? %>
+      <%# if @user.intro.present? %>
+      <%# image?にしないとエラーが起こる時がある %>
+      <% if @user.intro.image? %>
         <div class="mypage-usericon">
           <img src='<%= @user.intro.image %>' class="intro-icon " alt="ユーザーアイコン">
         </div>
@@ -45,15 +49,48 @@
           <img src="/assets/default.png" class="intro-icon " alt="ユーザーアイコン" >
         </div>
       <% end %>
-      <div class="mypage-username">
-        <%= @user.nickname%>
-      </div>
-      <div class="mypage-profile">
-        <%# プロフィールがあるなら表示しない %>
-        <div class="mypage-profile-sentence">
-          プロフィールを編集してみましょう！
+      
+      <% if @user.intro.present? %>
+        <div class="mypage-name">
+          <div class="mypage-first-name">
+            <%= @user.intro.first_name %>
+          </div>
+          <div class="mypage-last-name">
+            <%= @user.intro.last_name %>
+          </div>
         </div>
-      </div>
+        <div class="mypage-up-username">
+          <div class="mypage-up-nickname">
+            <%= @user.nickname%>
+          </div>
+        </div>
+      <% else %>
+        <div class="mypage-username">
+          <div class="mypage-nickname">
+            <%= @user.nickname%>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @user.intro.present? %>
+        <div class="mypage-web">
+         <a href="#"><i class="fas fa-clipboard-list"></i><%= @user.intro.website %></a>
+        </div>
+      <% end %>
+
+      <% if @user.intro.present? %>
+        <div class="mypage-introduce">
+           <div class="introduce">
+            <%= @user.intro.profile %>
+          </div>
+        </div>
+      <% else %>
+        <div class="mypage-profile">
+          <div class="mypage-profile-sentence">
+            プロフィールを編集してみましょう！
+          </div>
+        </div>
+      <% end %>
       <div class="mypage-user-details">
         <div class="mypage-count">
           <div class="mypage-notes-count">

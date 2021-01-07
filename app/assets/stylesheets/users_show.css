@@ -32,11 +32,53 @@
   border-radius: 70px;
 }
 
+.mypage-name {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin-top: 5px;
+}
+
+.mypage-first-name {
+  margin-right: 3px;
+}
+
+.mypage-last-name {
+  margin-left: 3px;
+}
+
+.mypage-up-username {
+  color: #777777;
+  text-align: center;
+}
+
 .mypage-username {
   text-align: center;
   margin-top: 20px;
   font-weight: bold;
   font-size: 20px;
+}
+
+.mypage-web {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.mypage-web a {
+  text-decoration: none;
+  color: black;
+}
+
+.mypage-web i {
+  margin-right: 5px;
+}
+
+.mypage-introduce {
+  line-height: 150%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .mypage-profile {
