@@ -8,7 +8,7 @@
         <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
         <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <% if @user.intro.image? %>
+          <% if @user.intro.present? %>
             <div class="session-usericon">
               <img src=<%= @user.intro.image %> class="index-icon" alt="ユーザーアイコン"> 
              </div> 
@@ -36,7 +36,7 @@
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </div>
-      <% if @user.intro.image? %>
+      <% if @user.intro.present? %>
         <div class="mypage-usericon">
           <img src=<%= @user.intro.image %> class="intro-icon" alt="ユーザーアイコン">
         </div>
