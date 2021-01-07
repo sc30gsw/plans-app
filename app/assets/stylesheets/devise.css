@@ -198,6 +198,10 @@
   border: solid 1px grey;
 }
 
+.hidden-regist {
+  display: none;
+}
+
 .check {
   margin-top: 10px;
 }

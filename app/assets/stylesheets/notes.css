@@ -102,7 +102,7 @@ header {
 }
 
 .upper-session:hover {
-  border-bottom: solid 1px white;
+  color: white;
 }
 
 .upper-regist {
