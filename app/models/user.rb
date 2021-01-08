@@ -10,4 +10,5 @@ class User < ApplicationRecord
   end
 
   has_one :intro
+  has_many :sns_credentials
 end
