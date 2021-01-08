@@ -183,6 +183,7 @@
 }
 
 .update {
+  margin-top: 30px;
   display: inline-block;
   color: white;
   background-color: rgb(56, 135, 224);
