@@ -12,23 +12,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def twitter
-    suthorization
-  end
-
-  def failure
-    redirect_to root_path
+    authorization
   end
 
   private
 
   def authorization
-    sns_info = Usre.from_omniauth(request.env["omniauth.auth"])
+    sns_info = User.from_omniauth(request.env["omniauth.auth"])
     @user = sns_info[:user]
-
-    if @user.persisted?
+    if @user.persisted? #ユーザー情報が登録済みなので、新規登録ではなくログイン処理を行う
       sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if si_navigational_format?
-    else
+    else #ユーザー情報が未登録なので、新規登録画面へ遷移する
       @sns_id = sns_info[:sns].id
       render template: 'devise/registrations/new'
     end
