@@ -12,6 +12,15 @@ class User < ApplicationRecord
   has_one :intro
   has_many :sns_credentials
 
+  # メソッド定義時binding.pryでauthが取得できるか確認する
   def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+
+    # sns認証したことがあればアソシエーションで取得
+    # なければemailでユーザー検索して取得orビルド(保存しない)
+    user = User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name
+         email: auth.info.email
+    )
   end
 end
