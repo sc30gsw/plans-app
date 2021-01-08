@@ -525,3 +525,53 @@ main {
 .example-lists li:hover {
   opacity: 0.7;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  header {
+    height: 30vh;
+  }
+
+  .upper-header {
+    height: 7vh;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .upper-header {
+    height: 10vh;
+  }
+  .upper-left a {
+    font-size: 15px;
+  }
+
+  .upper-right a {
+    font-size: 10px;
+  }
+
+  .catch-copy {
+    margin: 5px auto 0;
+    font-size: 15px;
+  }
+
+  .explain {
+    font-size: 5px;
+    margin: 5px auto 0;
+  }
+
+  .sns-session {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sns-login {
+    font-size: 15px;
+  }
+
+  .facebook-session {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 2px;
+  }
+}
