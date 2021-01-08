@@ -10,8 +10,12 @@
 
   <div class="registration">
     <div class="regist-left">
-      <a href="#" class="twitter-regist"><i class="fab fa-twitter regist-icon"></i>Twitterアカウントで登録</a>
-      <a href="#" class="facebook-regist"><i class="fab fa-facebook-square regist-icon"></i>Facebookアカウントで登録</a>
+      <%= link_to user_twitter_omniauth_authorize_path, method: :post, class: "twitter-regist" do %>
+        <i class="fab fa-twitter regist-icon"></i>Twitterアカウントで登録
+      <% end %>
+      <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebook-regist" do %>
+        <i class="fab fa-facebook-square regist-icon"></i>Facebookアカウントで登録
+      <% end %>
       <p>Plans Appが許可なくTwitter・Facebookに投稿することはありません。</p>
       <p>もしPlans Appのアカウントを持っている場合は<%= link_to 'ログイン', new_user_session_path, class: "regist_session" %>をクリック</p>
     </div>
@@ -31,35 +35,19 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "user-regist" %>
         </div>
 
+        <% if @sns_id.present? %>
+          <%= hidden_field_tag :sns_auth, true %>
+        <% else %>
         <div class="password-rule hidden" id="password-rule">
         </div>
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "user-regist" %>
-        </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "user-regist" %>
+          </div>
 
-        <div class="field">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)", class: "user-regist" %>
-        </div>
-
-        <div class="field-hidden">  
-          <%= f.text_field :first_name, class: 'hidden-regist' %>
-        </div>
-
-        <div class="field-hidden">  
-          <%= f.text_field :last_name, class: 'hidden-regist' %>
-        </div>
-
-        <div class="field-hidden">  
-          <%= f.text_field :website, class: 'hidden-regist' %>
-        </div>
-
-        <div class="field-hidden">  
-          <%= f.text_area :profile, class: 'hidden-regist' %>
-        </div>
-
-        <div class="field-hidden">  
-          <%= f.file_field :image, class: 'hidden-regist' %>
-        </div>
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)", class: "user-regist" %>
+          </div>
+        <% end %>
 
         <div class="check">
           <input type="checkbox" value="" class="checkbox"><a href="#">利用規約</a>に同意する
@@ -69,7 +57,7 @@
           <input type="checkbox" value="" class="checkbox"><a href="#">プライバシーポリシー</a>に同意する
         </div>
 
-        <div class="actions">
+        <div class="regist-sessions">
           <%= f.submit "登録する" , class: "regist-btn" %>
         </div>
       <% end %>

@@ -60,3 +60,7 @@ gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'

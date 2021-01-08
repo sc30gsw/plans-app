@@ -11,6 +11,7 @@
 ### Associations
 
 - has_one :intro
+- has_many :sns_credentials
 - has_many :active_relationships
 - has_many :followed_users
 - has_many :passive_relationships
@@ -32,6 +33,18 @@
 | image      | string     |                   |
 | profile    | text       |                   |
 | user       | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :user
+
+## sns_credentials テーブル
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| provider | string     |                   |
+| uid      | string     |                   |
+| user     | references | foreign_key: true |
 
 ### Associations
 
