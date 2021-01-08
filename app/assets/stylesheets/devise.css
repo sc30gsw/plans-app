@@ -202,10 +202,6 @@
   border: solid 1px grey;
 }
 
-.hidden-regist {
-  display: none;
-}
-
 .check {
   margin-top: 10px;
 }
@@ -228,7 +224,7 @@
   text-decoration: none;
 }
 
-.actions {
+.regist-sessions {
   margin-top: 20px;
 }
 
