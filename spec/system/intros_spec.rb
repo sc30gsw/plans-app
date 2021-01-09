@@ -130,4 +130,10 @@ RSpec.describe 'プロフィール編集',type: :system do
       expect(page).to have_content @intro1.profile
     end
   end
+
+  # note投稿機能を実装してから行う
+  context 'ユーザー編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が登録したプロフィールを編集できない' do
+    end
+  end
 end
