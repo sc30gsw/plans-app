@@ -42,4 +42,15 @@ RSpec.describe "intro新規登録", type: :system do
       expect(page).to have_content @intro.profile
     end
   end
+
+  context '新規登録ができないとき' do
+    it 'ログインしていないと新規登録できない' do
+      # トップページに遷移する
+      visit root_path
+      # ユーザー詳細に遷移するアイコンがない
+      expect(page).to have_no_selector '.index-icon'
+    end
+  end
 end
+
+
