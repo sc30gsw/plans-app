@@ -2,17 +2,11 @@
   <div class="session-header">
     <%= render 'shared/session_header' %>
       <div class="session-right">
-        <%= link_to root_path do %>
-          <i class="fas fa-home home"></i>
-        <% end %>
-        <%= link_to new_note_path, class: "post" do %>
-          <i class="fas fa-pen-square"></i>投稿する
-        <% end %>
-        <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
+        <%= render 'shared/header_links' %>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <% if @intro.image? %>
+          <% if @intro.present?  %>
             <div class="session-usericon">
-              <img src=<%= @intro.image %> class="index-icon" alt="ユーザーアイコン"> 
+              <%= image_tag @intro.image, class: "index-icon", alt: "ユーザーアイコン"%>
              </div> 
            <% else %> 
             <div class="session-usericon">
@@ -29,9 +23,9 @@
     <div class="profile-fields">
       <div class="who-profile">
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <% if @intro.image? %>
+          <% if @intro.present? %>
             <div class="profile-usericon">
-              <img src=<%= @intro.image %> class="profile-usericon" alt="ユーザーアイコン"> 
+              <%= image_tag @intro.image, class: "profile-usericon", alt: "ユーザーアイコン"%>
              </div> 
            <% else %> 
             <div class="profile-usericon">
