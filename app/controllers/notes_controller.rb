@@ -21,5 +21,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :text, :)
+    params.require(:note).permit(:title, :text, :plan).merge(user_id: current_user.id)
+  end
 end
