@@ -2,15 +2,13 @@
   <div class="session-header">
     <%= render 'shared/session_header' %>
       <div class="session-right">
-        <%= link_to root_path do %>
-          <i class="fas fa-home home"></i>
-        <% end %>
-        <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
-        <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
-        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+       <% if user_signed_in? %>
+        <%= render 'shared/header_links' %>
+       <% end %>
+        <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
           <% if @user.intro.present? %>
             <div class="session-usericon">
-              <img src='<%= @user.intro.image %>' class="index-icon" alt="ユーザーアイコン">
+              <%= image_tag @user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
              </div> 
            <% else %> 
             <div class="session-usericon">
@@ -20,7 +18,6 @@
         <% end %>
       </div>
     </div>
-  </div>
   </div>
   <div class="mypage">
     <div class="mypage-left">
@@ -38,7 +35,7 @@
       </div>
       <% if @user.intro.present? %>
         <div class="mypage-usericon">
-          <img src='<%= @user.intro.image %>' class="intro-icon " alt="ユーザーアイコン">
+          <%= image_tag @user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
         </div>
       <% else %>
         <div class="mypage-usericon">
@@ -118,7 +115,44 @@
         <% end %>
       <% end %>
     </div>
-    <div class="user-activity">
+    <div class="mypage-right">
+      <div class="user-activity">
+        <div class="user-analyze">
+      </div>
+        <div class="mypage-notes">
+          <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
+          <div class="my-plans">
+            <% @user.notes.each do |note| %>
+              <div class="mypage-note-tag">
+                <i class="fas fa-tags mypage-tag-img"></i>
+                <a href="#" class="mypage-tag">睡眠</a>
+                <a href ="#" class="mypage-tag">生産性</a>
+              </div>
+              <div class="mypage-note-title">
+                <h3><%= note.title %></h3>
+              </div>
+              <div class="mypage-note-opt">
+                <div class="mypage-detail">
+                  <div class="mypage-fav-comment">
+                    <i class="far fa-heart mypage-like-btn"></i>
+                    <i class="far fa-comment mypage-comment-btn"></i>
+                  </div>
+                  <div class="mypage-created">
+                    <div class="mypage-time"><%= note.created_at.strftime('%Y/%m/%d') %></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="mypage-nation">
+          <ul class="pagenations">
+            <li class="page-nation"></li>
+            <li class="mypage-nation"><span>1/1</span></li>
+            <li class="page-nation"></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="mypage-footer">

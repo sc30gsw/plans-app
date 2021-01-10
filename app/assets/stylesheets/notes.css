@@ -305,12 +305,11 @@ main {
 }
 
 .user-icon {
-  background-color: tomato;
-  color: white;
-  border-radius: 100%;
-  padding: 3px;
-  margin-right: 5px;
-  text-decoration: none;
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+  border: solid 1px #fff;
+  border-radius: 70px;
 }
 
 .user-icon:hover {
@@ -398,6 +397,10 @@ main {
   border-bottom: solid 1px black;
   text-decoration: none;
   color: black;
+}
+
+footer {
+  margin-top: 300px;
 }
 
 .footer {

@@ -3,21 +3,17 @@
     <div class="session-header">
       <%= render 'shared/session_header' %>
       <div class="session-right">
-        <%= link_to root_path do %>
-          <i class="fas fa-home home"></i>
-        <% end %>
-        <a href="#" class="post"><i class="fas fa-pen-square"></i>投稿する</a>
-        <a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
+        <%= render 'shared/header_links' %>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <%# <% if @intro.image? %>
-            <%# <div class="session-usericon">
-              <img src=<%= @user.intro.image %> <%# class="index-icon" alt="ユーザーアイコン"> %>
-            <%# </div> %>
-          <%# <% else %> 
+          <% if current_user.intro.present? %>
+           <div class="session-usericon">
+            <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン"%>
+           </div> 
+          <% else %>
             <div class="session-usericon">
-              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン">
+             <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン">
             </div>
-         <%#  <% end %> 
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -67,132 +63,46 @@
       <div>
       <div class="notes-trend">
       <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
+          <% @notes.each do |note| %>
+            <div class="note-user">
+            <%= link_to user_path(note.user.id) do %>
+              <% if note.user.intro.present? %>
+                <div class="session-usericon">
+                  <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+                </div> 
+              <% else %>
+                <div class="session-usericon">
+                  <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+                </div>
+              <% end %>
+            <% end %>
+            <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
+            <div class="created-at">
+              が<%= note.created_at.to_s(:datetime_jp) %>に投稿
+            </div>
+         </div>
+          <div class="note-title">
+            <h3><%= note.title %></h3>
           </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
+          <div class="note-tag">
+            <i class="fas fa-tags tag-img"></i>
+            <a href="#" class="tag">睡眠</a>
+            <a href ="#" class="tag">生産性</a>
           </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
+          <div class="note-opt">
+            <div class="favorite">
+              <i class="far fa-heart like-btn"></i>
+            </div>
+            <div class="comment-num">
+             <i class="far fa-comment comment-btn"></i>
+           </div>
           </div>
-        </div>
+        <% end %>
       </div>
        <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
         <div class="more-note">
             <a href="#" class="more-link">もっと見る</a>
-          </div>
+        </div>
       </div>
     </div>
     <footer>

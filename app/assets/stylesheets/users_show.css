@@ -1,3 +1,7 @@
+.wrapper {
+  overflow: scroll;
+}
+
 .mypage {
   background-color: rgb(240, 236, 236);
   height: calc(100vh - 8vh);
@@ -133,11 +137,112 @@
   text-decoration: none;
 }
 
-.user-activity {
+.mypage-right {
   width: 60vw;
   margin: 30px;
   margin-left: 5px;
-  background-color: skyblue;
+}
+
+.user-activity {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-analyze {
+  height: 30%;
+  width: 100%;
+  background-color: brown;
+}
+
+.mypage-notes {
+  height: 70%;
+  width: 100%;
+  background-color: white;
+}
+
+.mypage-notes-title {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  margin: 5px 0 0 10px;
+}
+
+.mypage-squere {
+  margin-right: 5px;
+  color: rgb(56, 135, 224);
+}
+
+.mypage-note-tag {
+  margin-top: 10px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: rgb(119, 119, 119);
+}
+
+.mypage-tag-img {
+  margin-left: 8px;
+}
+
+.mypage-tag {
+  margin-left: 5px;
+  text-decoration: none;
+  color: rgb(119, 119, 119);
+}
+
+.mypage-tag:hover {
+  color: rgb(119, 119, 199);
+}
+
+.mypage-note-title {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-left: 8px;
+  word-break: break-all;
+  color: black;
+  line-height: 1.5;
+  flex: 1 1 0%;
+  border-bottom: 1px solid white;
+}
+
+.mypage-note-title:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.mypage-detail {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  color: rgb(119, 119, 119);
+  border-bottom: 1px solid rgb(119, 119, 119);
+}
+
+.mypage-fav-comment {
+  margin-left: 8px;
+}
+
+.mypage-created {
+  margin-right: 8px;
+}
+
+.paganations li {
+  list-style: none;
+}
+
+.mypage-nation {
+  text-align: center;
+  font-size: 14px;
+  color: #3e3e3e;
 }
 
 .mypage-footer {

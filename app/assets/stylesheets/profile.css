@@ -19,8 +19,9 @@
 }
 
 .profile-usericon {
-  width: 20px;
-  height: 20px;
+  margin-top: 1px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -28,7 +29,7 @@
   opacity: 0.8;
 }
 
-.profile-nickname {
+.usericon_image .profile-nickname {
   margin-left: 10px;
   font-size: 18px;
   border-bottom: 1px solid white;
@@ -158,23 +159,20 @@
   border-radius: 3px;
   font-size: 1rem;
   padding: 8px 24px;
-  cursor: pointer;
   text-decoration: none;
 }
 
 .user_image:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .usericon_image {
   position: absolute;
-  top: 5;
-  left: 0;
-  font-size: 1px;
+  top: 10px;
+  left: -20px;
+  font-size: 10px;
   opacity: 0;
-}
-
-.usericon_image:hover {
   cursor: pointer;
 }
 
