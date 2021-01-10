@@ -116,45 +116,39 @@
     <div class="mypage-right">
       <div class="user-activity">
         <div class="user-analyze">
-        </div>
+      </div>
         <div class="mypage-notes">
           <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
           <div class="my-plans">
             <% @user.notes.each do |note| %>
-              <div class="note-user">
-                <%= link_to user_path(@user.id) do %>
-                  <% if @user.intro.image.present? %>
-                    <div class="session-usericon">
-                      <%= image_tag @user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
-                    </div> 
-                  <% else %>
-                    <div class="session-usericon">
-                      <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
-                    </div>
-                  <% end %>
-                <% end %>
+              <div class="mypage-note-tag">
+                <i class="fas fa-tags mypage-tag-img"></i>
+                <a href="#" class="mypage-tag">睡眠</a>
+                <a href ="#" class="mypage-tag">生産性</a>
               </div>
-              <div class="note-title">
+              <div class="mypage-note-title">
                 <h3><%= note.title %></h3>
               </div>
-              <div class="note-tag">
-                <i class="fas fa-tags tag-img"></i>
-                <a href="#" class="tag">睡眠</a>
-                <a href ="#" class="tag">生産性</a>
-              </div>
-              <div class="note-opt">
-                <div class="favorite">
-                  <i class="far fa-heart like-btn"></i>
-                </div>
-                <div class="comment-num">
-                  <i class="far fa-comment comment-btn"></i>
+              <div class="mypage-note-opt">
+                <div class="mypage-detail">
+                  <div class="mypage-fav-comment">
+                    <i class="far fa-heart mypage-like-btn"></i>
+                    <i class="far fa-comment mypage-comment-btn"></i>
+                  </div>
+                  <div class="mypage-created">
+                    <div class="mypage-time"><%= note.created_at.strftime('%Y/%m/%d') %></div>
+                  </div>
                 </div>
               </div>
             <% end %>
-            <div class="mypage-nation">
-              <a href="#" class="page-nation">1/1</a>
-            </div>
           </div>
+        </div>
+        <div class="mypage-nation">
+          <ul class="pagenations">
+            <li class="page-nation"></li>
+            <li class="mypage-nation"><span>1/1</span></li>
+            <li class="page-nation"></li>
+          </ul>
         </div>
       </div>
     </div>
