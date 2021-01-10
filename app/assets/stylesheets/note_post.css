@@ -85,12 +85,20 @@
   margin-left: 20px;
 }
 
+.note-smile:hover {
+  cursor: pointer;
+}
+
 .input-note-image {
   position: absolute;
   font-size: 1px;
   opacity: 0;
   left: -190px;
   top: 7px;
+}
+
+.input-note-image:hover {
+  cursor: pointer;
 }
 
 .note-editor {
