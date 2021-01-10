@@ -19,7 +19,7 @@
   </div>
   <div class="note-container">
     <div class="new-content">
-      <%= form_with model: @note, url: notes_path, method: :post, class: 'note_form', local: true do |f| %>
+      <%= form_with(model: @note, url: notes_path, method: :post, class: 'note_form', local: true) do |f| %>
         <div class="caption-area">
           <div class="title-box">
             <%= f.text_field :title, class: "input-title", placeholder: "タイトル", maxlength: 50, autofocus: true %>
