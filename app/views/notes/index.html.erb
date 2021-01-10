@@ -65,18 +65,20 @@
       <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
           <% @notes.each do |note| %>
             <div class="note-user">
-            <% if note.user.intro.present? %>
-              <div class="session-usericon">
-                <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
-              </div> 
-            <% else %>
-             <div class="session-usericon">
-                <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
-             </div>
+            <%= link_to user_path(note.user.id) do %>
+              <% if note.user.intro.present? %>
+                <div class="session-usericon">
+                  <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+                </div> 
+              <% else %>
+                <div class="session-usericon">
+                  <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+                </div>
+              <% end %>
             <% end %>
-              <a href="#" class="user-id"><%= note.user.nickname %></a>
+            <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
             <div class="created-at">
-              が2021年01月01日に投稿<%= note.created_at %>
+              が<%= note.created_at %>に投稿
             </div>
          </div>
           <div class="note-title">
