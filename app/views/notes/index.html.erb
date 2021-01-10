@@ -78,7 +78,7 @@
             <% end %>
             <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
             <div class="created-at">
-              が<%= note.created_at %>に投稿
+              が<%= note.created_at.to_s(:datetime_jp) %>に投稿
             </div>
          </div>
           <div class="note-title">
