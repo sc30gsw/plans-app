@@ -26,6 +26,7 @@
       <div class="upper-right">
         <%= link_to "ユーザー登録", new_user_registration_path, class: "upper-regist" %>
         <%= link_to "ログイン", new_user_session_path, class: "upper-session" %>
+        <%= link_to 'ゲストログイン（閲覧用）',  users_guest_sigin_in_path, method: :post, class: "guest-session" %>
       </div>
     </div>
     <div class="lower-header">

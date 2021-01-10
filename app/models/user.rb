@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :notes
   has_one_attached :image
 
-  # メソッド定義時binding.pryでauthが取得できるか確認する
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
@@ -29,5 +28,11 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', nickname: 'guest') do |user|
+      user.password = 'guest4040'
+    end
   end
 end
