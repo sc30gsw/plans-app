@@ -82,11 +82,36 @@
 
 ### Associations
 
+- has_many :note_tags
+- has_many :tags, through: :note_tags
 - has_many :comments
 - has_many :favorites
 - has_many :favorite_users
 - has_many :notifications
 - belongs_to :user
+
+## tags テーブル
+
+| Column | Type   | Options          |
+| ------ | ------ | ---------------- |
+| name   | string | uniqueness: true |
+
+### Associations
+
+- has_many :note_tags
+- has_many :notes, through: :note_tags
+
+## note_tags テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| note   | references | foreign_key: true |
+| tag    | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :note
+- belongs_to :tag
 
 ## Comments テーブル
 
