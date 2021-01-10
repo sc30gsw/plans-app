@@ -399,6 +399,10 @@ main {
   color: black;
 }
 
+footer {
+  margin-top: 300px;
+}
+
 .footer {
   width: 100vw;
   margin-top: 30px;
