@@ -25,6 +25,10 @@
   background-color: #f0f0f0;
 }
 
+.field_with_errors {
+  display: contents;
+}
+
 .title-box {
   height: 50px;
 }
