@@ -12,7 +12,6 @@ class User < ApplicationRecord
   has_one :intro
   has_many :sns_credentials
   has_many :notes
-  has_one_attached :image
 
   # メソッド定義時binding.pryでauthが取得できるか確認する
   def self.from_omniauth(auth)
