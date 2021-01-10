@@ -2,7 +2,9 @@
   <div class="session-header">
     <%= render 'shared/session_header' %>
       <div class="session-right">
-        <%= render 'shared/header_links' %>
+        <% if user_signed_in? %>
+          <%= render 'shared/header_links' %>
+        <% end %>
         <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
           <% if @intro.present?  %>
             <div class="session-usericon">
