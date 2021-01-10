@@ -113,7 +113,30 @@
         <% end %>
       <% end %>
     </div>
-    <div class="user-activity">
+    <div class="mypage-right">
+      <div class="user-activity">
+        <div class="user-analyze">
+        </div>
+        <div class="mypage-notes">
+          <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
+          <div class="mypage-note-tag">
+            <i class="fas fa-tags mynote-tag"></i>
+            <a href="#" class="mypage-tag">睡眠</a>
+            <a href ="#" class="mypage-tag">生産性</a>
+          </div>
+          <div class="mypage-note-title">
+            <a href="#" class="my-note-title"><%#= @note.title %></a>
+          </div>
+          <div class="mypage-note-opt">
+            <div class="favorite">
+              <i class="far fa-heart like-btn"></i>
+            </div>
+            <div class="comment-num">
+             <i class="far fa-comment comment-btn"></i>
+           </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="mypage-footer">

@@ -133,10 +133,29 @@
   text-decoration: none;
 }
 
-.user-activity {
+.mypage-right {
   width: 60vw;
   margin: 30px;
   margin-left: 5px;
+}
+
+.user-activity {
+  height: 100%;
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-analyze {
+  height: 30%;
+  width: 100%;
+  background-color: brown;
+}
+
+.mypage-notes {
+  height: 70%;
+  width: 100%;
   background-color: skyblue;
 }
 
