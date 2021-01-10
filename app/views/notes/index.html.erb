@@ -63,140 +63,43 @@
       <div>
       <div class="notes-trend">
       <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
-        <div class="note-user">
-          <% if current_user.intro.present? %>
-           <div class="session-usericon">
-            <%= image_tag current_user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
-           </div> 
-          <% else %>
-            <div class="session-usericon">
-             <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+          <% @notes.each do |note| %>
+            <div class="note-user">
+            <% if note.user.intro.present? %>
+              <div class="session-usericon">
+                <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+              </div> 
+            <% else %>
+             <div class="session-usericon">
+                <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+             </div>
+            <% end %>
+              <a href="#" class="user-id"><%= note.user.nickname %></a>
+            <div class="created-at">
+              が2021年01月01日に投稿<%= note.created_at %>
             </div>
-          <% end %>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
+         </div>
+          <div class="note-title">
+            <h3><%= note.title %></h3>
           </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
+          <div class="note-tag">
+            <i class="fas fa-tags tag-img"></i>
+            <a href="#" class="tag">睡眠</a>
+            <a href ="#" class="tag">生産性</a>
           </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
+          <div class="note-opt">
+            <div class="favorite">
+              <i class="far fa-heart like-btn"></i>
+            </div>
+            <div class="comment-num">
+             <i class="far fa-comment comment-btn"></i>
+           </div>
           </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
-      </div>
-       <div class="notes-trend">
-        <div class="note-user">
-            <a href="#" class="user-icon">丸</a>
-            <a href="#" class="user-id">test</a>
-          <div class="created-at">
-            が2021年01月01日に投稿
-          </div>
-        </div>
-        <div class="note-title">
-          <h2>タイトル</h2>
-        </div>
-        <div class="note-tag">
-          <i class="fas fa-tags tag-img"></i>
-          <a href="#" class="tag">睡眠</a>
-          <a href ="#" class="tag">生産性</a>
-        </div>
-        <div class="note-opt">
-          <div class="favorite">
-            <i class="far fa-heart like-btn"></i>
-          </div>
-          <div class="comment-num">
-            <i class="far fa-comment comment-btn"></i>
-          </div>
-        </div>
+        <% end %>
+      </div>  
         <div class="more-note">
-            <a href="#" class="more-link">もっと見る</a>
-          </div>
+          <a href="#" class="more-link">もっと見る</a>
+        </div>
       </div>
     </div>
     <footer>
