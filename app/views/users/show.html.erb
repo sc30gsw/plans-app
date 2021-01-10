@@ -119,15 +119,31 @@
         </div>
         <div class="mypage-notes">
           <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
-          <div class="mypage-note-tag">
-            <i class="fas fa-tags mynote-tag"></i>
-            <a href="#" class="mypage-tag">睡眠</a>
-            <a href ="#" class="mypage-tag">生産性</a>
+          <div class="notes-trend">
+        <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
+          <% @user.notes.each do |note| %>
+            <div class="note-user">
+            <%= link_to user_path(note.user.id) do %>
+              <% if @user.intro.present? %>
+                <div class="session-usericon">
+                  <%= image_tag @user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+                </div> 
+              <% else %>
+                <div class="session-usericon">
+                  <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+                </div>
+              <% end %>
+            <% end %>
           </div>
-          <div class="mypage-note-title">
-            <a href="#" class="my-note-title"><%#= @note.title %></a>
+          <div class="note-title">
+            <h3><%= note.title %></h3>
           </div>
-          <div class="mypage-note-opt">
+          <div class="note-tag">
+            <i class="fas fa-tags tag-img"></i>
+            <a href="#" class="tag">睡眠</a>
+            <a href ="#" class="tag">生産性</a>
+          </div>
+          <div class="note-opt">
             <div class="favorite">
               <i class="far fa-heart like-btn"></i>
             </div>
@@ -135,6 +151,13 @@
              <i class="far fa-comment comment-btn"></i>
            </div>
           </div>
+        <% end %>
+      </div>
+       <div class="notes-trend">
+        <div class="more-note">
+            <a href="#" class="more-link">もっと見る</a>
+        </div>
+      </div>
         </div>
       </div>
     </div>
