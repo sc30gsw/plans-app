@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "intro新規登録", type: :system do
+RSpec.describe 'intro新規登録', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @intro = FactoryBot.build(:intro)
@@ -26,11 +26,11 @@ RSpec.describe "intro新規登録", type: :system do
       fill_in 'website', with: @intro.website
       fill_in 'profile', with: @intro.profile
       # 画像選択フォームに画像を添付する
-      attach_file("intro[image]",image_path, make_visible: true)
+      attach_file('intro[image]', image_path, make_visible: true)
       # 送信するとIntroモデルのカウントが1上がる
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change{Intro.count}.by(1)
+      end.to change { Intro.count }.by(1)
       # 詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)
@@ -53,14 +53,14 @@ RSpec.describe "intro新規登録", type: :system do
   end
 end
 
-RSpec.describe 'プロフィール編集',type: :system do
+RSpec.describe 'プロフィール編集', type: :system do
   before do
     @user1 = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user)
     @intro1 = FactoryBot.create(:intro)
     @intro2 = FactoryBot.create(:intro)
   end
-  
+
   context 'プロフィール編集ができるとき' do
     it 'ログインしたユーザーは自分のプロフィールを編集できる' do
       # @user1でユーザーでログインする
@@ -81,11 +81,11 @@ RSpec.describe 'プロフィール編集',type: :system do
       fill_in 'website', with: @intro1.website
       fill_in 'profile', with: @intro1.profile
       # 画像選択フォームに画像を添付する
-      attach_file("intro[image]",image_path, make_visible: true)
+      attach_file('intro[image]', image_path, make_visible: true)
       # 送信するとIntroモデルのカウントが1上がる
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change{Intro.count}.by(1)
+      end.to change { Intro.count }.by(1)
       # 詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user1.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)
@@ -114,11 +114,11 @@ RSpec.describe 'プロフィール編集',type: :system do
       fill_in 'website', with: "#{@intro1.website}test"
       fill_in 'profile', with: "#{@intro1.profile}test"
       # 画像選択フォーム画像を添付する
-      attach_file("intro[image]",image_path2, make_visible: true)
+      attach_file('intro[image]', image_path2, make_visible: true)
       # 送信してもIntroモデルのカウントが変わらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change{Intro.count}.by(0)
+      end.to change { Intro.count }.by(0)
       # @user1詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user1.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)

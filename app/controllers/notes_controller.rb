@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_note, only: [:show]
 
   def index
@@ -20,8 +20,7 @@ class NotesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 
