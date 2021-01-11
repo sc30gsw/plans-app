@@ -23,6 +23,9 @@ class NotesController < ApplicationController
   def show; end
 
   def edit 
+    unless @note.user_id == current_user.id
+      redirect_to note_path(@note.id)
+    end
   end
 
   def update
