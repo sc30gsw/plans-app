@@ -113,6 +113,18 @@
               </div>
               <div class="comment-btn-box-right">
                 <%= comment.created_at.strftime('%Y-%m-%d %H:%M')%>
+                <div class="comment-drop">
+                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">このコメントを報告</a>
+                  <div class="dropdown-divider"></div>
+                  <a class:"dropdown-item" href="#">編集する</a>
+                  <div class="dropdown-divider"></div>
+                    <%= link_to '削除する', comment_path(comment.id), method: :delete, class: "dropdown-item" %>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="commnet-message" id="comment-message">
@@ -141,12 +153,7 @@
         </div>
         <div class="comment-input">
           <div class="comment-menu">
-            <div class="commnet-menu-first">
-              <div class="comment-edit">
-                編集
-              </div>
-            </div>
-            <div class="comment-menu-second">
+            <div class="comment-menu-first">
               <div class="comment-emoji">
                 <span class="far fa-smile fa-lg comment-smile"></span>
               </div>

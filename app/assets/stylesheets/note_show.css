@@ -297,6 +297,14 @@
   color: grey;
 }
 
+.comment-drop a {
+  color: grey;
+}
+
+.comment-drop a:hover {
+  color: grey;
+}
+
 .comment-message {
   font-size: 15px;
   color: #4a4a4a;
@@ -373,23 +381,6 @@
 
 .comment-menu-first {
   display: flex;
-}
-
-.comment-edit {
-  padding: 10px 20px;
-  font-size: 13px;
-  color: rgb(102, 102, 102);
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-  line-height: 20px;
-}
-
-.comment-menu-second {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
 }
 
 .comment-emoji {
