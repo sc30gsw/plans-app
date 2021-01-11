@@ -12,9 +12,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def destroy
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:text, :image).merge(user_id: current_user.id, note_id: params[:note_id])
   end
+
 end
