@@ -115,11 +115,11 @@
                 <%= comment.created_at.strftime('%Y-%m-%d %H:%M')%>
               </div>
             </div>
-            <div class="commnet-message">
+            <div class="commnet-message" id="comment-message">
               <p><%= comment.text %></p>
             </div>
-            <div class="commnets-message-image">
-              <%= image_tag comment.image, class: "comment-message-image", alt: "コメント画像" if comment.image.attached? %>
+            <div class="commnets-message-image" id="comments-message-image">
+              <p><%= image_tag comment.image, class: "comment-message-image", alt: "コメント画像" if comment.image.attached? %></p>
             </div>
             <div class="comment-like-btn">
               <span><i class="fas fa-book"></i>LIKE</span>
