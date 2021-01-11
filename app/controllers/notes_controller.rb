@@ -36,6 +36,9 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def note_params
