@@ -29,7 +29,19 @@
             <% end %>
             <%= link_to @note.user.nickname, user_path(@note.user.id), class:'show-top-username' %>
           </div>
-          <div class="show-top-follow">
+          <%# <div class="show-top-command">
+            <div class="plan-drop">
+              <a class="nav-link" href="#" id="navbarPlanDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"><i class="fas fa-clipboard save"></i>編集する</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fas fa-upload upload"></i>削除する</a>
+              </div>
+            </div>
+          </div> %>
+          <div class="show-top-command">
             <input type="submit" value="フォロー" class="show-follow-btn">
           </div>
         </div>
