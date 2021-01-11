@@ -140,19 +140,21 @@
               </div>
             </div>
           </div>
-          <%= form_with(model: [@note, @comment], local: true) do |f| %>
-            <div class="comment-form">
-              <%= f.text_area :text, placeholder: "テキストを入力", class: "comment-textarea" %>
-            </div>
-            <div class="comment-opt">
-              <div class="comment-opt-image">
-                <span class="comment-image">
-                  <i class="far fa-image comment-img-icon"></i>
-                  画像を選択 <%= f.file_field :image,class: "comment-img-input" %>
-                </span>
+          <% if user_signed_in? %>
+            <%= form_with(model: [@note, @comment], local: true) do |f| %>
+              <div class="comment-form">
+                <%= f.text_area :text, placeholder: "テキストを入力", class: "comment-textarea" %>
               </div>
-              <%= f.submit "投稿", class: "comment-submit" %>
-            </div>
+              <div class="comment-opt">
+                <div class="comment-opt-image">
+                  <span class="comment-image">
+                     <i class="far fa-image comment-img-icon"></i>
+                    画像を選択 <%= f.file_field :image,class: "comment-img-input" %>
+                  </span>
+                </div>
+                <%= f.submit "投稿", class: "comment-submit" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
