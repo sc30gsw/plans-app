@@ -1,12 +1,10 @@
 class IntrosController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_intro, only: [:edit, :update]
+  before_action :authenticate_user!, only: %i[new edit]
+  before_action :set_intro, only: %i[edit update]
 
   def new
     @intro = Intro.new
-    if Intro.find_by(user_id: current_user.id)
-      redirect_to root_path
-    end
+    redirect_to root_path if Intro.find_by(user_id: current_user.id)
   end
 
   def create
@@ -19,9 +17,7 @@ class IntrosController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @intro.user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @intro.user.id
   end
 
   def update
@@ -42,4 +38,3 @@ class IntrosController < ApplicationController
     params.require(:intro).permit(:first_name, :last_name, :website, :profile, :image).merge(user_id: current_user.id)
   end
 end
-

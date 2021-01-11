@@ -55,12 +55,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise'
+gem 'dotenv-rails'
+gem 'image_processing', '~>1.2'
+gem 'mini_magick'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'rubocop', require: false
-gem 'mini_magick'
-gem 'image_processing', '~>1.2'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-rails_csrf_protection'
-gem 'dotenv-rails'

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post 'users/guest_sigin_in', to: 'users/sessions#new_guest'
   end
   root to: 'notes#index'
-  resources :users, only: [:show] 
-  resources :intros, only: [:new, :create, :edit, :update]
-  resources :notes, only: [:new, :create]
+  resources :users, only: [:show]
+  resources :intros, only: %i[new create edit update]
+  resources :notes, only: %i[new create show]
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "新規投稿", type: :system do
+RSpec.describe '新規投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @note = FactoryBot.build(:note)
@@ -19,9 +19,9 @@ RSpec.describe "新規投稿", type: :system do
       fill_in 'note_text', with: @note.text
       fill_in 'note_plan', with: @note.plan
       # 送信するとNoteモデルのカウントが1上がることを確認する
-      expect {
+      expect do
         find('input[name="commit"]').click
-      }.to change{ Note.count }.by(1)
+      end.to change { Note.count }.by(1)
       # トップページに遷移することを確認する
       expect(current_path).to eq root_path
       # トップページには先ほど投稿した内容のnoteがあることを確認する

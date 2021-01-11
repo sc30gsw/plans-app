@@ -1,8 +1,9 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_note, only: [:show]
 
   def index
-    @notes = Note.all.order(id: 'DESC')
+    @notes = Note.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -19,9 +20,15 @@ class NotesController < ApplicationController
     end
   end
 
+  def show; end
+
   private
 
   def note_params
     params.require(:note).permit(:title, :text, :plan, :image).merge(user_id: current_user.id)
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
   end
 end
