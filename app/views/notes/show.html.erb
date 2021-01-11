@@ -102,15 +102,27 @@
           <% @comments.each do |comment| %>
             <div class="comment-btn-box">
               <div class="comment-btn-box-left">
-                <img src="/assets/default.png" class="show-top-icon" alt="ユーザーアイコン">
-                <a href="#" class="show-top-username">ユーザーネーム</a>
+                <%= link_to user_path(comment.user.id) do %>
+                  <% if comment.user.intro.present? %>
+                    <%= image_tag comment.user.intro.image, class: "show-top-icon", alt: "ユーザーアイコン" %>
+                  <% else %>
+                    <img src="/assets/default.png" class="show-top-icon" alt="ユーザーアイコン">
+                  <% end %>
+                <% end %>
+                <%= link_to comment.user.nickname, user_path(comment.user.id), class: "show-top-username" %>
               </div>
               <div class="comment-btn-box-right">
-                2021-01-11 13:09
+                <%= comment.created_at.strftime('%Y-%m-%d %H:%M')%>
               </div>
             </div>
             <div class="commnet-message">
-              <p>コメントする</p>
+              <p><%= comment.text %></p>
+            </div>
+            <div class="commnets-message-image">
+              <%= image_tag comment.image, class: "comment-message-image", alt: "コメント画像" if comment.image.attached? %>
+            </div>
+            <div class="comment-like-btn">
+              <span><i class="fas fa-book"></i>LIKE</span>
             </div>
           <% end %>
           <div class="comment-bottom-border-box">

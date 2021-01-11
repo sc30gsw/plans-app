@@ -127,11 +127,11 @@
 .show-top-like-btn {
   width: 90%;
   border: 2px solid rgb(56, 135, 224);
-  box-sizing: border-box;
   text-align: center;
   padding: 5px;
   color: rgb(56, 135, 224);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .fa-book {
@@ -302,6 +302,22 @@
   color: #4a4a4a;
   padding: 0 40px;
   word-break: break-all;
+}
+
+.comment-message-image {
+  width: 50%;
+  height: 50%;
+}
+
+.comment-like-btn {
+  width: 30%;
+  border: 2px solid rgb(56, 135, 224);
+  text-align: center;
+  margin-top: 20px;
+  padding: 5px;
+  color: rgb(56, 135, 224);
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .comment-bottom-border-box {
