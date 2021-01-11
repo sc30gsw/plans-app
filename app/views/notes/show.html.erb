@@ -99,18 +99,20 @@
       </div>
       <div class="comment-area">
         <div class="comment-content">
-          <div class="comment-btn-box">
-            <div class="comment-btn-box-left">
-              <a href="#"><img src="/assets/default.png" class="show-top-icon"></a>
-              <a href="#" class="show-top-username">ユーザー名</a>
+          <% @comments.each do |comment| %>
+            <div class="comment-btn-box">
+              <div class="comment-btn-box-left">
+                <img src="/assets/default.png" class="show-top-icon" alt="ユーザーアイコン">
+                <a href="#" class="show-top-username">ユーザーネーム</a>
+              </div>
+              <div class="comment-btn-box-right">
+                2021-01-11 13:09
+              </div>
             </div>
-            <div class="comment-btn-box-right">
-              2021-01-11 13:09
+            <div class="commnet-message">
+              <p>コメントする</p>
             </div>
-          </div>
-          <div class="commnet-message">
-            <p>コメントする</p>
-          </div>
+          <% end %>
           <div class="comment-bottom-border-box">
             <div class="comment-bottom-border"></div>
           </div>
@@ -138,18 +140,20 @@
               </div>
             </div>
           </div>
-          <div class="comment-form">
-            <textarea placeholder="テキストを入力" class="comment-textarea"></textarea>
-          </div>
-          <div class="comment-opt">
-            <div class="comment-opt-image">
-              <span class="comment-image">
-                <i class="far fa-image comment-img-icon"></i>
-                画像を選択<input type="file" class="comment-img-input">
-              </span>
+          <%= form_with(model: [@note, @comment], local: true) do |f| %>
+            <div class="comment-form">
+              <%= f.text_area :text, placeholder: "テキストを入力", class: "comment-textarea" %>
             </div>
-            <input type="submit" value="投稿" class="comment-submit">
-          </div>
+            <div class="comment-opt">
+              <div class="comment-opt-image">
+                <span class="comment-image">
+                  <i class="far fa-image comment-img-icon"></i>
+                  画像を選択 <%= f.file_field :image,class: "comment-img-input" %>
+                </span>
+              </div>
+              <%= f.submit "投稿", class: "comment-submit" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
