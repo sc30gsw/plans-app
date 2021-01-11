@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_note, noly: [:show]
+  before_action :set_note, only: [:show]
 
   def index
     @notes = Note.includes(:user).order('created_at DESC')
