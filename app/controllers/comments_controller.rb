@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -13,9 +14,27 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    unless @comment.user_id == current_user.id
+      redirect_to note_path(@comment.note)
+    end
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to note_path(@comment.note)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @note = @comment.note
+    if @comment.user_id == current_user.id 
+      @comment.destroy
+      redirect_to note_path(@note.id)
+    else
+      render 'notes/show'
+    end
   end
 
   private
@@ -24,4 +43,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text, :image).merge(user_id: current_user.id, note_id: params[:note_id])
   end
 
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 end
