@@ -22,6 +22,12 @@ class NotesController < ApplicationController
 
   def show; end
 
+  def edit 
+  end
+
+  def update
+  end
+
   private
 
   def note_params
