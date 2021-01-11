@@ -30,7 +30,6 @@
 | first_name | string     |                   |
 | last_name  | string     |                   |
 | website    | string     |                   |
-| image      | string     |                   |
 | profile    | text       |                   |
 | user       | references | foreign_key: true |
 
