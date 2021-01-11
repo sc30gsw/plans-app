@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_note, only: [:show]
+  before_action :set_note, only: [:show, :edit, :update]
 
   def index
     @notes = Note.includes(:user).order('created_at DESC')
@@ -26,6 +26,11 @@ class NotesController < ApplicationController
   end
 
   def update
+    if @note.update
+      redirect_to note_path(@note.id)
+    else
+      render :edit
+    end
   end
 
   private
