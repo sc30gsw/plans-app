@@ -52,8 +52,10 @@
             </div>
           </div>
           <div class="show-top-communication-right">
-            <a class="show-top-twitter-btn"><i class="fab fa-twitter show-top-twitter"></i>Twitter</a>
-            <a class="show-top-line-btn"><i class="fab fa-line top-line show-top-line"></i>LINE</a>
+            <%= link_to  "https://twitter.com/intent/tweet?text=タイトル:#{@note.title}#{request.url}", title: 'Twitter', target: '_blank', class: "show-top-twitter-btn" do %>
+              <i class="fab fa-twitter show-top-twitter"></i>Twitter
+            <% end %>
+            <a href="http://line.me/R/msg/text/?{message}" class="show-top-line-btn"><i class="fab fa-line top-line show-top-line"></i>LINE</a>
           </div>
         </div>
         <div class="show-top-communication-after">
@@ -69,9 +71,11 @@
       </div>
       <div class="show-bottom">
         <div class="show-bottom-first">
-          <a href="#" class="show-share-twitter"><i class="fab fa-twitter share-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook share-facebook"></i></a>
-          <a href="#"><i class="fab fa-line share-line"></i></a>
+          <%= link_to  "https://twitter.com/intent/tweet?text=タイトル:#{@note.title}#{request.url}", title: 'Twitter', target: '_blank', class: "show-share-twitter" do %>
+            <i class="fab fa-twitter share-twitter"></i>
+          <% end %>
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><i class="fab fa-facebook share-facebook"></i></a>
+          <a href="http://line.me/R/msg/text/?{message}"><i class="fab fa-line share-line"></i></a>
         </div>
       </div>
       <div class="comment-area">

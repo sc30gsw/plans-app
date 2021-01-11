@@ -145,6 +145,12 @@
   align-items: center;
 }
 
+.show-top-communication-right a:hover {
+  text-decoration: none;
+  color: grey;
+  opacity: 0.7;
+}
+
 .show-top-twitter-btn {
   width: calc(100% / 2);
   color: grey;
@@ -168,7 +174,6 @@
   overflow: hidden;
   padding: 4px;
   margin-left: 5px;
-  box-sizing: border-box;
 }
 
 .show-top-line {
