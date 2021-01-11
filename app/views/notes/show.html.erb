@@ -1,0 +1,134 @@
+<div class="wrqpper">
+  <% if user_signed_in? %>
+    <%= render 'shared/note_header' %>
+  <% else %>
+    <div class="show-header">  
+      <div class="upper-header">
+        <div class="upper-left">
+          <%= link_to "Plans App", root_path %>
+        </div>
+        <div class="upper-right">
+          <%= link_to "ユーザー登録", new_user_registration_path, class: "upper-regist" %>
+          <%= link_to "ログイン", new_user_session_path, class: "upper-session" %>
+          <%= link_to 'ゲストログイン（閲覧用）',  users_guest_sigin_in_path, method: :post, class: "guest-session" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="show-wrapper">
+    <div class="show-main">
+      <div class="show-top">
+        <div class="show-top-info">
+          <div class="show-top-profile">
+            <%= link_to user_path(@note.user.id) do %>
+              <% if @note.user.intro.present? %>
+                <%= image_tag @note.user.intro.image, class: "show-top-icon", alt: "ユーザーアイコン" %>
+              <% else %>
+                <img src="/assets/default.png" class="show-top-icon" alt="ユーザーアイコン">
+              <% end %>
+            <% end %>
+            <%= link_to @note.user.nickname, user_path(@note.user.id), class:'show-top-username' %>
+          </div>
+          <div class="show-top-follow">
+            <input type="submit" value="フォロー" class="show-follow-btn">
+          </div>
+        </div>
+        <span class="show-top-created"><%= @note.created_at.strftime('%Y年%m月%d日') %>に更新</span>
+        <div class="show-top-caption">
+          <div class="show-top-title">
+            <%= @note.title %>
+          </div>
+          <div class="show-top-tags">
+            <div class="show-top-tag">
+              <a href="#" >睡眠</a>
+              <a href="#">生産性</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-top-communication">
+          <div class="show-top-communication-left">
+            <div class="show-top-like-btn">
+              <span><i class="fas fa-book"></i>LIKE</span>
+            </div>
+          </div>
+          <div class="show-top-communication-right">
+            <a class="show-top-twitter-btn"><i class="fab fa-twitter show-top-twitter"></i>Twitter</a>
+            <a class="show-top-line-btn"><i class="fab fa-line top-line show-top-line"></i>LINE</a>
+          </div>
+        </div>
+        <div class="show-top-communication-after">
+          <a href="#">LIKEしたユーザーを見る</a>
+        </div>
+      </div>
+      <div class="show-body">
+        <p><%= @note.text %></p>
+      </div>
+      <div class="show-body-plans">
+        <h3>Action Plan</h3>
+        <p class="show-body-plan"><%= @note.plan %></p>
+      </div>
+      <div class="show-bottom">
+        <div class="show-bottom-first">
+          <a href="#" class="show-share-twitter"><i class="fab fa-twitter share-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook share-facebook"></i></a>
+          <a href="#"><i class="fab fa-line share-line"></i></a>
+        </div>
+      </div>
+      <div class="comment-area">
+        <div class="comment-content">
+          <div class="comment-btn-box">
+            <div class="comment-btn-box-left">
+              <a href="#"><img src="/assets/default.png" class="show-top-icon"></a>
+              <a href="#" class="show-top-username">ユーザー名</a>
+            </div>
+            <div class="comment-btn-box-right">
+              2021-01-11 13:09
+            </div>
+          </div>
+          <div class="commnet-message">
+            <p>コメントする</p>
+          </div>
+          <div class="comment-bottom-border-box">
+            <div class="comment-bottom-border"></div>
+          </div>
+        </div>
+        <div class="commnet-info">
+          <%= link_to user_path(@note.user.id) do %>
+            <% if @note.user.intro.present? %>
+              <%= image_tag @note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+            <% else %>
+              <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+            <% end %>
+          <% end %>
+          <span class="commnet-new">投稿する</span>
+        </div>
+        <div class="comment-input">
+          <div class="comment-menu">
+            <div class="commnet-menu-first">
+              <div class="comment-edit">
+                編集
+              </div>
+            </div>
+            <div class="comment-menu-second">
+              <div class="comment-emoji">
+                <span class="far fa-smile fa-lg comment-smile"></span>
+              </div>
+            </div>
+          </div>
+          <div class="comment-form">
+            <textarea placeholder="テキストを入力" class="comment-textarea"></textarea>
+          </div>
+          <div class="comment-opt">
+            <div class="comment-opt-image">
+              <span class="comment-image">
+                <i class="far fa-image comment-img-icon"></i>
+                画像を選択<input type="file" class="comment-img-input">
+              </span>
+            </div>
+            <input type="submit" value="投稿" class="comment-submit">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
