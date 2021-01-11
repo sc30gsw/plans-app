@@ -7,6 +7,6 @@ class Note < ApplicationRecord
   end
 
   has_one_attached :image
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
 end
