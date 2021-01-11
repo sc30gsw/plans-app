@@ -82,9 +82,11 @@
               が<%= note.created_at.to_s(:datetime_jp) %>に投稿
             </div>
          </div>
-          <div class="note-title">
-            <h3><%= note.title %></h3>
-          </div>
+         <%= link_to note_path(note.id), class: "note_show_links" do %>
+            <div class="note-title">
+              <h3><%= note.title %></h3>
+            </div>
+          <% end %>
           <div class="note-tag">
             <i class="fas fa-tags tag-img"></i>
             <a href="#" class="tag">睡眠</a>

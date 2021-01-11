@@ -130,9 +130,11 @@
                 <a href="#" class="mypage-tag">睡眠</a>
                 <a href ="#" class="mypage-tag">生産性</a>
               </div>
-              <div class="mypage-note-title">
-                <h3><%= note.title %></h3>
-              </div>
+              <%= link_to note_path(note.id), class: "mypage_note_show" do %>
+                <div class="mypage-note-title">
+                  <h3><%= note.title %></h3>
+                </div>
+              <% end %>
               <div class="mypage-note-opt">
                 <div class="mypage-detail">
                   <div class="mypage-fav-comment">
