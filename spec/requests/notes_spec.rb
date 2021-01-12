@@ -21,4 +21,26 @@ RSpec.describe 'Notes', type: :request do
       expect(response.body).to include 'キーワードを入力'
     end
   end
+
+  describe 'GET #show' do
+    it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get note_path(@note)
+      expect(response.status).to eq 200
+    end
+
+    it 'showアクションにリクエストするとレスポンスに投稿済みのnoteのタイトルが存在する' do
+      get note_path(@note)
+      expect(response.body).to include @note.title
+    end
+
+    it 'showアクションにリクエストするとレスポンスに投稿済みのnoteのテキストnが存在する' do
+      get note_path(@note)
+      expect(response.body).to include @note.text
+    end
+
+    it 'showアクションにリクエストするとレスポンスに投稿済みのnoteのplanが存在する' do
+      get note_path(@note)
+      expect(response.body).to include @note.plan
+    end
+  end
 end
