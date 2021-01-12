@@ -10,6 +10,11 @@ RSpec.describe Note, type: :model do
       it 'すべての項目が存在すれば投稿できる' do
         expect(@note).to be_valid
       end
+
+      it '画像が空でも保存できる' do
+        @note.image = nil
+        expect(@note).to be_valid
+      end
     end
 
     context '新規投稿がうまく行かないとき' do

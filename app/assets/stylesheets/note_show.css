@@ -127,11 +127,11 @@
 .show-top-like-btn {
   width: 90%;
   border: 2px solid rgb(56, 135, 224);
-  box-sizing: border-box;
   text-align: center;
   padding: 5px;
   color: rgb(56, 135, 224);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .fa-book {
@@ -210,6 +210,18 @@
   color: #3a3a3a;
   font-size: 15px;
   word-break: break-all;
+}
+
+.show-body-note-image {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 10px;
+  word-break: break-all;
+}
+
+.show-note-image {
+  height: 40%;
+  width: 40%;
 }
 
 .show-body-plans {
@@ -297,11 +309,35 @@
   color: grey;
 }
 
+.comment-drop a {
+  color: grey;
+}
+
+.comment-drop a:hover {
+  color: grey;
+}
+
 .comment-message {
   font-size: 15px;
   color: #4a4a4a;
   padding: 0 40px;
   word-break: break-all;
+}
+
+.comment-message-image {
+  width: 50%;
+  height: 50%;
+}
+
+.comment-like-btn {
+  width: 30%;
+  border: 2px solid rgb(56, 135, 224);
+  text-align: center;
+  margin-top: 20px;
+  padding: 5px;
+  color: rgb(56, 135, 224);
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .comment-bottom-border-box {
@@ -357,23 +393,6 @@
 
 .comment-menu-first {
   display: flex;
-}
-
-.comment-edit {
-  padding: 10px 20px;
-  font-size: 13px;
-  color: rgb(102, 102, 102);
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-  line-height: 20px;
-}
-
-.comment-menu-second {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
 }
 
 .comment-emoji {
@@ -504,6 +523,13 @@
   background-color: #3e3e3e;
 }
 
-.note-show-footer {
-  background-color: #3e3e3e;
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .comment-opt {
+    position: relative;
+  }
+  .comment-img-input {
+    position: absolute;
+    left: -50px;
+  }
 }

@@ -70,13 +70,18 @@
 }
 
 .note-new-opt {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
 }
 
 .note-img {
   font-size: 30px;
+  margin-bottom: 30px;
   position: relative;
+}
+
+.note-emoji {
+  margin-top: 6px;
 }
 
 .note-smile {

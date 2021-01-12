@@ -84,6 +84,9 @@
       <div class="show-body">
         <p><%= @note.text %></p>
       </div>
+      <div class="show-body-note-image">
+        <%= image_tag @note.image, class:"show-note-image", alt: "投稿した画像" if @note.image.attached? %>
+      </div>
       <div class="show-body-plans">
         <h3>Action Plan</h3>
         <p class="show-body-plan"><%= @note.plan %></p>
@@ -99,58 +102,85 @@
       </div>
       <div class="comment-area">
         <div class="comment-content">
-          <div class="comment-btn-box">
-            <div class="comment-btn-box-left">
-              <a href="#"><img src="/assets/default.png" class="show-top-icon"></a>
-              <a href="#" class="show-top-username">ユーザー名</a>
+          <% @comments.each do |comment| %>
+            <div class="comment-btn-box">
+              <div class="comment-btn-box-left">
+                <%= link_to user_path(comment.user.id) do %>
+                  <% if comment.user.intro.present? %>
+                    <%= image_tag comment.user.intro.image, class: "show-top-icon", alt: "ユーザーアイコン" %>
+                  <% else %>
+                    <img src="/assets/default.png" class="show-top-icon" alt="ユーザーアイコン">
+                  <% end %>
+                <% end %>
+                <%= link_to comment.user.nickname, user_path(comment.user.id), class: "show-top-username" %>
+              </div>
+              <div class="comment-btn-box-right">
+                <%= comment.created_at.strftime('%Y-%m-%d %H:%M')%>
+                <% if user_signed_in? %>
+                  <div class="comment-drop">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">このコメントを報告</a>
+                      <% if current_user.id == comment.user_id %>
+                        <div class="dropdown-divider"></div>
+                          <%= link_to '削除する', comment_path(comment.id), method: :delete, class: "dropdown-item" %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
-            <div class="comment-btn-box-right">
-              2021-01-11 13:09
+            <div class="commnet-message">
+              <p><%= comment.text %></p>
             </div>
-          </div>
-          <div class="commnet-message">
-            <p>コメントする</p>
-          </div>
+            <div class="commnets-message-image">
+              <p><%= image_tag comment.image, class: "comment-message-image", alt: "コメント画像" if comment.image.attached? %></p>
+            </div>
+            <div class="comment-like-btn">
+              <span><i class="fas fa-book"></i>LIKE</span>
+            </div>
+          <% end %>
           <div class="comment-bottom-border-box">
             <div class="comment-bottom-border"></div>
           </div>
         </div>
-        <div class="commnet-info">
-          <%= link_to user_path(@note.user.id) do %>
-            <% if @note.user.intro.present? %>
-              <%= image_tag @note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
-            <% else %>
-              <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+        <% if user_signed_in? %>
+          <div class="commnet-info">
+            <%= link_to user_path(@note.user.id) do %>
+              <% if @note.user.intro.present? %>
+                <%= image_tag @note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+              <% else %>
+                <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+              <% end %>
             <% end %>
-          <% end %>
-          <span class="commnet-new">投稿する</span>
-        </div>
-        <div class="comment-input">
-          <div class="comment-menu">
-            <div class="commnet-menu-first">
-              <div class="comment-edit">
-                編集
+            <span class="commnet-new">投稿する</span>
+          </div>
+          <div class="comment-input">
+            <div class="comment-menu">
+              <div class="comment-menu-first">
+                <div class="comment-emoji">
+                  <span class="far fa-smile fa-lg comment-smile"></span>
+                </div>
               </div>
             </div>
-            <div class="comment-menu-second">
-              <div class="comment-emoji">
-                <span class="far fa-smile fa-lg comment-smile"></span>
+            <%= form_with(model: [@note, @comment], local: true) do |f| %>
+              <div class="comment-form">
+                <%= f.text_area :text, placeholder: "テキストを入力", class: "comment-textarea" %>
               </div>
-            </div>
+              <div class="comment-opt">
+                <div class="comment-opt-image">
+                  <span class="comment-image">
+                    <i class="far fa-image comment-img-icon"></i>
+                    画像を選択 <%= f.file_field :image,class: "comment-img-input" %>
+                  </span>
+                </div>
+                <%= f.submit "投稿", class: "comment-submit", id: "comment_submit" %>
+              </div>
+            <% end %>
           </div>
-          <div class="comment-form">
-            <textarea placeholder="テキストを入力" class="comment-textarea"></textarea>
-          </div>
-          <div class="comment-opt">
-            <div class="comment-opt-image">
-              <span class="comment-image">
-                <i class="far fa-image comment-img-icon"></i>
-                画像を選択<input type="file" class="comment-img-input">
-              </span>
-            </div>
-            <input type="submit" value="投稿" class="comment-submit">
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

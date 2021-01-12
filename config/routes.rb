@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   root to: 'notes#index'
   resources :users, only: [:show]
   resources :intros, only: %i[new create edit update]
-  resources :notes
+  resources :notes do
+    resources :comments, only: [:create]
+  end
+  resources :comments, only: [:destroy]
 end

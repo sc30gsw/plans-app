@@ -20,7 +20,10 @@ class NotesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @note.comments.includes(:user).order('created_at DESC')
+  end
 
   def edit 
     unless @note.user_id == current_user.id
