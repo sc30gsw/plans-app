@@ -42,3 +42,42 @@ RSpec.describe '新規投稿', type: :system do
     end
   end
 end
+
+RSpec.describe '投稿詳細', type: :system do
+  before do
+    @note = FactoryBot.create(:note)
+    @user = FactoryBot.create(:user)
+  end
+  it 'ログインしたユーザーはnote詳細ページに遷移してコメント投稿欄が表示される' do
+    # ログインする
+    sign_in(@user)
+    # 投稿のタイトルリンクがあることを確認する
+    expect(page).to have_content (@note.title)
+    # 詳細ページに遷移する
+    visit note_path(@note)
+    # 詳細ページに投稿内容が含まれている
+    expect(page).to have_content(@note.title)
+    expect(page).to have_content(@note.text)
+    expect(page).to have_content(@note.plan)
+    expect(page).to have_selector ".show-note-image"
+    # コメント用フォームが存在する
+    expect(page).to have_selector ".comment-textarea"
+
+  end
+
+  it 'ログインしていな状態ではnote詳細ページに遷移できるもののコメント入力欄が表示されない' do
+    # トップページに移動する
+    visit root_path
+    # 投稿のタイトルリンクがあることを確認する
+    expect(page).to have_content(@note.title)
+    # 詳細ページに遷移する
+    visit note_path(@note)
+    # 詳細ページに投稿内容が含まれている
+    expect(page).to have_content(@note.title)
+    expect(page).to have_content(@note.text)
+    expect(page).to have_content(@note.plan)
+    expect(page).to have_selector ".show-note-image"
+    # コメントフォームが存在しないことを確認する
+    expect(page).to have_no_selector ".comment-textarea"
+  end
+end
