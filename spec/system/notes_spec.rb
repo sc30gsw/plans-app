@@ -124,7 +124,7 @@ RSpec.describe '投稿編集', type: :system do
       expect(page).to have_content(@note1.title)
       expect(page).to have_content(@note1.text)
       expect(page).to have_content(@note1.plan)
-      expect(page).to have_selector ".show-note-image"
+      expect(page).to have_selector(".show-note-image")
     end
   end
 
@@ -137,7 +137,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector ".plan-drop"
+      expect(page).to have_no_selector(".plan-drop")
     end
 
     it 'ログインしていないとnote1編集画面には遷移できないこと' do
@@ -148,7 +148,7 @@ RSpec.describe '投稿編集', type: :system do
       # note1の詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンがないことを確認する
-      expect(page).to have_no_selector ".plan-drop"
+      expect(page).to have_no_selector(".plan-drop")
     end
 
     it 'ログインしていないとnote2編集画面には遷移できない' do
@@ -159,7 +159,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2の詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector ".plan-drop"
+      expect(page).to have_no_selector(".plan-drop")
     end
   end
 end
@@ -200,7 +200,7 @@ RSpec.describe '投稿編集', type: :system do
        # note2詳細ページに遷移する
        visit note_path(@note2)
        # note2にドロップダウンがないことを確認する
-       expect(page).to have_no_selector ".plan-drop"
+       expect(page).to have_no_selector(".plan-drop")
     end
 
     it 'ログインしていなとnote1の削除ボタンがない' do
@@ -211,7 +211,7 @@ RSpec.describe '投稿編集', type: :system do
       # note1の詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンがないことを確認する
-      expect(page).to have_no_selector ".plan-drop"
+      expect(page).to have_no_selector(".plan-drop")
     end
 
     it 'ログインしていなとnote2の削除ボタンがない' do
@@ -222,7 +222,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2の詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector ".plan-drop"
+      expect(page).to have_no_selector(".plan-drop")
     end
   end
 end
