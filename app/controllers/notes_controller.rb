@@ -24,7 +24,6 @@ class NotesController < ApplicationController
     @comment = Comment.new
     @comments = @note.comments.includes(:user).order('created_at DESC')
     @favorite_count = Favorite.where(note_id: @note.id).count
-    @favorite_count += 1
   end
 
   def edit 

@@ -71,13 +71,13 @@
                 <div class="show-top-like-btn">
                   <span><i class="fas fa-book"></i>LIKE</span>
                 </div>
+                <%= @favorite_count %>
               <% end %>
             <% else %>
               <%= link_to note_favorites_path(@note), method: :post do %>
                 <div class="show-top-like-btn">
                   <span><i class="fas fa-book"></i>LIKE</span>
                 </div>
-                <%= @favorite_count %>
               <% end %>
             <% end %>
           </div>
