@@ -23,6 +23,7 @@ class NotesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @note.comments.includes(:user).order('created_at DESC')
+    @favorite_count = Favorite.where(note_id: @note.id).count
   end
 
   def edit 
