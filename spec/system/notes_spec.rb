@@ -98,6 +98,8 @@ RSpec.describe '投稿編集', type: :system do
       visit note_path(@note1)
       # note1にドロップダウンボタンがあることを確認する
       expect(page).to have_selector ".plan-drop"
+      # note1のドロップダウンボタンをクリックする
+      find(".plan-drop").click
       # 編集ページへ遷移する
       visit edit_note_path(@note1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
@@ -156,7 +158,70 @@ RSpec.describe '投稿編集', type: :system do
       expect(page).to have_content(@note2.title)
       # note2の詳細ページに遷移する
       visit note_path(@note2)
-      # note2にドロップダウンがないことを確認するE
+      # note2にドロップダウンがないことを確認する
+      expect(page).to have_no_selector ".plan-drop"
+    end
+  end
+end
+
+RSpec.describe '投稿編集', type: :system do
+  before do
+    @note1 = FactoryBot.create(:note)
+    @note2 = FactoryBot.create(:note)
+  end
+
+  context 'note削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したnoteを削除できる' do
+      # note1を投稿したユーザーでログインする
+      sign_in(@note1.user)
+      # note1の投稿のタイトルリンクがあることを確認する
+      expect(page).to have_content(@note1.title)
+      # note1詳細ページに遷移する
+      visit note_path(@note1)
+      # note1にドロップダウンボタンがあることを確認する
+      expect(page).to have_selector ".plan-drop"
+      # note1のドロップダウンボタンをクリックする
+      find(".plan-drop").click
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link('削除する', href: note_path(@note1)).click
+      }.to change{ Note.count }.by(-1)
+      # トップページに遷移する
+      visit root_path
+    end
+  end
+
+  context 'note削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したnoteを削除できない' do
+       # note1を投稿したユーザーでログインする
+       sign_in(@note1.user)
+       # note2の投稿のタイトルリンクがある
+       expect(page).to have_content(@note2.title)
+       # note2詳細ページに遷移する
+       visit note_path(@note2)
+       # note2にドロップダウンがないことを確認する
+       expect(page).to have_no_selector ".plan-drop"
+    end
+
+    it 'ログインしていなとnote1の削除ボタンがない' do
+      # トップページいる
+      visit root_path
+      # note1にタイトルリンクがあることを確認する
+      expect(page).to have_content(@note1.title)
+      # note1の詳細ページに遷移する
+      visit note_path(@note1)
+      # note1にドロップダウンがないことを確認する
+      expect(page).to have_no_selector ".plan-drop"
+    end
+
+    it 'ログインしていなとnote2の削除ボタンがない' do
+      # トップページにいる
+      visit root_path
+      # note2にタイトルリンクがある
+      expect(page).to have_content(@note2.title)
+      # note2の詳細ページに遷移する
+      visit note_path(@note2)
+      # note2にドロップダウンがないことを確認する
       expect(page).to have_no_selector ".plan-drop"
     end
   end
