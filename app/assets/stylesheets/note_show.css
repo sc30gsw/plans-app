@@ -391,29 +391,6 @@
   border-bottom-color: initial;
 }
 
-.comment-menu-first {
-  display: flex;
-}
-
-.comment-emoji {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  color: rgb(170, 170, 170);
-  margin-right: 10px;
-}
-
-.comment-smile {
-  font-size: 1.33333em;
-  line-height: 0.75em;
-  vertical-align: -15%;
-}
-
 .comment-form {
   padding: 5px 5px 0px;
   border-width: 0px 1px;
