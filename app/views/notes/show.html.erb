@@ -84,6 +84,9 @@
       <div class="show-body">
         <p><%= @note.text %></p>
       </div>
+      <div class="show-body-note-image">
+        <%= image_tag @note.image, class:"show-note-image", alt: "投稿した画像" if @note.image.attached? %>
+      </div>
       <div class="show-body-plans">
         <h3>Action Plan</h3>
         <p class="show-body-plan"><%= @note.plan %></p>
