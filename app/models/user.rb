@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :sns_credentials
   has_many :notes
   has_many :comments
+  has_many :favorites
   has_one_attached :image
 
   def self.from_omniauth(auth)
