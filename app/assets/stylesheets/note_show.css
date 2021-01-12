@@ -511,10 +511,6 @@
   background-color: #3e3e3e;
 }
 
-.note-show-footer {
-  background-color: #3e3e3e;
-}
-
 /* スマホ表示時 */
 @media (max-width: 599px) {
   .comment-opt {

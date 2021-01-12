@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: [:destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -13,19 +13,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    unless @comment.user_id == current_user.id
-      redirect_to note_path(@comment.note)
-    end
-  end
-
-  def update
-    if @comment.update(comment_params)
-      redirect_to note_path(@comment.note)
-    else
-      render :edit
-    end
-  end
 
   def destroy
     @note = @comment.note
