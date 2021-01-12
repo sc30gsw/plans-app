@@ -66,9 +66,20 @@
         </div>
         <div class="show-top-communication">
           <div class="show-top-communication-left">
-            <div class="show-top-like-btn">
-              <span><i class="fas fa-book"></i>LIKE</span>
-            </div>
+            <% if current_user.favorites.find_by(note_id: @note.id) %>
+              <%= link_to note_favorite_path(@note), method: :delete do %>
+                <div class="show-top-like-btn">
+                  <span><i class="fas fa-book"></i>LIKE</span>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to note_favorites_path(@note), method: :post do %>
+                <div class="show-top-like-btn">
+                  <span><i class="fas fa-book"></i>LIKE</span>
+                </div>
+                <%= @favorit_count %>
+              <% end %>
+            <% end %>
           </div>
           <div class="show-top-communication-right">
             <%= link_to  "https://twitter.com/intent/tweet?text=タイトル:#{@note.title}#{request.url}", title: 'Twitter', target: '_blank', class: "show-top-twitter-btn" do %>
