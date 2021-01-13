@@ -298,6 +298,11 @@ main {
   font-size: 20px;
 }
 
+.asc-icon-notes {
+  color: rgb(87, 154, 255);
+  font-size: 20px;
+}
+
 .note-user {
   display: flex;
   padding-top: 10px;
