@@ -78,10 +78,10 @@
           </div>
           <div class="note-opt">
             <div class="favorite">
-              <i class="far fa-heart like-btn"></i>
+              <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= note.favorites.count %></span>
             </div>
             <div class="comment-num">
-             <i class="far fa-comment comment-btn"></i>
+             <i class="far fa-comment comment-btn"></i><span class="comment-count"><%= note.comments.count %></span>
            </div>
           </div>
         <% end %>

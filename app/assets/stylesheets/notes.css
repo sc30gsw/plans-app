@@ -387,12 +387,23 @@ main {
   margin-left: 20px;
 }
 
+.favorite-count {
+  color: #808080;
+  font-weight: bold;
+}
+
 .comment-btn {
   width: 25px;
   height: 30px;
   font-size: 25px;
   color: #808080;
   margin-left: 20px;
+  margin-right: 5px;
+}
+
+.comment-count {
+  color: #808080;
+  font-weight: bold;
 }
 
 .more-note {
