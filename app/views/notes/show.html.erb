@@ -67,16 +67,17 @@
         <div class="show-top-communication">
           <div class="show-top-communication-left">
             <% if current_user.favorites.find_by(note_id: @note.id) %>
-              <%= link_to note_favorite_path(@note), method: :delete do %>
-                <div class="show-top-like-btn">
-                  <span><i class="fas fa-book"></i>LIKE</span>
+              <%= link_to note_favorite_path(@note), method: :delete, class: "unfavorite" do %>
+                <div class="show-top-nolike-btn">
+                  <span><i class="fas fa-book"></i>LIKED</span>
+                  <%= @favorite_count %>
                 </div>
-                <%= @favorite_count %>
               <% end %>
             <% else %>
-              <%= link_to note_favorites_path(@note), method: :post do %>
+              <%= link_to note_favorites_path(@note), method: :post, class: "favorite" do %>
                 <div class="show-top-like-btn">
                   <span><i class="fas fa-book"></i>LIKE</span>
+                  <%= @favorite_count %>
                 </div>
               <% end %>
             <% end %>
@@ -148,9 +149,6 @@
             </div>
             <div class="commnets-message-image">
               <p><%= image_tag comment.image, class: "comment-message-image", alt: "コメント画像" if comment.image.attached? %></p>
-            </div>
-            <div class="comment-like-btn">
-              <span><i class="fas fa-book"></i>LIKE</span>
             </div>
           <% end %>
           <div class="comment-bottom-border-box">
