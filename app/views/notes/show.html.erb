@@ -66,21 +66,23 @@
         </div>
         <div class="show-top-communication">
           <div class="show-top-communication-left">
-            <% if current_user.favorites.find_by(note_id: @note.id) %>
-              <%= link_to note_favorite_path(@note), method: :delete, class: "unfavorite" do %>
-                <div class="show-top-nolike-btn">
-                  <span><i class="fas fa-book"></i>LIKED</span>
-                  <%= @favorite_count %>
-                </div>
+              <% if user_signed_in? %>
+                <% if current_user.favorites.find_by(note_id: @note.id) %>
+                  <%= link_to note_favorite_path(@note), method: :delete, class: "unfavorite", id: "unfavorite" do %>
+                    <div class="show-top-nolike-btn">
+                      <span><i class="fas fa-book"></i>LIKED</span>
+                      <%= @note.favorites.count %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= link_to note_favorites_path(@note), method: :post, class: "favorite", id: "favorite" do %>
+                    <div class="show-top-like-btn" id="top-like">
+                      <span><i class="fas fa-book"></i>LIKE</span>
+                      <%= @note.favorites.count %>
+                    </div>
+                  <% end %>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to note_favorites_path(@note), method: :post, class: "favorite" do %>
-                <div class="show-top-like-btn">
-                  <span><i class="fas fa-book"></i>LIKE</span>
-                  <%= @favorite_count %>
-                </div>
-              <% end %>
-            <% end %>
           </div>
           <div class="show-top-communication-right">
             <%= link_to  "https://twitter.com/intent/tweet?text=タイトル:#{@note.title}#{request.url}", title: 'Twitter', target: '_blank', class: "show-top-twitter-btn" do %>
