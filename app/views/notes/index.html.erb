@@ -1,38 +1,5 @@
 <div class="wrqpper">
-  <% if user_signed_in? %>
-    <%= render 'shared/note_header' %>
-  <% else %>
-    <header>  
-      <div class="upper-header">
-        <div class="upper-left">
-          <%= render 'shared/session_header' %>
-        </div>
-        <div class="upper-right">
-          <%= link_to "ユーザー登録", new_user_registration_path, class: "upper-regist" %>
-          <%= link_to "ログイン", new_user_session_path, class: "upper-session" %>
-          <%= link_to 'ゲストログイン（閲覧用）',  users_guest_sigin_in_path, method: :post, class: "guest-session" %>
-        </div>
-      </div>
-      <div class="lower-header">
-        <div class="lower-left">
-          <h2 class="catch-copy">Tell me your plan.</h2>
-          <p class="explain">Plans Appは本や論文に関する知識を記録・共有するためのサービスです。<br>
-          あなたのアクションプランを共有しましょう！</p>
-        </div>
-        <div class="lower-right">
-          <div class="sns-session">
-            <p class="sns-login">SNSで登録＆ログイン</p>
-            <%= link_to user_twitter_omniauth_authorize_path, method: :post, class: "twitter-session" do %>
-              <i class="fab fa-twitter twitter-icon"></i>Twitter
-            <% end %>
-            <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebook-session" do %>
-              <i class="fab fa-facebook-square facebook-icon"></i>Facebook
-            <% end %>
-          </div>
-         </div>
-      </div>
-    </header>
-  <% end %>
+  <%= render 'header' %>
   <main>
     <div class="search-form">
       <input type="text" name="keyword" class="search-input" placeholder="キーワードを入力">
@@ -42,53 +9,19 @@
       <div class="note-order">
         <div class="feed">
           <p class="feed-title"><b>記事フィード</b></p>
-          <a href="#" id="trend-feed" class="trend"><i class="fas fa-fire fire-icon"></i>トレンド</a>
-          <a href="#" id="asc-feed" class="asc"><i class="fas fa-sort-numeric-down asc-icon"></i>新着順</a>
-        </div>
-      <div>
-      <div class="notes-trend">
-      <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
-          <% @notes.each do |note| %>
-            <div class="note-user">
-            <%= link_to user_path(note.user.id) do %>
-              <% if note.user.intro.present? %>
-                <div class="session-usericon">
-                  <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
-                </div> 
-              <% else %>
-                <div class="session-usericon">
-                  <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
-                </div>
-              <% end %>
-            <% end %>
-            <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
-            <div class="created-at">
-              が<%= note.created_at.to_s(:datetime_jp) %>に投稿
-            </div>
-         </div>
-         <%= link_to note_path(note.id), class: "note_show_links" do %>
-            <div class="note-title">
-              <h3><%= note.title %></h3>
-            </div>
+          <%= link_to root_path, class: "trend", id: "trend-feed" do %>
+            <i class="fas fa-fire fire-icon"></i>トレンド
           <% end %>
-          <div class="note-tag">
-            <i class="fas fa-tags tag-img"></i>
-            <a href="#" class="tag">睡眠</a>
-            <a href ="#" class="tag">生産性</a>
-          </div>
-          <div class="note-opt">
-            <div class="favorite">
-              <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= note.favorites.count %></span>
-            </div>
-            <div class="comment-num">
-             <i class="far fa-comment comment-btn"></i><span class="comment-count"><%= note.comments.count %></span>
-           </div>
-          </div>
-        <% end %>
+          <%= link_to notes_order_index_path, class: "acc", id: "asc-feed" do %>
+            <i class="fas fa-sort-numeric-down asc-icon"></i>新着順
+          <% end %>
+        </div>
       </div>
-       <div class="notes-trend">
+      <div class="notes-trend">
+        <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
+          <%= render partial: 'notes', collection: @notes %>
         <div class="more-note">
-            <a href="#" class="more-link">もっと見る</a>
+          <a href="#" class="more-link">もっと見る</a>
         </div>
       </div>
     </div>
