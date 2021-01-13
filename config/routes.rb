@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :intros, only: %i[new create edit update]
   resources :notes do
-    resources :favorites, only: [:create, :destroy]
+   resources :favorites, only: [:create, :destroy] 
     resources :comments, only: [:create]
   end
   resources :comments, only: [:destroy]
