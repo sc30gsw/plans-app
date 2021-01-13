@@ -1,8 +1,12 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index order_index show]
   before_action :set_note, only: [:show, :edit, :update, :destroy] 
 
   def index
+    @notes = Note.includes(:user).sort {|a,b| b.favorited_users.count <=> a.favorited_users.count}
+  end
+
+  def order_index
     @notes = Note.includes(:user).order('created_at DESC')
   end
 
@@ -23,7 +27,6 @@ class NotesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @note.comments.includes(:user).order('created_at DESC')
-    @favorite_count = Favorite.where(note_id: @note.id).count
   end
 
   def edit 
