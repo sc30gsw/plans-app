@@ -112,11 +112,11 @@
             <p class="count"><%= @user.comments.count %></p>
           </div>
           <div class="mypage-follower-count">
-            <%= link_to 'フォロー', "/relationships/user/#{@user.id}", class: "detail" %>
+            <%= link_to 'フォロー', "/followings/user/#{@user.id}", class: "detail" %>
             <p class="count"><%= @user.followings.count%></p>
           </div>
           <div class="mypage-follower-count">
-            <a class="detail" href="#">フォロワー</a>
+            <%= link_to 'フォロワー', "/followers/user/#{@user.id}", class: "detail" %>
             <p class="count"><%= @user.followers.count %></p>
           </div>
         </div>

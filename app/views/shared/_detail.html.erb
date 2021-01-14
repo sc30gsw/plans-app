@@ -40,11 +40,11 @@
       </div>
       <div class="user-status-bottom">
         <div class="user-status-follow">
-          <%= link_to 'フォロー', "/relationships/user/#{@user.id}", class: "status" %>
+          <%= link_to 'フォロー', "/followings/user/#{@user.id}", class: "status" %>
           <p class="status-count"><%= @user.followings.count%></p>
         </div>
         <div class="user-status-follower">
-          <a href="#" class="status">フォロワー</a>
+          <%= link_to 'フォロワー', "/followers/user/#{@user.id}", class: "status" %>
           <p clcass="status-count"><%= @user.followers.count %></p>
         </div>
       </div>
