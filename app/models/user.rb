@@ -59,18 +59,33 @@ class User < ApplicationRecord
     end
   end
 
+  # 自分をフォローしないようにするため
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)
     end
   end
 
+  # フォローを外せるようにする
   def unfollow(other_user)
     relationship = self.relationships.find_by(follow_id: other_user.id)
     relationship.destroy if relationship
   end
 
+  # フォローしているか判定
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  # フォロー通知
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["viditer_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end
