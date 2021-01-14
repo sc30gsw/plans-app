@@ -112,9 +112,9 @@
             <p class="count"><%= @user.favorites.count %></p>
           </div>
            <div class="mypage-favorite-count">
-            <%#= link_to  favorites_users_path, class: "detail" do %>
+            <%= link_to  "/comments/user/#{@user.id}", class: "detail" do %>
               コメント
-            <%# end %>
+            <% end %>
             <p class="count"><%= @user.comments.count %></p>
           </div>
           <div class="mypage-follower-count">

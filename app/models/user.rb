@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :favorites, dependent: :destroy
   has_many :favorited_notes, through: :favorites, source: :note
+  has_many :commented_notes, through: :comments, source: :note
   has_one_attached :image
 
   def self.from_omniauth(auth)
