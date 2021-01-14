@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div class="session-header">
+    <%= render 'shared/session_header' %>
+      <div class="session-right">
+        <% if user_signed_in? %>
+          <%= render 'shared/header_links' %>
+        <% end %>
+        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+          <% if current_user.intro.present? %>
+            <div class="session-usericon">
+              <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
+              </div> 
+            <% else %> 
+            <div class="session-usericon">
+              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
+            </div>
+          <% end %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="detail-page-wrapper">
+    <div class="favpage-main">
+      <div class="top-left-content">
+        <div class="favpage-whose-list-nav">
+          <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
+            <% if @user.intro.present? %>
+              <%= image_tag @user.intro.image, class: "favpage-icon", alt: "ユーザーアイコン" %>
+            <% else %>
+              <img src="/assets/default.png" class="favpage-icon " alt="ユーザーアイコン" >
+            <% end %>
+          <% end %>
+          <p><b><%= link_to @user.nickname, user_path(@user.id), class: "whoes-list-name-link" %></b>'s FOLLOW</p>
+        </div>
+        <div class="item-pagenate">
+          <% @users.order('created_at DESC').each do |follow| %>
+            <li class="item-list">
+              <div class="favpage-user-info">
+                <%= link_to user_path(follow.id) do %>
+                  <% if follow.intro.present? %>
+                    <%= image_tag follow.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+                  <% else %>
+                    <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+                  <% end %>
+                <% end %>
+                <div class="likes-user-nickname">
+                  <%= link_to follow.nickname, user_path(follow.id), class: "likes-user-page-nickname-link" %>
+                </div>
+              </div>
+              <div class="likes-user-profile">
+                <span class="likes-user-profile-btn">Profile</span>
+                <% if follow.intro.present? %>
+                  <p><%= follow.intro.profile %></p>
+                <% end %>
+              </div>
+              <div class="likes-user-opt">
+                <div class="likes-user-icons">
+                  <i class="fas fa-clipboard"></i><span><%= follow.notes.count %></span>
+                  <i class="fas fa-book myitem-like-btn"></i><span><%= follow.favorites.count %></span>
+                  <i class="far fa-comment myitem-comment-btn"></i><span><%= follow.comments.count %></span>
+                </div>
+                <div class="likes-user-regist-day">
+                  <%= follow.created_at.strftime('%Y/%m/%d')%>から利用開始
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </div>
+      </div>
+        <%= render 'shared/detail' %>
+    </div>
+  </div>
+</div>
