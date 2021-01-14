@@ -22,15 +22,13 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
+  # SNS認証ログイン
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
-    # sns認証したことがあればアソシエーションで取得
-    # 無ければemailでユーザー検索して取得orビルド(保存はしない)
     user = User.where(email: auth.info.email).first_or_initialize(
       nickname: auth.info.name,
       email: auth.info.email
     )
-    # userが登録済みであるか判断
     if user.persisted?
       sns.user = user
       sns.save
@@ -38,9 +36,12 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  # ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com', nickname: 'guest') do |user|
       user.password = 'guest4040'
     end
   end
+
+  
 end
