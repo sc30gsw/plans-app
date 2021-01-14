@@ -36,4 +36,7 @@ Rails.application.routes.draw do
 
   # コメント削除機能のルーティング
   resources :comments, only: [:destroy]
+
+  # フォロー機能のルーティング
+  resources :relationships, only: [:create, :destroy]
 end
