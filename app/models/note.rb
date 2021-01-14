@@ -9,6 +9,6 @@ class Note < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
-  has_many :commented_notes, through: :comments, source: :user
+  has_many :commented_users, through: :comments, source: :user
   belongs_to :user
 end

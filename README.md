@@ -17,7 +17,6 @@
 - has_many :passive_relationships
 - has_many :following_users
 - has_many :favorites
-- has_many :favorite_notes
 - has_many :active_notifications
 - has_many :passive_notifications
 - has_many :notes
@@ -85,7 +84,6 @@
 - has_many :tags, through: :note_tags
 - has_many :comments
 - has_many :favorites
-- has_many :favorite_users
 - has_many :notifications
 - belongs_to :user
 
