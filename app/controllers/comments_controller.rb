@@ -23,6 +23,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def user
+    @user = User.find(params[:id])
+  end
+
   private
 
   def comment_params
