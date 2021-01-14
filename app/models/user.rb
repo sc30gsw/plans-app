@@ -15,14 +15,13 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :comments
   has_many :favorites, dependent: :destroy
+  has_many :relationships
 
   # コメントした投稿を取得するための記述
   has_many :commented_notes, through: :comments, source: :note
 
   # いいねした投稿を取得するための記述
   has_many :favorited_notes, through: :favorites, source: :note
-
-  has_many :relationships
 
   # follow_idを参照してfollowingモデルにアクセス
   has_many :followings, through: :relationships, source: :follow
@@ -54,5 +53,9 @@ class User < ApplicationRecord
     end
   end
 
-  
+  def follow(other_user)
+    unless self == other_user
+      self.relationships.find_or_create_by(follow_id: other_user.id)
+    end
+  end
 end
