@@ -149,8 +149,8 @@
               <div class="mypage-note-opt">
                 <div class="mypage-detail">
                   <div class="mypage-fav-comment">
-                    <i class="far fa-heart mypage-like-btn"></i>
-                    <i class="far fa-comment mypage-comment-btn"></i>
+                    <i class="fas fa-book mypage-like-btn"></i><span><%= note.favorites.count %></span>
+                    <i class="far fa-comment mypage-comment-btn"></i><span><%= note.comments.count %></span>
                   </div>
                   <div class="mypage-created">
                     <div class="mypage-time"><%= note.created_at.strftime('%Y/%m/%d') %></div>
