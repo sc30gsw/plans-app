@@ -1,0 +1,90 @@
+<div class="top-right-content">
+  <div class="top-user-card">
+    <div class="detail-page-user-card">
+      <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
+        <% if @user.intro.present? %>
+          <%= image_tag @user.intro.image, class: "detail-user-page-icon", alt: "ユーザーアイコン" %>
+        <% else %>
+          <img src="/assets/default.png" class="detail-user-page-icon " alt="ユーザーアイコン" >
+        <% end %>
+      <% end %>
+    </div>
+    <div class="detail-page-user-name">
+      <% if @user.intro.present? %>
+        <div class="detail-user-name">
+          <p class="detail-user-firstname"><%= @user.intro.first_name%></p>
+          <p class="detail-user-lastname"><%= @user.intro.last_name%></p>
+        </div>
+      <% else %>
+        <div class="detail-user-nickname">
+          <%= @user.nickname %>
+        </div>
+      <% end %>
+    </div>
+    <div class="user-status">
+      <div class="user-status-top">
+        <div class="user-status-note">
+          <%= link_to user_path(@user.id), class: "status" do %>
+            投稿
+          <% end %>
+          <p class="status-count"><%= @user.notes.count %></p>
+        </div>
+        <div class="user-status-fav">
+          <%= link_to "いいね", "/favorites/user/#{@user.id}", class: "status" %>
+          <p class="status-count"><%= @user.favorites.count %></p>
+        </div>
+        <div class="user-status-comment">
+          <%= link_to "コメント", "/comments/user/#{@user.id}", class: "status" %>
+          <p class="status-count"><%= @user.comments.count %></p>
+        </div>
+      </div>
+      <div class="user-status-bottom">
+        <div class="user-status-follow">
+          <a href="#" class="status">フォロー</a>
+          <p class="status-count">0</p>
+        </div>
+        <div class="user-status-follower">
+          <a href="#" class="status">フォロワー</a>
+          <p clcass="status-count">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-page-user-notes">
+    <div class="item-list-navi">
+      <i class="fas fa-square item-list-squere"></i><b><%= @user.nickname %></b>'s NOTES
+    </div>
+    <% @user.notes.each do |note| %>
+      <li class="my-item-list">
+          div class="my-item-list-content">
+          <div class="my-item-list-tag">
+            <i class="fas fa-tags my-list-tag-img"></i>
+            <a href="#" class="my-lst-tag">睡眠</a>
+            <a href ="#" class="my-list-tag">生産性</a>
+          </div>
+          <div class="my-item-list-detail">
+            <%= link_to note_path(note.id), class: "my_list_note_link" do %>
+              <%= note.title%>
+            <% end %>
+          </div>
+        </div>
+        <div class="my-item-list-rower">
+          <div class="my-item-list-opt">
+            <i class="fas fa-book myitem-like-btn"></i><span><%= note.favorites.count %></span>
+            <i class="far fa-comment myitem-comment-btn"></i><span><%= note.comments.count %></span>
+          </div>
+          <div class="my-item-list-created">
+            <%= note.created_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+      <div class="my-detail-page-nation">
+        <span>1/1</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mypage-footer">
+  <%= render 'shared/footer' %>
+</div>
