@@ -18,4 +18,12 @@ class Note < ApplicationRecord
   # いいねした投稿を取得するための記述
   has_many :favorited_users, through: :favorites, source: :user
 
+  def create_notification_by(current_user)
+    notification = current_user.active_notifications.new(
+      note_id: id,
+      visited_id: user_id,
+      action: "Favorite"
+    )
+    notification.save if notification.valid?
+  end
 end
