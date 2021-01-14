@@ -100,25 +100,19 @@
       <div class="mypage-user-details">
         <div class="mypage-count">
           <div class="mypage-notes-count">
-            <%= link_to user_path(@user.id), class: "detai" do %>
-              投稿
-            <% end %>
+            <%= link_to '投稿', user_path(@user.id), class: "detai" %>
              <p class="count"><%= @user.notes.count %></p>
           </div>
           <div class="mypage-favorite-count">
-            <%= link_to "/favorites/user/#{@user.id}", class: "detail" do %>
-              いいね
-            <% end %>
+            <%= link_to 'いいね', "/favorites/user/#{@user.id}", class: "detail" %>
             <p class="count"><%= @user.favorites.count %></p>
           </div>
            <div class="mypage-favorite-count">
-            <%= link_to  "/comments/user/#{@user.id}", class: "detail" do %>
-              コメント
-            <% end %>
+            <%= link_to  'コメント', "/comments/user/#{@user.id}", class: "detail" %>
             <p class="count"><%= @user.comments.count %></p>
           </div>
           <div class="mypage-follower-count">
-            <a href="#" class="detail">フォロー</a>
+            <%= link_to 'フォロー', "/relationships/user/#{@user.id}", class: "detail" %>
             <p class="count"><%= @user.followings.count%></p>
           </div>
           <div class="mypage-follower-count">
