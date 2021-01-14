@@ -124,6 +124,25 @@
   margin-left: 10px;
 }
 
+.unfavorite:hover {
+  text-decoration: none;
+}
+
+.show-top-nolike-btn {
+  width: 90%;
+  border: 2px solid rgb(56, 135, 224);
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(56, 135, 224);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.favorite:hover {
+  text-decoration: none;
+}
+
 .show-top-like-btn {
   width: 90%;
   border: 2px solid rgb(56, 135, 224);

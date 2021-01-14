@@ -282,6 +282,10 @@ main {
   color: gray;
 }
 
+.feed a:active {
+  background-color: rgb(56, 135, 224);
+}
+
 .notes-trend {
   margin: 0 auto;
   background-color: white;
@@ -294,6 +298,11 @@ main {
 }
 
 .trend-fire {
+  color: rgb(87, 154, 255);
+  font-size: 20px;
+}
+
+.asc-icon-notes {
   color: rgb(87, 154, 255);
   font-size: 20px;
 }
@@ -357,6 +366,12 @@ main {
   color: black;
 }
 
+.note-options {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #f0f0f0;
+}
+
 .note-tag {
   padding-left: 15px;
   padding-bottom: 10px;
@@ -376,7 +391,7 @@ main {
 
 .note-opt {
   display: flex;
-  border-bottom: 1px solid lightgray;
+  margin-right: 5px;
 }
 
 .like-btn {
@@ -387,12 +402,23 @@ main {
   margin-left: 20px;
 }
 
+.favorite-count {
+  color: #808080;
+  font-weight: bold;
+}
+
 .comment-btn {
   width: 25px;
   height: 30px;
   font-size: 25px;
   color: #808080;
   margin-left: 20px;
+  margin-right: 5px;
+}
+
+.comment-count {
+  color: #808080;
+  font-weight: bold;
 }
 
 .more-note {
@@ -409,10 +435,6 @@ main {
   border-bottom: solid 1px black;
   text-decoration: none;
   color: black;
-}
-
-footer {
-  margin-top: 300px;
 }
 
 .footer {

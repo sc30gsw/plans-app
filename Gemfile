@@ -57,6 +57,7 @@ end
 gem 'devise'
 gem 'dotenv-rails'
 gem 'image_processing', '~>1.2'
+gem 'jquery-rails'
 gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'

@@ -9,19 +9,22 @@ class CommentsController < ApplicationController
     else
       @note = @comment.note
       @comments = @note.comments
-      render "notes/show"
+      render 'notes/show'
     end
   end
 
-
   def destroy
     @note = @comment.note
-    if @comment.user_id == current_user.id 
+    if @comment.user_id == current_user.id
       @comment.destroy
       redirect_to note_path(@note.id)
     else
       render 'notes/show'
     end
+  end
+
+  def user
+    @user = User.find(params[:id])
   end
 
   private

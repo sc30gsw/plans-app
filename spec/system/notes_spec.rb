@@ -21,7 +21,7 @@ RSpec.describe '新規投稿', type: :system do
       # 添付する画像を定義する
       image_path = Rails.root.join('public/images/test_image.png')
       # 画像選択フォームに画像を添付する
-      attach_file('note[image]',image_path,make_visible: true)
+      attach_file('note[image]', image_path, make_visible: true)
       # 送信するとNoteモデルのカウントが1上がることを確認する
       expect do
         find('input[name="commit"]').click
@@ -52,17 +52,16 @@ RSpec.describe '投稿詳細', type: :system do
     # ログインする
     sign_in(@user)
     # 投稿のタイトルリンクがあることを確認する
-    expect(page).to have_content (@note.title)
+    expect(page).to have_content(@note.title)
     # 詳細ページに遷移する
     visit note_path(@note)
     # 詳細ページに投稿内容が含まれている
     expect(page).to have_content(@note.title)
     expect(page).to have_content(@note.text)
     expect(page).to have_content(@note.plan)
-    expect(page).to have_selector ".show-note-image"
+    expect(page).to have_selector '.show-note-image'
     # コメント用フォームが存在する
-    expect(page).to have_selector ".comment-textarea"
-
+    expect(page).to have_selector '.comment-textarea'
   end
 
   it 'ログインしていな状態ではnote詳細ページに遷移できるもののコメント入力欄が表示されない' do
@@ -76,9 +75,9 @@ RSpec.describe '投稿詳細', type: :system do
     expect(page).to have_content(@note.title)
     expect(page).to have_content(@note.text)
     expect(page).to have_content(@note.plan)
-    expect(page).to have_selector ".show-note-image"
+    expect(page).to have_selector '.show-note-image'
     # コメントフォームが存在しないことを確認する
-    expect(page).to have_no_selector ".comment-textarea"
+    expect(page).to have_no_selector '.comment-textarea'
   end
 end
 
@@ -97,9 +96,9 @@ RSpec.describe '投稿編集', type: :system do
       # note1詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンボタンがあることを確認する
-      expect(page).to have_selector ".plan-drop"
+      expect(page).to have_selector '.plan-drop'
       # note1のドロップダウンボタンをクリックする
-      find(".plan-drop").click
+      find('.plan-drop').click
       # 編集ページへ遷移する
       visit edit_note_path(@note1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
@@ -107,24 +106,24 @@ RSpec.describe '投稿編集', type: :system do
       expect(find('#note_text').value).to eq @note1.text
       expect(find('#note_plan').value).to eq @note1.plan
       # 投稿内容を編集する
-      fill_in "note_title", with: @note1.title
-      fill_in "note_text", with: @note1.text
-      fill_in "note_plan", with: @note1.plan
+      fill_in 'note_title', with: @note1.title
+      fill_in 'note_text', with: @note1.text
+      fill_in 'note_plan', with: @note1.plan
       # 添付する画像を定義する
       image_path = Rails.root.join('public/images/test_image2.png')
       # 画像選択フォームに画像を添付する
-      attach_file('note[image]',image_path,make_visible: true)
+      attach_file('note[image]', image_path, make_visible: true)
       # 編集してもNoteモデルのカウントは変わらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change{ Note.count }.by(0)
+      end.to change { Note.count }.by(0)
       # note1の詳細ページに遷移することを確認する
       expect(current_path).to eq note_path(@note1)
       # note1の詳細ページには先ほど編集した内容が存在することを確認する
       expect(page).to have_content(@note1.title)
       expect(page).to have_content(@note1.text)
       expect(page).to have_content(@note1.plan)
-      expect(page).to have_selector(".show-note-image")
+      expect(page).to have_selector('.show-note-image')
     end
   end
 
@@ -137,7 +136,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector(".plan-drop")
+      expect(page).to have_no_selector('.plan-drop')
     end
 
     it 'ログインしていないとnote1編集画面には遷移できないこと' do
@@ -148,7 +147,7 @@ RSpec.describe '投稿編集', type: :system do
       # note1の詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンがないことを確認する
-      expect(page).to have_no_selector(".plan-drop")
+      expect(page).to have_no_selector('.plan-drop')
     end
 
     it 'ログインしていないとnote2編集画面には遷移できない' do
@@ -159,7 +158,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2の詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector(".plan-drop")
+      expect(page).to have_no_selector('.plan-drop')
     end
   end
 end
@@ -179,13 +178,13 @@ RSpec.describe '投稿編集', type: :system do
       # note1詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンボタンがあることを確認する
-      expect(page).to have_selector ".plan-drop"
+      expect(page).to have_selector '.plan-drop'
       # note1のドロップダウンボタンをクリックする
-      find(".plan-drop").click
+      find('.plan-drop').click
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect{
+      expect do
         find_link('削除する', href: note_path(@note1)).click
-      }.to change{ Note.count }.by(-1)
+      end.to change { Note.count }.by(-1)
       # トップページに遷移する
       visit root_path
     end
@@ -193,14 +192,14 @@ RSpec.describe '投稿編集', type: :system do
 
   context 'note削除ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したnoteを削除できない' do
-       # note1を投稿したユーザーでログインする
-       sign_in(@note1.user)
-       # note2の投稿のタイトルリンクがある
-       expect(page).to have_content(@note2.title)
-       # note2詳細ページに遷移する
-       visit note_path(@note2)
-       # note2にドロップダウンがないことを確認する
-       expect(page).to have_no_selector(".plan-drop")
+      # note1を投稿したユーザーでログインする
+      sign_in(@note1.user)
+      # note2の投稿のタイトルリンクがある
+      expect(page).to have_content(@note2.title)
+      # note2詳細ページに遷移する
+      visit note_path(@note2)
+      # note2にドロップダウンがないことを確認する
+      expect(page).to have_no_selector('.plan-drop')
     end
 
     it 'ログインしていなとnote1の削除ボタンがない' do
@@ -211,7 +210,7 @@ RSpec.describe '投稿編集', type: :system do
       # note1の詳細ページに遷移する
       visit note_path(@note1)
       # note1にドロップダウンがないことを確認する
-      expect(page).to have_no_selector(".plan-drop")
+      expect(page).to have_no_selector('.plan-drop')
     end
 
     it 'ログインしていなとnote2の削除ボタンがない' do
@@ -222,7 +221,7 @@ RSpec.describe '投稿編集', type: :system do
       # note2の詳細ページに遷移する
       visit note_path(@note2)
       # note2にドロップダウンがないことを確認する
-      expect(page).to have_no_selector(".plan-drop")
+      expect(page).to have_no_selector('.plan-drop')
     end
   end
 end
