@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   end
   root to: 'notes#index'
   get 'notes/order_index', to: 'notes#order_index'
+  get 'favorites/user/:id', to: 'favorites#user'
   resources :users, only: [:show]
   resources :intros, only: %i[new create edit update]
   resources :notes do
-   resources :favorites, only: [:create, :destroy] 
-   resources :comments, only: [:create]
+    resources :favorites, only: %i[create destroy]
+    resources :comments, only: [:create]
   end
   resources :comments, only: [:destroy]
 end

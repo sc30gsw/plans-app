@@ -2,15 +2,15 @@
   <div class="session-header">
     <%= render 'shared/session_header' %>
       <div class="session-right">
-       <% if user_signed_in? %>
-        <%= render 'shared/header_links' %>
-       <% end %>
-        <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
-          <% if @user.intro.present? %>
+        <% if user_signed_in? %>
+          <%= render 'shared/header_links' %>
+        <% end %>
+        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+          <% if current_user.intro.present? %>
             <div class="session-usericon">
-              <%= image_tag @user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
-             </div> 
-           <% else %> 
+              <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
+              </div> 
+            <% else %> 
             <div class="session-usericon">
               <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
             </div>
@@ -26,13 +26,24 @@
           <i class="fas fa-ellipsis-h"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">コメント履歴</a>
+          <% if user_signed_in? %>
+              <% unless @user.intro.present? %>
+                <% if current_user.id == @user.id %>
+                   <div class="dropdown-item">
+                    <%= link_to 'プロフィールを編集する', new_intro_path, class: "profile-edit" %>
+                  </div>
+                <% end %>
+              <% end %>
+              <% if current_user.id == @user.id && @user.intro.present? %>
+                <div class="dropdown-item">
+                  <%= link_to 'プロフィールを編集する', edit_intro_path(@user.intro.id), class: "profile-edit" %>
+                </div>
+              <% end %>
+           <% end %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">フォローしているユーザー</a>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="dropdown-divider"></div>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        <% end %>
+            <% if user_signed_in? && current_user.id == @user.id %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <% end %>
         </div>
       </div>
       <% if @user.intro.present? %>
@@ -89,33 +100,33 @@
       <div class="mypage-user-details">
         <div class="mypage-count">
           <div class="mypage-notes-count">
-            <a href="#" class="detai">投稿</a>
-            <p class="count">0</p>
+            <%= link_to user_path(@user.id), class: "detai" do %>
+              投稿
+            <% end %>
+             <p class="count"><%= @user.notes.count %></p>
           </div>
           <div class="mypage-favorite-count">
-            <a href="#" class="detail">いいね</a>
+            <%= link_to "/favorites/user/#{@user.id}", class: "detail" do %>
+              いいね
+            <% end %>
+            <p class="count"><%= @user.favorites.count %></p>
+          </div>
+           <div class="mypage-favorite-count">
+            <%#= link_to  favorites_users_path, class: "detail" do %>
+              コメント
+            <%# end %>
+            <p class="count"><%= @user.comments.count %></p>
+          </div>
+          <div class="mypage-follower-count">
+            <a href="#" class="detail">フォロー</a>
             <p class="count">0</p>
           </div>
           <div class="mypage-follower-count">
-            <a href="#" class="detail">フォロワー</a>
+            <a class="detail" href="#">フォロワー</a>
             <p class="count">0</p>
           </div>
         </div>
       </div>
-      <% if user_signed_in? %>
-        <% unless @user.intro.present? %>
-          <% if current_user.id == @user.id %>
-            <div class="profile-btn">
-              <%= link_to 'プロフィールを編集する', new_intro_path, class: "profile-edit-btn" %>
-            </div>
-          <% end %>
-        <% end %>
-        <% if current_user.id == @user.id && @user.intro.present? %>
-          <div class="profile-btn">
-            <%= link_to 'プロフィールを編集する', edit_intro_path(@user.intro.id), class: "profile-edit-btn" %>
-          </div>
-        <% end %>
-      <% end %>
     </div>
     <div class="mypage-right">
       <div class="user-activity">

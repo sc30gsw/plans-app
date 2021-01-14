@@ -1,0 +1,168 @@
+<div class="wrapper">
+  <div class="session-header">
+    <%= render 'shared/session_header' %>
+      <div class="session-right">
+        <% if user_signed_in? %>
+          <%= render 'shared/header_links' %>
+        <% end %>
+        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+          <% if current_user.intro.present? %>
+            <div class="session-usericon">
+              <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
+              </div> 
+            <% else %> 
+            <div class="session-usericon">
+              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
+            </div>
+          <% end %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="detail-page-wrapper">
+  <div class="favpage-main">
+    <div class="top-left-content">
+      <div class="favpage-whose-list-nav">
+        <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
+          <% if @user.intro.present? %>
+            <%= image_tag @user.intro.image, class: "favpage-icon", alt: "ユーザーアイコン" %>
+          <% else %>
+            <img src="/assets/default.png" class="favpage-icon " alt="ユーザーアイコン" >
+          <% end %>
+        <% end %>
+        <p><b><%= link_to @user.nickname, user_path(@user.id), class: "whoes-list-name-link" %></b>'s LIKES</p>
+      </div>
+      <div class="item-pagenate">
+      <% @user.favorited_notes.order('created_at DESC').each do |note| %>
+        <li class="item-list">
+          <div class="favpage-user-info">
+            <%= link_to user_path(note.user.id) do %>
+              <% if note.user.intro.present? %>
+                <%= image_tag note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+              <% else %>
+                <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
+              <% end %>
+            <% end %>
+            <div class="favpage-user-info-detail">
+              <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
+              <p>が<%= note.created_at.to_s(:datetime_jp) %>に投稿</p>
+            </div>
+          </div>
+          <div class="list-main-content">
+            <%= link_to note_path(note.id), class: "favpage_note_show" do %>
+              <div class="list-title-content">
+                <p><%= note.title %></p>
+              </div>
+            <% end %>
+            <div class="list-detail-tag-content">
+              <div class="list-tag-content">
+                <i class="fas fa-tags favpage-tag-img"></i>
+                <a href="#" class="favpage-tag">睡眠</a>
+                <a href ="#" class="favpage-tag">生産性</a>
+              </div>
+              <div class="list-detail-content">
+                <i class="fas fa-book favpage-like-btn"></i><span><%= note.favorites.count %></span>
+                <i class="far fa-comment favpage-comment-btn"></i><span><%= note.comments.count %></span>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+        <div class="detail-page-more-note">
+          <a href="#" class="detail-more-link">もっと見る</a>
+        </div>
+      </div>
+    </div>
+    <div class="top-right-content">
+      <div class="top-user-card">
+        <div class="detail-page-user-card">
+          <%= link_to user_path(@user.id), class: 'upper-usericon' do %>
+            <% if @user.intro.present? %>
+              <%= image_tag @user.intro.image, class: "detail-user-page-icon", alt: "ユーザーアイコン" %>
+            <% else %>
+              <img src="/assets/default.png" class="detail-user-page-icon " alt="ユーザーアイコン" >
+            <% end %>
+          <% end %>
+        </div>
+        <div class="detail-page-user-name">
+          <% if @user.intro.present? %>
+            <div class="detail-user-name">
+              <p class="detail-user-firstname"><%= @user.intro.first_name%></p>
+              <p class="detail-user-lastname"><%= @user.intro.last_name%></p>
+            </div>
+          <% else %>
+            <div class="detail-user-nickname">
+              <%= @user.nickname %>
+            </div>
+          <% end %>
+        </div>
+        <div class="user-status">
+          <div class="user-status-top">
+            <div class="user-status-note">
+              <%= link_to user_path(@user.id), class: "status" do %>
+                投稿
+              <% end %>
+              <p class="status-count"><%= @user.notes.count %></p>
+            </div>
+            <div class="user-status-fav">
+              <%= link_to  "/favorites/user/#{@user.id}", class: "status" do %>
+                いいね
+              <% end %>
+              <p class="status-count"><%= @user.favorites.count %></p>
+            </div>
+            <div class="user-status-comment">
+               <a href="#" class="status">コメント</a>
+              <p class="status-count"><%= @user.comments.count %></p>
+            </div>
+          </div>
+          <div class="user-status-bottom">
+            <div class="user-status-follow">
+              <a href="#" class="status">フォロー</a>
+              <p class="status-count">0</p>
+            </div>
+            <div class="user-status-follower">
+              <a href="#" class="status">フォロワー</a>
+              <p clcass="status-count">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-page-user-notes">
+        <div class="item-list-navi">
+          <i class="fas fa-square item-list-squere"></i><b><%= @user.nickname %></b>'s NOTES
+        </div>
+        <% @user.notes.each do |note| %>
+          <li class="my-item-list">
+            <div class="my-item-list-content">
+              <div class="my-item-list-tag">
+                <i class="fas fa-tags my-list-tag-img"></i>
+                <a href="#" class="my-lst-tag">睡眠</a>
+                <a href ="#" class="my-list-tag">生産性</a>
+              </div>
+              <div class="my-item-list-detail">
+                <%= link_to note_path(note.id), class: "my_list_note_link" do %>
+                  <%= note.title%>
+                <% end %>
+              </div>
+            </div>
+            <div class="my-item-list-rower">
+              <div class="my-item-list-opt">
+                <i class="fas fa-book myitem-like-btn"></i><span><%= note.favorites.count %></span>
+                <i class="far fa-comment myitem-comment-btn"></i><span><%= note.comments.count %></span>
+              </div>
+              <div class="my-item-list-created">
+                <%= note.created_at.strftime('%Y/%m/%d') %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+        <div class="my-detail-page-nation">
+          <span>1/1</span>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="mypage-footer">
+      <%= render 'shared/footer' %>
+    </div>
+  </div>

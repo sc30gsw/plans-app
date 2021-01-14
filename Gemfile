@@ -57,6 +57,7 @@ end
 gem 'devise'
 gem 'dotenv-rails'
 gem 'image_processing', '~>1.2'
+gem 'jquery-rails'
 gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
@@ -64,4 +65,3 @@ gem 'omniauth-twitter'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'rubocop', require: false
-gem 'jquery-rails'

@@ -12,7 +12,7 @@
 
 .mypage-left {
   width: 30vw;
-  height: 70vh;
+  height: 93%;
   margin: 30px;
   margin-right: 5px;
   background-color: white;
@@ -127,13 +127,13 @@
   cursor: pointer;
 }
 
-.profile-edit-btn {
-  color: white;
+.profile-edit {
+  color: black;
   text-decoration: none;
 }
 
-.profile-edit-btn:hover {
-  color: white;
+.profile-edit:hover {
+  color: black;
   text-decoration: none;
 }
 

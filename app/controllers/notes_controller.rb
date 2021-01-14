@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, except: %i[index order_index show]
-  before_action :set_note, only: [:show, :edit, :update, :destroy] 
+  before_action :set_note, only: %i[show edit update destroy]
 
   def index
-    @notes = Note.includes(:user).sort {|a,b| b.favorited_users.count <=> a.favorited_users.count}
+    @notes = Note.includes(:user).sort { |a, b| b.favorited_users.count <=> a.favorited_users.count }
   end
 
   def order_index
@@ -29,10 +29,8 @@ class NotesController < ApplicationController
     @comments = @note.comments.includes(:user).order('created_at DESC')
   end
 
-  def edit 
-    unless @note.user_id == current_user.id
-      redirect_to note_path(@note.id)
-    end
+  def edit
+    redirect_to note_path(@note.id) unless @note.user_id == current_user.id
   end
 
   def update
@@ -44,7 +42,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @note.user_id 
+    if current_user.id == @note.user_id
       @note.destroy
       redirect_to root_path
     else
