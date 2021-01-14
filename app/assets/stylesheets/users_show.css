@@ -277,6 +277,10 @@
   color: #3e3e3e;
 }
 
+.pagenations li {
+  list-style: none;
+}
+
 .mypage-footer {
   width: 100vw;
   padding: 30px 0;
