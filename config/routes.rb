@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'notes/order_index', to: 'notes#order_index'
   get 'favorites/user/:id', to: 'favorites#user'
   get 'comments/user/:id', to: 'comments#user'
+  get 'notes/favorite/:id', to: 'notes#favorite'
   resources :users, only: [:show]
   resources :intros, only: %i[new create edit update]
   resources :notes do
