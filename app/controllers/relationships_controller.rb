@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:create, :destroy]
 
   def create
     following = current_user.follow(@user)
@@ -24,6 +24,11 @@ class RelationshipsController < ApplicationController
       flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
       redirect_to user_path(@user.id)
     end
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.all
   end
 
   private

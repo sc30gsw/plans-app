@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # いいねした投稿を表示するためのルーティング
   get 'notes/favorite/:id', to: 'notes#favorite'
 
+  # フォローしているユーザー一覧のルーティング
+  get 'relationships/user/:id', to: 'relationships#followings'
+
   # マイページ
   resources :users, only: [:show]
 
