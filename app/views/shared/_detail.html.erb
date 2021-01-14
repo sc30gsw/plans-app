@@ -40,12 +40,12 @@
       </div>
       <div class="user-status-bottom">
         <div class="user-status-follow">
-          <a href="#" class="status">フォロー</a>
-          <p class="status-count">0</p>
+          <%= link_to 'フォロー', "/followings/user/#{@user.id}", class: "status" %>
+          <p class="status-count"><%= @user.followings.count%></p>
         </div>
         <div class="user-status-follower">
-          <a href="#" class="status">フォロワー</a>
-          <p clcass="status-count">0</p>
+          <%= link_to 'フォロワー', "/followers/user/#{@user.id}", class: "status" %>
+          <p clcass="status-count"><%= @user.followers.count %></p>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     </div>
     <% @user.notes.each do |note| %>
       <li class="my-item-list">
-          div class="my-item-list-content">
+        <div class="my-item-list-content">
           <div class="my-item-list-tag">
             <i class="fas fa-tags my-list-tag-img"></i>
             <a href="#" class="my-lst-tag">睡眠</a>
@@ -84,7 +84,4 @@
       </div>
     </div>
   </div>
-</div>
-<div class="mypage-footer">
-  <%= render 'shared/footer' %>
 </div>

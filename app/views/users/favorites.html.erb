@@ -108,15 +108,11 @@
         <% end %>
         <div class="favpage-count">
           <div class="favpage-notes-count">
-            <%= link_to user_path(current_user.id), class: "detai" do %>
-              投稿
-            <% end %>
+            <%= link_to '投稿', user_path(current_user.id), class: "detai" %>
             <p class="count"><%= current_user.notes.count %></p>
           </div>
           <div class="favpage-favorite-count">
-            <%= link_to  favorites_users_path, class: "detail" do %>
-               いいね
-            <% end %>
+            <%= link_to  'いいね' favorites_users_path, class: "detail"  %>
             <p class="count"><%= current_user.favorites.count %></p>
           </div>
           <div class="favpage-follower-count">

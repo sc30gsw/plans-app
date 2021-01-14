@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, except: %i[index order_index show]
-  before_action :set_note, only: %i[show edit update destroy]
+  before_action :set_note, only: %i[show edit update destroy favorite]
 
   def index
     @notes = Note.includes(:user).sort { |a, b| b.favorited_users.count <=> a.favorited_users.count }
@@ -48,6 +48,9 @@ class NotesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def favorite
   end
 
   private

@@ -46,10 +46,6 @@
                 </div>
               </div>
             </div> 
-          <% else %>
-            <div class="show-top-command">
-              <input type="submit" value="フォロー" class="show-follow-btn">
-            </div>
           <% end %>
         </div>
         <span class="show-top-created"><%= @note.created_at.strftime('%Y年%m月%d日') %>に更新</span>
@@ -92,7 +88,7 @@
           </div>
         </div>
         <div class="show-top-communication-after">
-          <a href="#">LIKEしたユーザーを見る</a>
+          <%= link_to 'LIKEしたユーザーを見る', "/notes/favorite/#{@note.id}" %>
         </div>
       </div>
       <div class="show-body">

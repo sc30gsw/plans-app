@@ -11,17 +11,18 @@
 ### Associations
 
 - has_one :intro
+- has_many :notes
 - has_many :sns_credentials
-- has_many :active_relationships
-- has_many :followed_users
-- has_many :passive_relationships
-- has_many :following_users
-- has_many :favorites
-- has_many :favorite_notes
+- has_many: comments
+- has_many :commented_notes, through: :comments, source: :note
+- has_many :favorite, dependent: :destroy
+- has_many :favorited_notes, through: :favorites, source: :note
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
 - has_many :active_notifications
 - has_many :passive_notifications
-- has_many :notes
-- has_many :comments
 
 ## intro テーブル
 
@@ -51,14 +52,15 @@
 
 ## relationships テーブル
 
-| Column   | Type       | Options           |
-| -------- | ---------- | ----------------- |
-| follower | references | foreign_key: true |
-| followed | references | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| follow | references | foreign_key: true |
 
 ### Associations
 
 - belongs_to :user
+- belongs_to :follow
 
 ## favorites
 
@@ -83,9 +85,10 @@
 
 - has_many :note_tags
 - has_many :tags, through: :note_tags
-- has_many :comments
-- has_many :favorites
-- has_many :favorite_users
+- has_many :comments, dependent: :destroy
+- has_many :commented_users, through: :comments, source: :user
+- has_many :favorites, dependent: :destroy
+- has_many :favorited_users, through: :favorites, source: :user
 - has_many :notifications
 - belongs_to :user
 

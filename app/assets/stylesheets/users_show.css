@@ -137,6 +137,30 @@
   text-decoration: none;
 }
 
+.follow {
+  text-align: center;
+}
+
+.btn-follow {
+  background-color: white;
+  color: black;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  padding: 5px 15px;
+}
+
+.unfollow {
+  text-align: center;
+}
+
+.btn-unfollow {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  padding: 5px 30px;
+}
+
 .mypage-right {
   width: 60vw;
   margin: 30px;
