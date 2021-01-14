@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   get 'notes/favorite/:id', to: 'notes#favorite'
 
   # フォローしているユーザー一覧のルーティング
-  get 'relationships/user/:id', to: 'relationships#followings'
+  get 'followings/user/:id', to: 'relationships#followings'
+
+  # フォロワー一覧のルーティング
+  get 'followers/user/:id', to: 'relationships#followers'
 
   # マイページ
   resources :users, only: [:show]
