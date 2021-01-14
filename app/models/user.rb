@@ -14,12 +14,23 @@ class User < ApplicationRecord
   has_many :notes
   has_one_attached :image
   has_many :comments
-  has_many :commented_notes, through: :comments, source: :note
   has_many :favorites, dependent: :destroy
+
+  # コメントした投稿を取得するための記述
+  has_many :commented_notes, through: :comments, source: :note
+
+  # いいねした投稿を取得するための記述
   has_many :favorited_notes, through: :favorites, source: :note
+
   has_many :relationships
+
+  # follow_idを参照してfollowingモデルにアクセス
   has_many :followings, through: :relationships, source: :follow
+
+  # relationモデルのfollow_idを参照してフォローの逆をするための記述
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+
+  # user_idでフォローしてくれているユーザーを取得するための記述
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   # SNS認証ログイン
