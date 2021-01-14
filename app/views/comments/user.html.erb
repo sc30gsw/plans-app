@@ -30,7 +30,7 @@
               <img src="/assets/default.png" class="favpage-icon " alt="ユーザーアイコン" >
             <% end %>
           <% end %>
-          <p><b><%= link_to @user.nickname, user_path(@user.id), class: "whoes-list-name-link" %></b>'s LIKES</p>
+          <p><b><%= link_to @user.nickname, user_path(@user.id), class: "whoes-list-name-link" %></b>'s COMMENTS</p>
         </div>
         <div class="item-pagenate">
           <% @user.commented_notes.order('created_at DESC').each do |note| %>
