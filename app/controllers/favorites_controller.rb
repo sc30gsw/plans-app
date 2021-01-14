@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.new(note_id: params[:note_id])
+    @favorite.save
+    @note = Note.find(params[:note_id])
+    # 通知作成
+    @note.create_notification_by(current_user)
     redirect_to "/notes/#{params[:note_id]}" if @favorite.save
   end
 
