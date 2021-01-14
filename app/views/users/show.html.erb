@@ -128,21 +128,13 @@
         </div>
         <div class="follow-btn">
           <% unless current_user.id == @user.id %>
-            <% if current_user.following?(@user) %>
-              <%= form_with(model: @relationship, url: relationship_path, method: :delete, local: true) do |f| %>
-                <div class="unfollow">
-                  <%= f.hidden_field :follow_id, value: @user.id %>
-                  <%= f.submit 'フォロー', class: 'btn-unfollow' %>
-                </div>
+            <div id="follow-form">
+              <% if current_user.following?(@user) %>
+                <%= render 'unfollow' %>
+              <% else %>
+                <%= render 'follow' %>
               <% end %>
-            <% else %>
-              <%= form_with(modl: @relationship, url: relationships_path, method: :post, local: true) do |f| %>
-                <div class="follow">
-                  <%= f.hidden_field :follow_id, value: @user.id %>
-                  <%= f.submit 'フォローする', class: 'btn-follow' %>
-                </div>
-              <% end %>
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>
