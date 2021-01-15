@@ -21,8 +21,8 @@
 - has_many :followings, through: :relationships, source: :follow
 - has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
 - has_many :followers, through: :reverse_of_relationships, source: :user
-- has_many :active_notifications
-- has_many :passive_notifications
+- has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+- has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
 ## intro テーブル
 
@@ -142,7 +142,7 @@
 
 ### Associations
 
-- belongs_to :note
-- belongs_to :comment
-- belongs_to :visitor
-- belongs_to :visited
+- belongs_to :note, optional: true
+- belongs_to :comment, optional: true
+- belongs_to :visiter, class_name: 'User', foreign_key: 'visiter_id',optional: true
+- belongs_to :visited, class_name: 'User', foreign_key:'visited_id', optional: true
