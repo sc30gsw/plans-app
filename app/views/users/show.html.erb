@@ -142,7 +142,7 @@
               <div class="mypage-note-tag">
                 <% note.tags.each do |tag| %>
                   <i class="fas fa-tags mypage-tag-img"></i>
-                  <a href="#" class="tag">#<%= tag.name %></a>
+                  <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
                 <% end %>
               </div>
               <%= link_to note_path(note.id), class: "mypage_note_show" do %>

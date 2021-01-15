@@ -58,7 +58,7 @@
                   <div class="list-tag-content">
                     <% note.tags.each do |tag| %>
                       <i class="fas fa-tags favpage-tag-img"></i>
-                      <a href="#" class="favpage-tag">#<%= tag.name %></a>
+                      <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
                     <% end %>
                   </div>
                   <div class="list-detail-content">

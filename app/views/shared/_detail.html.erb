@@ -60,7 +60,7 @@
           <div class="my-item-list-tag">
             <% note.tags.each do |tag| %>
               <i class="fas fa-tags my-list-tag-img"></i>
-              <a href="#" class="my-list-tag">#<%= tag.name %></a>
+              <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
             <% end %>
           </div>
           <div class="my-item-list-detail">
