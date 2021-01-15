@@ -62,7 +62,7 @@
 - belongs_to :user
 - belongs_to :follow
 
-## favorites
+## favorites テーブル
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |

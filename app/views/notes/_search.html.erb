@@ -1,6 +1,8 @@
 <div class="search-form">
-  <input type="text" name="keyword" class="search-input" placeholder="キーワードを入力">
-  <input type="submit" value= "&#xf002; " class="fas search-btn">
+  <%= form_with(url: search_notes_path, local: true, method: :get) do |f| %>
+    <%= f.text_field :keyword, placeholder: "キーワードを入力", class: "search-input" %>
+    <%= f.submit "検索" , class: "search-btn"%>
+  <% end %>
 </div>
 <div class="notes">
   <div class="note-order">
