@@ -1,9 +1,4 @@
 class Note < ApplicationRecord
-  with_options presence: true do
-    validates :title
-    validates :text
-    validates :plan
-  end
 
   belongs_to :user
   has_one_attached :image
