@@ -20,19 +20,21 @@
     <h3><%= notes.title %></h3>
   </div>
   <% end %>
+  <% notes.tags.each do |tag| %>
+    <div class="note-tag">
+      <i class="fas fa-tags tag-img"></i>
+      <a href="#" class="tag">#<%= tag.name %></a>
+    </div>
+  <% end %>
 <div class="note-options">
-<% notes.tags.each do |tag| %>
-  <div class="note-tag">
-    <i class="fas fa-tags tag-img"></i>
-    <a href="#" class="tag">#<%= tag.name %></a>
+  <div class="note-opt">
+    <div class="note-option-icon">
+      <div class="favorite">
+        <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= notes.favorites.count %></span>
+      </div>
+      <div class="comment-num">
+        <i class="far fa-comment comment-btn"></i><span class="comment-count"><%= notes.comments.count %></span>
+      </div>
+    </div>
   </div>
-<% end %>
-<div class="note-opt">
-  <div class="favorite">
-    <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= notes.favorites.count %></span>
-  </div>
-   <div class="comment-num">
-    <i class="far fa-comment comment-btn"></i><span class="comment-count"><%= notes.comments.count %></span>
-  </div>
-</div>
 </div>

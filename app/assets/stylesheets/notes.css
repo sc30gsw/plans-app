@@ -373,6 +373,7 @@ main {
 }
 
 .note-tag {
+  margin-left: 5px;
   padding-left: 15px;
   padding-bottom: 10px;
 }
@@ -389,9 +390,9 @@ main {
   color: black;
 }
 
-.note-opt {
+.note-option-icon {
   display: flex;
-  margin-right: 5px;
+  float: right;
 }
 
 .like-btn {
