@@ -55,8 +55,9 @@
           </div>
           <div class="show-top-tags">
             <div class="show-top-tag">
-              <a href="#" >睡眠</a>
-              <a href="#">生産性</a>
+              <% @note.tags.each do |tag| %>
+                <a href="#">#<%= tag.name %></a>
+              <% end %>
             </div>
           </div>
         </div>

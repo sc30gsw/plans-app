@@ -56,9 +56,10 @@
                 <% end %>
                 <div class="list-detail-tag-content">
                   <div class="list-tag-content">
-                    <i class="fas fa-tags favpage-tag-img"></i>
-                    <a href="#" class="favpage-tag">睡眠</a>
-                    <a href ="#" class="favpage-tag">生産性</a>
+                    <% note.tags.each do |tag| %>
+                      <i class="fas fa-tags favpage-tag-img"></i>
+                      <a href="#" class="favpage-tag">#<%= tag.name %></a>
+                    <% end %>
                   </div>
                   <div class="list-detail-content">
                     <i class="fas fa-book favpage-like-btn"></i><span><%= note.favorites.count %></span>
