@@ -131,14 +131,14 @@
 
 ## notifications テーブル
 
-| Column     | Type    | Options     |
-| ---------- | ------- | ----------- |
-| visiter_id | integer | null: false |
-| visited_id | integer | null: false |
-| note_id    | integer |             |
-| comment_id | integer |             |
-| action     | string  | null: false |
-| checked    | boolean | null: false |
+| Column     | Type    | Options                     |
+| ---------- | ------- | --------------------------- |
+| visiter_id | integer |                             |
+| visited_id | integer |                             |
+| note_id    | integer |                             |
+| comment_id | integer |                             |
+| action     | string  |                             |
+| checked    | boolean | default: false, null: false |
 
 ### Associations
 

@@ -2,13 +2,17 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
   def create
-    @comment = Comment.new(comment_params)
+    @note = Note.find(params[:note_id])
+    @comment = @note.comments.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment_note = @comment.note
+    
+    # 通知の作成
     if @comment.valid?
       @comment.save
-      redirect_to note_path(@comment.note)
+      @comment_note.create_notification_comment!(current_user, @comment.id)
+      redirect_to note_path(@note.id)
     else
-      @note = @comment.note
-      @comments = @note.comments
       render 'notes/show'
     end
   end
