@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <div class="session-header">
+    <%= render 'shared/session_header' %>
+      <div class="session-right">
+        <% if user_signed_in? %>
+          <%= render 'shared/header_links' %>
+        <% end %>
+        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+          <% if current_user.intro.present? %>
+            <div class="session-usericon">
+              <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
+              </div> 
+            <% else %> 
+            <div class="session-usericon">
+              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
+            </div>
+          <% end %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tag-note-wrapper">
+    <div class="tag-note-main">
+      <div class="tag-notes">
+        <h4 class="tag-note-title">#<%= @tag.name %>の投稿一覧</h4>
+        <% @tag.notes.each do |note| %>
+          <li class="tag-notes-index">
+            <div class="tag-notes-user">
+              <%= link_to user_path(note.user.id), class: 'upper-usericon' do %>
+                <% if note.user.intro.present? %>
+                  <%= image_tag note.user.intro.image, class: "tag-page-user-icon", alt: "ユーザーアイコン" %>
+                <% else %>
+                  <img src="/assets/default.png" class="tag-page-user-icon " alt="ユーザーアイコン" >
+                <% end %>
+              <% end %>
+              <div class="tag-note-user-nickname">
+                <b><%=link_to note.user.nickname, user_path(note.user.id), class: "tag-page-user-link" %></b>が<%= note.created_at.to_s(:datetime_jp) %>に投稿
+              </div>
+            </div>
+            <div class="tag-note-title">
+              <%= link_to note.title, note_path(note.id),class: "tag-note-link" %>
+            </div>
+            <div class="tag-notes-options">
+              <% note.tags.each do |tag| %>
+                <div class="tag-notes-page-tags">
+                  <div class="tag-notes-page-note">
+                    <i class="fas fa-tags tagpage-notes-img"></i>
+                    <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag-notes-taglink" %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="tag-notes-page-opt">
+                <div class="favorite">
+                  <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= note.favorites.count %></span>
+                </div>
+                <div class="comment-num">
+                  <i class="far fa-comment comment-btn"></i><span class="comment-count"><%= note.comments.count %></span>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
