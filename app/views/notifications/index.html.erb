@@ -94,9 +94,10 @@
         <li class="my-item-list">
           <div class="my-item-list-content">
             <div class="my-item-list-tag">
-              <i class="fas fa-tags my-list-tag-img"></i>
-              <a href="#" class="my-lst-tag">睡眠</a>
-              <a href ="#" class="my-list-tag">生産性</a>
+              <% note.tags.each do |tag| %>
+                  <i class="fas fa-tags my-list-tag-tag-img"></i>
+                  <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
+              <% end %>
             </div>
             <div class="my-item-list-detail">
               <%= link_to note_path(note.id), class: "my_list_note_link" do %>
