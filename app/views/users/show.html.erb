@@ -122,13 +122,11 @@
         </div>
         <div class="follow-btn">
           <% unless current_user.id == @user.id %>
-            <div id="follow-form">
               <% if current_user.following?(@user) %>
                 <%= render 'unfollow' %>
               <% else %>
                 <%= render 'follow' %>
               <% end %>
-            </div>
           <% end %>
         </div>
       </div>
