@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = NoteTagRelation.new(note_params)
+    @note = NoteTagRelation.new(note_tag_params)
     if @note.valid?
       @note.save
       redirect_to root_path
@@ -53,10 +53,20 @@ class NotesController < ApplicationController
   def favorite
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{keyword: tag}
+  end
+
   private
 
-  def note_params
+  def note_tag_params
     params.require(:note_tag_relation).permit(:title, :text, :plan, :image, :name).merge(user_id: current_user.id)
+  end
+
+  def note_params
+    params.require(:note).permit(:title, :text, :plan, :image).merge(user_id: current_user.id)
   end
 
   def set_note
