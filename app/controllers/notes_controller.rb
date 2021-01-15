@@ -11,11 +11,11 @@ class NotesController < ApplicationController
   end
 
   def new
-    @note = Note.new
+    @note = NoteTagRelation.new
   end
 
   def create
-    @note = Note.new(note_params)
+    @note = NoteTagRelation.new(note_params)
     if @note.valid?
       @note.save
       redirect_to root_path
@@ -56,7 +56,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :text, :plan, :image).merge(user_id: current_user.id)
+    params.require(:note_tag_relation).permit(:title, :text, :plan, :image, :name).merge(user_id: current_user.id)
   end
 
   def set_note

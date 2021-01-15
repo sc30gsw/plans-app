@@ -2,13 +2,15 @@
   <%= render 'shared/note_header' %>
   <div class="note-container">
     <div class="new-content">
-      <%= form_with(model: @note, url: notes_path, method: :post, class: 'note_form', local: true) do |f| %>
+      <%= form_with model: @note, url: notes_path, method: :post, class: 'note_form', local: true do |f| %>
         <div class="caption-area">
           <div class="title-box">
             <%= f.text_field :title, class: "input-title", placeholder: "タイトル", maxlength: 50, autofocus: true %>
           </div>
-          <div class="tag-box">
-            <input type="text"  class="input-tag" placeholder="書籍や論文に関連するタグを入力 (例： 生産性 メンタルヘルス)" >
+          <div class="tag-box", id="tag-field">
+            <%= f.text_field :name, class: "input-tag", placeholder: "書籍や論文に関連するタグを入力 (例： #心理学 #メンタルヘルス)" %>
+          </div>
+          <div id="search-result">
           </div>
           <div class="note-new-opt">
             <span class="note-img">

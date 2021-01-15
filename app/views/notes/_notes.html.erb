@@ -21,11 +21,12 @@
   </div>
   <% end %>
 <div class="note-options">
-<div class="note-tag">
-  <i class="fas fa-tags tag-img"></i>
-  <a href="#" class="tag">睡眠</a>
-  <a href ="#" class="tag">生産性</a>
-</div>
+<% notes.tags.each do |tag| %>
+  <div class="note-tag">
+    <i class="fas fa-tags tag-img"></i>
+    <a href="#" class="tag">#<%= tag.name %></a>
+  </div>
+<% end %>
 <div class="note-opt">
   <div class="favorite">
     <i class="fas fa-book like-btn"></i><span class="favorite-count"><%= notes.favorites.count %></span>

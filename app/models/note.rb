@@ -4,6 +4,7 @@ class Note < ApplicationRecord
   has_one_attached :image
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :note_tags
   has_many :tags, through: :note_tags
 
   # コメントした投稿を取得するための記述
