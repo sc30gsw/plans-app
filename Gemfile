@@ -65,3 +65,4 @@ gem 'omniauth-twitter'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'rubocop', require: false
+gem 'kaminari'
