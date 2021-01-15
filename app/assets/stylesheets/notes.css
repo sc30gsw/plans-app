@@ -257,6 +257,7 @@ header {
 }
 
 main {
+  height: 230vh;
   width: 100vw;
   background-color: rgb(240, 236, 236);
 }
@@ -284,6 +285,10 @@ main {
 
 .feed a:active {
   background-color: rgb(56, 135, 224);
+}
+
+.notes {
+  padding-bottom: 20px;
 }
 
 .notes-trend {
@@ -440,7 +445,6 @@ main {
 
 .footer {
   width: 100vw;
-  margin-top: 30px;
   padding: 30px 0;
   display: flex;
   background-color: #3e3e3e;
@@ -562,6 +566,10 @@ main {
 
 .example-lists li:hover {
   opacity: 0.7;
+}
+
+.search-notes {
+  height: 100%;
 }
 
 /* タブレット表示時 */

@@ -44,6 +44,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    collection do
+      get 'note_search'
+    end
   end
 
   # コメント削除機能のルーティング

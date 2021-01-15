@@ -59,7 +59,7 @@ class NotesController < ApplicationController
     render json:{keyword: tag}
   end
 
-  def search
+  def note_search
     @notes = Note.search(params[:keyword])
   end
 
