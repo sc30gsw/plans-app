@@ -4,4 +4,6 @@
 <%= link_to new_note_path, class: "post" do %>
   <i class="fas fa-pen-square"></i>投稿する
 <% end %>
-<a href="#" class="upper-notification"><i class="far fa-bell"></i>0</a>
+<%= link_to notifications_path, class: "upper-notification" do %>
+  <i class="far fa-bell"></i>
+<% end %>

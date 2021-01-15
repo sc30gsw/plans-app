@@ -47,5 +47,5 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   # 通知機能のルーティング
-  resources :notifications, only: :index
+  resources :notifications, only: [:index, :destroy]
 end
