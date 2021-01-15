@@ -34,10 +34,13 @@ Rails.application.routes.draw do
   # プロフィール編集ページ
   resources :intros, only: %i[new create edit update]
 
-  # 投稿(いいね・コメント)
+  # 投稿(いいね・コメント),インクリメンタルサーチ
   resources :notes do
     resources :favorites, only: %i[create destroy]
     resources :comments, only: [:create]
+    collection do
+      get 'search'
+    end
   end
 
   # コメント削除機能のルーティング
