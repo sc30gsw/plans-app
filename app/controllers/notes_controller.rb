@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: %i[index order_index show]
+  before_action :authenticate_user!, except: %i[index order_index show search]
   before_action :set_note, only: %i[show edit update destroy favorite]
 
   def index
@@ -57,6 +57,10 @@ class NotesController < ApplicationController
     return nil if params[:keyword] == ""
     tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
     render json:{keyword: tag}
+  end
+
+  def search
+    @notes = Note.search(params[:keyword])
   end
 
   private

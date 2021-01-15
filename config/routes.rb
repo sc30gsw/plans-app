@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # フォロワー一覧のルーティング
   get 'followers/user/:id', to: 'relationships#followers'
 
+  # タグがつけられた投稿一覧のルーティング
   get 'tag/:id/notes', to: "tags#note"
 
   # マイページ
