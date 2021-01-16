@@ -86,41 +86,6 @@
         </div>
       </div>
     </div>
-    <div class="detail-page-user-notes">
-      <div class="item-list-navi">
-        <i class="fas fa-square item-list-squere"></i><b><%= current_user.nickname %></b>'s NOTES
-      </div>
-      <% current_user.notes.each do |note| %>
-        <li class="my-item-list">
-          <div class="my-item-list-content">
-            <div class="my-item-list-tag">
-              <% note.tags.each do |tag| %>
-                  <i class="fas fa-tags my-list-tag-tag-img"></i>
-                  <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
-              <% end %>
-            </div>
-            <div class="my-item-list-detail">
-              <%= link_to note_path(note.id), class: "my_list_note_link" do %>
-                <%= note.title%>
-              <% end %>
-            </div>
-          </div>
-          <div class="my-item-list-rower">
-            <div class="my-item-list-opt">
-              <i class="fas fa-book myitem-like-btn"></i><span><%= note.favorites.count %></span>
-              <i class="far fa-comment myitem-comment-btn"></i><span><%= note.comments.count %></span>
-            </div>
-            <div class="my-item-list-created">
-              <%= note.created_at.strftime('%Y/%m/%d') %>
-            </div>
-          </div>
-        </li>
-      <% end %>
-        <div class="my-detail-page-nation">
-          <span>1/1</span>
-        </div>
-      </div>
-    </div>
   </div>
   </div>
   </div>

@@ -7,7 +7,7 @@
           <p class="note-fire"><i class="fas fa-sort-numeric-down asc-icon-notes"></i>新着順</p>
           <%= render partial: 'notes', collection: @notes %>
             <div class="more-note">
-              <a href="#" class="more-link">もっと見る</a>
+              <%= paginate @notes %>
             </div>
         </div>
       </div>

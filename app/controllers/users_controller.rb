@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
-  def show; end
+  def show
+    @notes = @user.notes.page(params[:page]).per(5)
+  end
 
   private
 

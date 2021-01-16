@@ -1,6 +1,7 @@
 class RelationshipsController < ApplicationController
   before_action :set_user, only: [:create, :destroy]
   before_action :follow_user, only: [:followings, :followers]
+  before_action :paginate, only: [:followings, :followers]
 
   def create
     following = current_user.follow(@user)
@@ -24,11 +25,11 @@ class RelationshipsController < ApplicationController
   end
 
   def followings
-    @users = @user.followings.all
+    @users = @user.followings.all.page(params[:page]).per(10)
   end
 
   def followers
-    @users = @user.followers.all
+    @users = @user.followers.all.page(params[:page]).per(10)
   end
 
   private
@@ -39,5 +40,9 @@ class RelationshipsController < ApplicationController
 
   def follow_user
     @user = User.find(params[:id])
+  end
+
+  def paginate
+    @notes = @user.notes.page(params[:page]).per(5)
   end
 end

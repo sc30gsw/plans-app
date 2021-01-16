@@ -65,6 +65,9 @@
               </div>
             </li>
           <% end %>
+          <div class="detail-page-more-note">
+            <%= paginate @users %>
+          </div>
         </div>
       </div>
         <%= render 'shared/detail' %>

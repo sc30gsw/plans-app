@@ -29,6 +29,8 @@ class CommentsController < ApplicationController
 
   def user
     @user = User.find(params[:id])
+    @notes = @user.notes.page(params[:page]).per(10)
+    @comment_notes = @user.commented_notes.page(params[:page]).per(10)
   end
 
   private
