@@ -490,6 +490,7 @@
 .comment-img-input {
   position: absolute;
   left: -30px;
+  top: 5px;
   font-size: 1px;
   opacity: 0;
 }
