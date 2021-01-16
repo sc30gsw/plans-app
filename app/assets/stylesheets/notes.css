@@ -257,7 +257,7 @@ header {
 }
 
 main {
-  height: 230vh;
+  height: 240vh;
   width: 100vw;
   background-color: rgb(240, 236, 236);
 }
@@ -429,6 +429,7 @@ main {
 
 .more-note {
   padding: 10px 0;
+  text-align: center;
 }
 
 .more-link {

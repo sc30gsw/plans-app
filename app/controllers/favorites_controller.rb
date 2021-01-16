@@ -15,5 +15,7 @@ class FavoritesController < ApplicationController
 
   def user
     @user = User.find(params[:id])
+    @notes = @user.notes.page(params[:page]).per(10)
+    @favorite_notes = @user.favorited_notes.page(params[:page]).per(10)
   end
 end

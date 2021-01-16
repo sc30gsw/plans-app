@@ -134,11 +134,12 @@
     <div class="mypage-right">
       <div class="user-activity">
         <div class="user-analyze">
-      </div>
+          追加実装予定
+        </div>
         <div class="mypage-notes">
           <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
           <div class="my-plans">
-            <% @user.notes.each do |note| %>
+            <% @notes.each do |note| %>
               <div class="mypage-note-tag">
                 <% note.tags.each do |tag| %>
                   <i class="fas fa-tags mypage-tag-img"></i>
@@ -165,11 +166,7 @@
           </div>
         </div>
         <div class="mypage-nation">
-          <ul class="pagenations">
-            <li class="page-nation"></li>
-            <li class="mypage-nation"><span>1/1</span></li>
-            <li class="page-nation"></li>
-          </ul>
+          <%= paginate @notes %>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
         <p class="note-fire"><i class="fas fa-fire trend-fire"></i>トレンド</p>
           <%= render partial: 'notes', collection: @notes %>
         <div class="more-note">
-          <a href="#" class="more-link">もっと見る</a>
+          <%= paginate @notes %>
         </div>
       </div>
     </div>
