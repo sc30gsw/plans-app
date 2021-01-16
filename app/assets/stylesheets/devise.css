@@ -203,10 +203,7 @@
 }
 
 .check {
-  margin-top: 10px;
-}
-
-.checkbox {
+  display: flex;
   margin-top: 10px;
 }
 
