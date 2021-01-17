@@ -133,9 +133,41 @@
     </div>
     <div class="mypage-right">
       <div class="user-activity">
-        <div class="user-analyze">
-          追加実装予定
-        </div>
+        <% if @user == current_user %>
+          <div class="user-analyze">
+            <span class="activity">Activity</span>
+              <div class="weekly-count">
+                <% 7.times do |x|%>
+                  <% if @user.notes.exists?(['created_at LIKE ?', "%#{(Date.today - 6 + x)}%"])%>
+                    <div class='weekly-count-day'>
+                      <span><%= (Date.today - 6 + x).strftime('%a') %></span>
+                      <span><%= (Date.today - 6 + x).strftime('%e') %></span>
+                    </div>
+                  <% else %>
+                    <div class='weekly-count-day-off'>
+                      <span><%= (Date.today - 6 + x).strftime('%a') %></span>
+                      <span><%= (Date.today - 6 + x).strftime('%e') %></span>
+                    </div>
+                  <% end%>
+                <% end %>
+              </div>
+              <span class="status">1 Week</span>
+              <div class="status-count">
+                <div class="status-count-block">
+                  <span>New</span>
+                  <%= @all_count %>
+                </div>
+                <div class="status-count-block">
+                  <span>LIKED</span>
+                  <%= @favorited_notes.count %>
+                </div>
+                <div class="status-count-block">
+                  <span>COMMENTED</span>
+                  <%= @commented_notes.count %>
+                </div>
+              </div>
+          </div>
+        <% end %>
         <div class="mypage-notes">
           <h6 class="mypage-notes-title"><i class="fas fa-square mypage-squere"></i>全ての投稿</h6>
           <div class="my-plans">

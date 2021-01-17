@@ -178,7 +178,72 @@
 .user-analyze {
   height: 30%;
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: #364549;
+}
+
+.activity {
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.weekly-count {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+
+.weekly-count-day-off {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  background-color: white;
+}
+
+.weekly-count-day {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  background-color: #ebd247;
+}
+
+.status {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.status-count {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
+
+.status-count-block {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
 }
 
 .mypage-notes {
