@@ -1,42 +1,27 @@
-version: 2.1
-
-orbs:
-  ruby: circleci/ruby@1.1.0
-
+version: 2
 jobs:
-  build:
+  #  ビルド ジョブとテスト ジョブ
+  deploy-job:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
-        environment:
-          BUNDLER_VERSION: 2.1.4
+    working_directory: ~/repo
     steps:
       - checkout
       - run: gem install bundler -v 2.1.4
       - run:
-          name: which bundler?
-          command: bundler -v
-      - ruby/ bundle-install
-
-  deploy:
-    docker:
-      - image: circleci/ruby:2.6.5-node-browsers
-        environment:
-          BUNDLER_VERSION: 2.1.4
-    steps:
-      - checkout
-      - run: gem install bundler -v 2.1.4
-      - ruby/install-deps
-      - add_ssh_keys:
-          fingerprints: "4b:05:89:d4:3e:d7:6f:75:67:f6:a3:43:95:ce:c9:b3"
-      - deploy:
-          name: Capistrano deploy
+          name: バンドル インストール
+          command: bundle check || bundle install
+      - run:
+          name: テストが完了し、ブランチが master である場合は AWS にデプロイ
           command: bundle exec cap production deploy
-
 workflows:
   version: 2
-  build_accept_deploy:
+  build-deploy:
     jobs:
-      - deploy:
+      - build-job
+      - deploy-job:
+          requires:
+            - build-job
           filters:
             branches:
               only: master
