@@ -11,7 +11,11 @@ jobs:
           BUNDLER_VERSION: 2.1.4
     steps:
       - checkout
-      - ruby/install-deps
+      - run: gem install bundler -v 2.1.4
+      - run:
+          name: which bundler?
+          command: bundler -v
+      - ruby/ bundle-install
 
   deploy:
     docker:
