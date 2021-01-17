@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-stretch-
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           BUNDLER_VERSION: 2.1.4
     steps:
@@ -19,7 +19,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.6.5-stretch-
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           BUNDLER_VERSION: 2.1.4
     steps:
