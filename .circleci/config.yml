@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.6.5-stretch-
         environment:
           BUNDLER_VERSION: 2.1.4
     steps:
@@ -19,11 +19,12 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.6.5-stretch-
         environment:
           BUNDLER_VERSION: 2.1.4
     steps:
       - checkout
+      - run: gem install bundler -v 2.1.4
       - ruby/install-deps
       - add_ssh_keys:
           fingerprints: "4b:05:89:d4:3e:d7:6f:75:67:f6:a3:43:95:ce:c9:b3"
