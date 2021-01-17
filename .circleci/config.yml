@@ -1,27 +1,42 @@
-version: 2
+version: 2.1
 jobs:
-  #  ビルド ジョブとテスト ジョブ
-  deploy-job:
+  build:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
-    working_directory: ~/repo
+      - image: circleci/ruby:2.6.5-stretch-node
+    executor: ruby/default
     steps:
       - checkout
       - run: gem install bundler -v 2.1.4
       - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
+
+  deploy:
+    docker:
+      - image: image pinned to a version and tag
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: "4b:05:89:d4:3e:d7:6f:75:67:f6:a3:43:95:ce:c9:b3"
+      - run: gem install bundler -v 2.1.4
+      - run:
           name: バンドル インストール
           command: bundle check || bundle install
+
       - run:
-          name: テストが完了し、ブランチが master である場合は AWS にデプロイ
+           name: テストが完了し、ブランチが master である場合は AWS にデプロイ
           command: bundle exec cap production deploy
+
 workflows:
-  version: 2
+  version: 2.1
   build-deploy:
     jobs:
-      - build-job
-      - deploy-job:
+      - build
+      - deploy:
           requires:
-            - build-job
+            - build
           filters:
             branches:
               only: master
