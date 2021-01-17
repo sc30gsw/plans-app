@@ -1,7 +1,37 @@
-- add_ssh_keys:
-    fingerprints:
-      - 4b:05:89:d4:3e:d7:6f:75:67:f6:a3:43:95:ce:c9:b3
+version: 2.1
 
-- deploy:
-  name: Capistrano deploy
-  command: bundle exec cap production deploy
+orbs:
+  ruby: circleci/ruby@1.1.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
+    steps:
+      - checkout
+      - ruby/install-deps
+
+  deploy:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
+    steps:
+      - checkout
+      - ruby/install-deps
+      - add_ssh_keys:
+          fingerprints: "4b:05:89:d4:3e:d7:6f:75:67:f6:a3:43:95:ce:c9:b3"
+      - deploy:
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
+
+workflows:
+  version: 2
+  build_accept_deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
