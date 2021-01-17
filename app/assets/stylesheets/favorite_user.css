@@ -258,7 +258,7 @@
   color: #808080;
 }
 
-.user-status-top p {
+.user-status-top span {
   display: flex;
   justify-content: space-evenly;
   font-weight: bold;
@@ -277,7 +277,7 @@
   color: #808080;
 }
 
-.user-status-bottom p {
+.user-status-bottom span {
   display: flex;
   justify-content: space-evenly;
   font-weight: bold;
