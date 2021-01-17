@@ -157,8 +157,8 @@
         <% if user_signed_in? %>
           <div class="commnet-info">
             <%= link_to user_path(@note.user.id) do %>
-              <% if @note.user.intro.present? %>
-                <%= image_tag @note.user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
+              <% if current_user.intro.present? %>
+                <%= image_tag current_user.intro.image, class: "user-icon", alt: "ユーザーアイコン" %>
               <% else %>
                 <img src="/assets/default.png" class="user-icon" alt="ユーザーアイコン">
               <% end %>
