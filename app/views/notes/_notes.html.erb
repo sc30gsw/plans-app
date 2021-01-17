@@ -23,7 +23,7 @@
   <% notes.tags.each do |tag| %>
     <div class="note-tag">
       <i class="fas fa-tags tag-img"></i>
-      <%= link_to "##{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
+      <%= link_to "#{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
     </div>
   <% end %>
 <div class="note-options">

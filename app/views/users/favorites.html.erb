@@ -37,9 +37,10 @@
       <% end %>
       <%= link_to note.user.nickname, user_path(note.user.id), class: "user-id" %>
       <div class="favpage-note-tag">
-        <i class="fas fa-tags favpage-tag-img"></i>
-        <a href="#" class="favpage-tag">睡眠</a>
-        <a href ="#" class="favpage-tag">生産性</a>
+        <% note.tags.each do |tag| %>
+          <i class="fas fa-tags favpage-tag-img"></i>
+          <%= link_to "#{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
+        <% end %>
       </div>
       <%= link_to note_path(note.id), class: "favpage_note_show" do %>
         <div class="favpage-note-title">
@@ -130,9 +131,10 @@
         <div class="favpage-my-plans">
           <% current_user.notes.each do |note| %>
             <div class="favpage-note-tag">
-              <i class="fas fa-tags favpage-tag-img"></i>
-              <a href="#" class="favpage-tag">睡眠</a>
-              <a href ="#" class="favpage-tag">生産性</a>
+              <% note.tags.each do |tag| %>
+                <i class="fas fa-tags favpage-tag-img"></i>
+                <%= link_to "#{tag.name}", "/tag/#{tag.id}/notes", class: "tag" %>
+              <% end %>
             </div>
             <%= link_to note_path(note.id), class: "favpage_note_show" do %>
               <div class="favpage-note-title">
