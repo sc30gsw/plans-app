@@ -51,13 +51,13 @@ class NotesController < ApplicationController
     end
   end
 
-  def favorite
-  end
+  def favorite; end
 
   def search
-    return nil if params[:keyword] == ""
+    return nil if params[:keyword] == ''
+
     tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
-    render json:{keyword: tag}
+    render json: { keyword: tag }
   end
 
   def note_search

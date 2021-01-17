@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'followers/user/:id', to: 'relationships#followers'
 
   # タグがつけられた投稿一覧のルーティング
-  get 'tag/:id/notes', to: "tags#note"
+  get 'tag/:id/notes', to: 'tags#note'
 
   # マイページ
   resources :users, only: [:show]
@@ -53,8 +53,8 @@ Rails.application.routes.draw do
   resources :comments, only: [:destroy]
 
   # フォロー機能のルーティング
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: %i[create destroy]
 
   # 通知機能のルーティング
-  resources :notifications, only: [:index, :destroy]
+  resources :notifications, only: %i[index destroy]
 end

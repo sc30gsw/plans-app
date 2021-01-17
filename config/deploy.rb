@@ -5,17 +5,19 @@ lock '3.15.0'
 set :application, 'plans-app'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:sc30gsw/plans-app.git'
+set :repo_url, 'git@github.com:sc30gsw/plans-app.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs,
+    fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system',
+                                 'public/uploads')
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.6.5' 
+set :rbenv_ruby, '2.6.5'
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                                  keys: ['~/.ssh/Su39C30ikalq81Wvxpn.pem'] 
+                  keys: ['~/.ssh/Su39C30ikalq81Wvxpn.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }

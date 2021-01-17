@@ -33,10 +33,10 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   # 自分が作った通知
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
-  
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+
   # 自分宛ての通知
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   # SNS認証ログイン
   def self.from_omniauth(auth)
@@ -61,25 +61,23 @@ class User < ApplicationRecord
 
   # 自分をフォローしないようにするため
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end
 
   # フォローを外せるようにする
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
+    relationship = relationships.find_by(follow_id: other_user.id)
     relationship.destroy if relationship
   end
 
   # フォローしているか判定
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   # フォロー通知
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    temp = Notification.where(['visiter_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,

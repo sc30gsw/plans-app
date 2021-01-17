@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @note.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment_note = @comment.note
-    
+
     # 通知の作成
     if @comment.valid?
       @comment.save

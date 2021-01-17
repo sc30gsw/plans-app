@@ -1,5 +1,4 @@
 class Note < ApplicationRecord
-
   belongs_to :user
   has_one_attached :image
   has_many :comments, dependent: :destroy
@@ -19,7 +18,7 @@ class Note < ApplicationRecord
     notification = current_user.active_notifications.new(
       note_id: id,
       visited_id: user_id,
-      action: "favorite"
+      action: 'favorite'
     )
     notification.save if notification.valid?
   end
@@ -44,18 +43,15 @@ class Note < ApplicationRecord
       action: 'comment'
     )
     # 自分の投稿に対するコメント場合は、通知済みとする
-    if notification.visiter_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visiter_id == notification.visited_id
     notification.save if notification.valid?
   end
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Note.where('text LIKE(?)', "%#{search}%")
     else
       Note.all
     end
   end
-
 end

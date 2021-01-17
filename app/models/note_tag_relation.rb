@@ -1,5 +1,4 @@
 class NoteTagRelation
-  
   include ActiveModel::Model
   attr_accessor :title, :text, :plan, :name, :image, :user_id
 

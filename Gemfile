@@ -31,14 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.0'
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -59,20 +59,20 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'coderay'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'image_processing', '~>1.2'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'pry-rails'
 gem 'rails-i18n'
-gem 'rubocop', require: false
-gem 'kaminari'
 gem 'redcarpet', '~> 2.3.0'
-gem 'coderay'
+gem 'rubocop', require: false
 
 gem 'aws-sdk-s3', require: false
 
