@@ -14,8 +14,12 @@ RSpec.describe 'intro新規登録', type: :system do
       expect(page).to have_selector '.index-icon'
       # ユーザー詳細に遷移する
       visit user_path(@user.id)
-      # プロフィール情報を入力するボタンがある
-      expect(page).to have_content 'プロフィールを編集する'
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」があること確認する
+      expect(page).to have_content('プロフィールを編集する')
       # プロフィール新規登録ページに移動する
       visit new_intro_path
       # 添付する画像を定義する
@@ -34,7 +38,7 @@ RSpec.describe 'intro新規登録', type: :system do
       # 詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)
-      expect(page).to have_selector '.intro-icon'
+      expect(page).to have_selector '.index-icon'
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(テキスト)
       expect(page).to have_content @intro.first_name
       expect(page).to have_content @intro.last_name
@@ -69,8 +73,12 @@ RSpec.describe 'プロフィール編集', type: :system do
       expect(page).to have_selector '.index-icon'
       # @user1の詳細ページへ遷移する
       visit user_path(@user1.id)
-      # プロフィール情報を入力するボタンがある
-      expect(page).to have_content 'プロフィールを編集する'
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」があること確認する
+      expect(page).to have_content('プロフィールを編集する')
       # プロフィール新規登録ページに移動する
       visit new_intro_path
       # 添付する画像を定義する
@@ -89,18 +97,22 @@ RSpec.describe 'プロフィール編集', type: :system do
       # 詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user1.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)
-      expect(page).to have_selector '.intro-icon'
+      expect(page).to have_selector '.index-icon'
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(テキスト)
       expect(page).to have_content @intro1.first_name
       expect(page).to have_content @intro1.last_name
       expect(page).to have_content @intro1.website
       expect(page).to have_content @intro1.profile
-      # @user1の詳細ページへ遷移する
-      visit user_path(@user1.id)
-      # プロフィール情報を入力するボタンがある
-      expect(page).to have_content 'プロフィールを編集する'
-      # 編集ページへのボタンをクリック遷移する
-      find('.profile-edit-btn').click
+      # @user1の詳細ページへ遷移することをする
+      expect(current_path).to eq user_path(@user1.id)
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」があること確認する
+      expect(page).to have_content('プロフィールを編集する')
+      # プロフィール編集ページのリンクをクリックする
+      find('.profile-edit').click
       # すでに登録済みの内容がフォームに入っていることを確認する
       expect(find('.first_name').value).to eq @intro1.first_name
       expect(find('.last_name').value).to eq @intro1.last_name
@@ -122,7 +134,7 @@ RSpec.describe 'プロフィール編集', type: :system do
       # @user1詳細ページに遷移することを確認する
       expect(current_path).to eq user_path(@user1.id)
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(画像)
-      expect(page).to have_selector '.intro-icon'
+      expect(page).to have_selector '.index-icon'
       # 詳細ページには先ほど入力した内容のプロフィールが存在することを確認する(テキスト)
       expect(page).to have_content @intro1.first_name
       expect(page).to have_content @intro1.last_name
@@ -131,9 +143,46 @@ RSpec.describe 'プロフィール編集', type: :system do
     end
   end
 
-  # note投稿機能を実装してから行う
   context 'ユーザー編集ができないとき' do
     it 'ログインしたユーザーは自分以外が登録したプロフィールを編集できない' do
+      # トップページへ遷移する
+      visit root_path
+      # user1でログインする
+      sign_in(@user1)
+      # user2の詳細ページに遷移する
+      visit user_path(@user2.id)
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」がないこと確認する
+      expect(page).to have_no_content('プロフィールを編集する')
+    end
+
+    it 'ログインしていないと@intor1の編集画面へ遷移できない' do
+      # トップページへ遷移する
+      visit root_path
+      # user1の詳細ページに遷移する
+      visit user_path(@user1.id)
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」がないこと確認する
+      expect(page).to have_no_content('プロフィールを編集する')
+    end
+
+    it 'ログインしていないと@intro2の編集画面へ遷移できない' do
+      # トップページへ遷移する
+      visit root_path
+      # user2の詳細ページに遷移する
+      visit user_path(@user2.id)
+      # ドロップダウンメニューがあることを確認する
+      expect(page).to have_selector '.nav-link'
+      # ドロップダウンメニューをクリックする
+      find('.nav-link').click
+      # ドロップダウンメニューに「プロフィールを編集する」がないこと確認する
+      expect(page).to have_no_content('プロフィールを編集する')
     end
   end
 end
