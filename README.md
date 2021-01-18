@@ -1,3 +1,5 @@
+https://gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0
+
 # テーブル設計
 
 ## users テーブル
