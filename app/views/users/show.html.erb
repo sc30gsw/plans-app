@@ -3,18 +3,18 @@
     <%= render 'shared/session_header' %>
       <div class="session-right">
         <% if user_signed_in? %>
-          <%= render 'shared/header_links' %>
-        <% end %>
-        <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
-          <% if current_user.intro.present? %>
-            <div class="session-usericon">
-              <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
+        <%= render 'shared/header_links' %>
+          <%= link_to user_path(current_user.id), class: 'upper-usericon' do %>
+            <% if current_user.intro.present? %>
+              <div class="session-usericon">
+                <%= image_tag current_user.intro.image, class: "index-icon", alt: "ユーザーアイコン" %>
               </div> 
             <% else %> 
-            <div class="session-usericon">
-              <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
-            </div>
-          <% end %> 
+              <div class="session-usericon">
+                <img src="/assets/default.png" class="index-icon" alt="ユーザーアイコン" >
+              </div>
+            <% end %> 
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -121,12 +121,14 @@
           </div>
         </div>
         <div class="follow-btn">
-          <% unless current_user.id == @user.id %>
+          <% if user_signed_in? %>
+            <% unless current_user.id == @user.id %>
               <% if current_user.following?(@user) %>
                 <%= render 'unfollow' %>
               <% else %>
                 <%= render 'follow' %>
               <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
