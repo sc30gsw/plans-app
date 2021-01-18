@@ -69,9 +69,10 @@ https://www.plans30.com/
 ### ユーザー機能
 
 - ユーザー新規登録・ログイン機能(Gem: devise)
-- SNS 認証ログイン機能(Twitter/Facebook API)
+- SNS 認証ログイン機能(Twitter/Facebook API/ Gem: omniauth)
 - ゲストログイン
 - ユーザー情報編集機能(Gem: ActiveStorage)
+- ユーザーアイコンプレビュー表示機能
 - ユーザー詳細ページ表示機能
 - ユーザー週間アナリティクス機能
 
