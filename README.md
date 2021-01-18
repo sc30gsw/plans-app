@@ -1,4 +1,4 @@
-https://gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0
+https://gyazo.com/34ff76b0fffbd3efd85717b8712bc5db
 
 # テーブル設計
 
