@@ -1,3 +1,4 @@
+<img width="889" alt="aws" src="https://user-images.githubusercontent.com/74711118/104869403-48b2c880-5989-11eb-883e-eeb0a5061135.png">
 # テーブル設計
 
 ## users テーブル
