@@ -201,6 +201,14 @@
   margin-right: 5px;
 }
 
+@media (max-width: 1024px) {
+  .input-note-image {
+    opacity: 1;
+    left: 35px;
+    top: 10px;
+  }
+}
+
 @media (max-width: 599px) {
   .wrapper {
     overflow: scroll;
@@ -244,6 +252,12 @@
 
   .note-submit {
     height: 20%;
+  }
+
+  .input-note-image {
+    opacity: 1;
+    left: 35px;
+    top: 10px;
   }
 }
 

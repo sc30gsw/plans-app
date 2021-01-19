@@ -534,6 +534,18 @@
   .show-header {
     height: 7vh;
   }
+
+  .comment-opt {
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .comment-img-input {
+    position: absolute;
+    opacity: 1;
+    top: 30px;
+    left: 1px;
+  }
 }
 
 /* スマホ表示時 */
@@ -582,10 +594,13 @@
 
   .comment-opt {
     position: relative;
+    padding-bottom: 20px;
   }
 
   .comment-img-input {
     position: absolute;
-    left: -50px;
+    opacity: 1;
+    top: 30px;
+    left: 1px;
   }
 }
