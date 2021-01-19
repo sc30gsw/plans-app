@@ -39,6 +39,12 @@
                   <%= link_to 'プロフィールを編集する', edit_intro_path(@user.intro.id), class: "profile-edit" %>
                 </div>
               <% end %>
+              <div class="dropdown-divider"></div>
+              <% if current_user.id == @user.id %>
+                <div class="dropdown-item">
+                  <%= link_to 'アクションをメモする', "/memos/user/#{current_user.id}", class: "profile-edit" %>
+                </div>
+              <% end %>
            <% end %>
           <div class="dropdown-divider"></div>
             <% if user_signed_in? && current_user.id == @user.id %>
