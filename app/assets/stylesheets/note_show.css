@@ -96,6 +96,15 @@
   margin: 15px 0;
 }
 
+.show-top-tag i {
+  background-color: #eee;
+  padding: 4px 8px;
+}
+
+.show-top-tag i:hover {
+  cursor: pointer;
+}
+
 .show-top-tag a {
   color: #666;
   background-color: #eee;
@@ -107,6 +116,7 @@
 
 .show-top-tag a:hover {
   color: #666;
+  border: none;
 }
 
 .show-top-communication {
@@ -520,8 +530,43 @@
   background-color: #3e3e3e;
 }
 
+/* ipad表示時 */
+@media (max-width: 1024px) {
+  .show-header {
+    height: 7vh;
+  }
+}
+
 /* スマホ表示時 */
 @media (max-width: 599px) {
+  .show-top-like-btn {
+    width: 70%;
+  }
+
+  .show-top-communication-right {
+    width: 70%;
+  }
+
+  .show-bottom {
+    margin: 10px;
+  }
+
+  .show-bottom-first {
+    margin: 10px 10px 0;
+  }
+
+  .share-twitter {
+    font-size: 20px;
+  }
+
+  .share-facebook {
+    font-size: 20px;
+  }
+
+  .share-line {
+    font-size: 20px;
+  }
+
   .comment-opt {
     position: relative;
   }
