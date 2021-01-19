@@ -31,11 +31,13 @@ Rails.application.routes.draw do
   # タグがつけられた投稿一覧のルーティング
   get 'tag/:id/notes', to: 'tags#note'
 
+  # ユーザーのメモページへのルーティング
   get 'memos/user/:id', to: 'memos#index'
 
+  # メモ既読機能
   get 'memos/:id', to: 'memos#checked'
 
-  resources :memos, only: [:create]
+  resources :memos, only: [:create, :destroy]
 
   # マイページ
   resources :users, only: [:show]

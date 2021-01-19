@@ -16,6 +16,9 @@ class MemosController < ApplicationController
     # render json:{ post: post }
   end
 
+  def destroy
+  end
+
   def checked
     memo = Memo.find(params[:id])
     if memo.checked
