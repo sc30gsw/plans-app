@@ -4,11 +4,11 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.includes(:user).sort { |a, b| b.favorited_users.count <=> a.favorited_users.count }
-    @notes = Kaminari.paginate_array(@notes).page(params[:page]).per(10)
+    @notes = Kaminari.paginate_array(@notes).page(params[:page]).per(6)
   end
 
   def order_index
-    @notes = Note.includes(:user).page(params[:page]).per(10).order('created_at DESC')
+    @notes = Note.includes(:user).page(params[:page]).per(6).order('created_at DESC')
   end
 
   def new
@@ -51,7 +51,8 @@ class NotesController < ApplicationController
     end
   end
 
-  def favorite; end
+  def favorite
+  end
 
   def search
     return nil if params[:keyword] == ''

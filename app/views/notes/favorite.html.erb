@@ -87,28 +87,26 @@
           <div class="user-status">
             <div class="user-status-top">
               <div class="user-status-note">
-                <%= link_to user_path(@note.user.id), class: "status" do %>
-                  投稿
-                <% end %>
-                <p class="status-count"><%= @note.user.notes.count %></p>
+                <%= link_to '投稿', user_path(@note.user.id), class: "status" %>
+                <span><%= @note.user.notes.count %></span>
                   </div>
               <div class="user-status-fav">
                 <%= link_to "いいね", "/favorites/user/#{@note.user.id}", class: "status" %>
-                <p class="status-count"><%= @note.user.favorites.count %></p>
+                <span><%= @note.user.favorites.count %></span>
               </div>
               <div class="user-status-comment">
                 <%= link_to "コメント", "/comments/user/#{@note.user.id}", class: "status" %>
-                <p class="status-count"><%= @note.user.comments.count %></p>
+                <span><%= @note.comments.count %></span>
               </div>
             </div>
             <div class="user-status-bottom">
               <div class="user-status-follow">
-                <a href="#" class="status">フォロー</a>
-                <p class="status-count">0</p>
+                <%= link_to 'フォロー', "/followings/user/#{@note.user.id}", class: "status" %>
+                <span><%= @note.user.followings.count %></span>
               </div>
               <div class="user-status-follower">
-                <a href="#" class="status">フォロワー</a>
-                <p clcass="status-count">0</p>
+                <%= link_to 'フォロワー', "/followers/user/#{@note.user.id}", class: "status" %>
+                <span><%= @note.user.followers.count %></span>
               </div>
             </div>
           </div>

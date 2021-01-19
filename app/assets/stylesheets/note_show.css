@@ -6,7 +6,7 @@
 
 .show-wrapper {
   width: 100%;
-  height: calc(100vh - 10vh);
+  height: 100%;
   background-color: #f0f0f0;
   display: flex;
 }
@@ -96,6 +96,15 @@
   margin: 15px 0;
 }
 
+.show-top-tag i {
+  background-color: #eee;
+  padding: 4px 8px;
+}
+
+.show-top-tag i:hover {
+  cursor: pointer;
+}
+
 .show-top-tag a {
   color: #666;
   background-color: #eee;
@@ -107,6 +116,7 @@
 
 .show-top-tag a:hover {
   color: #666;
+  border: none;
 }
 
 .show-top-communication {
@@ -387,7 +397,6 @@
 }
 
 .comment-input {
-  margin-top: 20px;
   padding: 0 40px 20px;
   border-bottom: 1px solid #ccc;
 }
@@ -520,11 +529,61 @@
   background-color: #3e3e3e;
 }
 
+/* ipad表示時 */
+@media (max-width: 1024px) {
+  .show-header {
+    height: 7vh;
+  }
+}
+
 /* スマホ表示時 */
 @media (max-width: 599px) {
+  .show-header {
+    height: 10vh;
+  }
+
+  #navbarPlanDropdown {
+    height: 24px;
+    padding: 2px 5px;
+  }
+
+  .show-top-like-btn {
+    width: 70%;
+  }
+
+  .show-top-communication-right {
+    width: 70%;
+  }
+
+  .show-bottom {
+    margin: 10px;
+  }
+
+  .show-bottom-first {
+    margin: 10px 10px 0;
+  }
+
+  .share-twitter {
+    font-size: 20px;
+  }
+
+  .share-facebook {
+    font-size: 20px;
+  }
+
+  .share-line {
+    font-size: 20px;
+  }
+
+  .comment-btn-box-right {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
   .comment-opt {
     position: relative;
   }
+
   .comment-img-input {
     position: absolute;
     left: -50px;

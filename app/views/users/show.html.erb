@@ -151,18 +151,21 @@
                   <% end%>
                 <% end %>
               </div>
-              <div class="status">
+              <span class="status">1 Week</span>
                 <div class="status-count">
-                  <span>New</span>
-                  <%= @all_count %>
+                  <div class="status-count-block">
+                    <span>New</span>
+                    <%= @all_count %>
+                  </div>
+                  <div class="status-count-block">
+                    <span>LIKED</span>
+                    <%= @favorited_notes.count %>
+                  </div>
+                  <div class="status-count-block">
+                    <span>COMMENTED</span>
+                    <%= @commented_notes.count %>
+                  </div>
                 </div>
-                <div class="status-count-block">
-                  <span>LIKED</span>
-                  <%= @favorited_notes.count %>
-                  <span>COMMENTED</span>
-                  <%= @commented_notes.count %>
-                </div>
-              </div>
           </div>
         <% end %>
         <div class="mypage-notes">
