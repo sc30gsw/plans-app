@@ -200,3 +200,52 @@
 .upload {
   margin-right: 5px;
 }
+
+@media (max-width: 599px) {
+  .new-content {
+    margin: 10px auto;
+  }
+
+  .note-editor {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .caption-area {
+    width: 90%;
+    height: 75px;
+    margin: 0 auto;
+  }
+
+  .input-title {
+    height: 70%;
+    font-size: 15px;
+  }
+
+  .note-area-left {
+    width: 95%;
+    height: 85%;
+    margin: 0 auto;
+  }
+
+  .note-area-right {
+    width: 95%;
+    height: 85%;
+    margin: 10px auto 0;
+  }
+
+  .note-preview {
+    height: 80%;
+  }
+
+  .note-submit {
+    height: 20%;
+  }
+}
+
+@media (max-width: 414px) {
+  .note-submit {
+    height: 25%;
+  }
+}
