@@ -203,3 +203,36 @@
   display: flex;
   background-color: #3e3e3e;
 }
+
+@media (max-width: 599px) {
+  .profile-form {
+    height: 80vh;
+  }
+
+  .profile-fields {
+    width: 90%;
+    margin: 0 auto 10px;
+  }
+
+  .preview-usericon {
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 414px) {
+  .profile-form {
+    padding: 10px 0;
+  }
+
+  .profile-fields {
+    height: 550px;
+  }
+}
+
+@media (max-width: 375px) {
+  .profile-fields {
+    height: 500px;
+  }
+}
