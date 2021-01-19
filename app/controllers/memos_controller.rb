@@ -10,10 +10,13 @@ class MemosController < ApplicationController
   end
 
   def create
-    @memo = Memo.create(memo_params)
-    @memo.save
-    redirect_to "/memos/user/#{current_user.id}"
-    # render json:{ post: post }
+    @memo = Memo.new(memo_params)
+    if @memo.valid?
+      @memo.save
+      redirect_to "/memos/user/#{current_user.id}"
+    else
+      render action: :index
+    end
   end
 
   def destroy
@@ -36,4 +39,5 @@ class MemosController < ApplicationController
   def memo_params
     params.permit(:content).merge(user_id: current_user.id)
   end
+
 end
