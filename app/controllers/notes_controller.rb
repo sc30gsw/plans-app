@@ -51,8 +51,7 @@ class NotesController < ApplicationController
     end
   end
 
-  def favorite
-  end
+  def favorite; end
 
   def search
     return nil if params[:keyword] == ''
