@@ -539,6 +539,10 @@
 
 /* スマホ表示時 */
 @media (max-width: 599px) {
+  .show-header {
+    height: 10vh;
+  }
+
   .show-top-like-btn {
     width: 70%;
   }
