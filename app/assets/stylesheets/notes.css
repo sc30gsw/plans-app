@@ -576,7 +576,7 @@ main {
   height: 100%;
 }
 
-/* ipad pro表示時 */
+/* ipad表示時 */
 @media (max-width: 1024px) {
   header {
     height: 30vh;
