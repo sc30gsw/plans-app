@@ -31,6 +31,12 @@ Rails.application.routes.draw do
   # タグがつけられた投稿一覧のルーティング
   get 'tag/:id/notes', to: 'tags#note'
 
+  get 'memos/user/:id', to: 'memos#index'
+
+  get 'memos/:id', to: 'memos#checked'
+
+  resources :memos, only: [:create]
+
   # マイページ
   resources :users, only: [:show]
 
