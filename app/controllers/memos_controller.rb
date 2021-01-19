@@ -12,12 +12,15 @@ class MemosController < ApplicationController
   end
 
   def checked
-    memo = Memo.find(parma[:id])
+    memo = Memo.find(params[:id])
     if memo.checked
       memo.update(checked: false)
     else
       memo.update(checked: true)
     end
+
+    item = Memo.find(params[:id])
+    render json: {memo: item}
   end
 
   private
