@@ -20,6 +20,7 @@
       <div class="show-top">
         <div class="show-top-info">
           <div class="show-top-profile">
+          <% if user_signed_in? %>
             <%= link_to user_path(@note.user.id) do %>
               <% if @note.user.intro.present? %>
                 <%= image_tag @note.user.intro.image, class: "show-top-icon", alt: "ユーザーアイコン" %>
@@ -28,6 +29,7 @@
               <% end %>
             <% end %>
             <%= link_to @note.user.nickname, user_path(@note.user.id), class:'show-top-username' %>
+          <% end %>
           </div>
           <% if user_signed_in? && @note.user_id == current_user.id%>
             <div class="show-top-command">
@@ -117,6 +119,7 @@
           <% @comments.each do |comment| %>
             <div class="comment-btn-box">
               <div class="comment-btn-box-left">
+              <% if user_signed_in? %>
                 <%= link_to user_path(comment.user.id) do %>
                   <% if comment.user.intro.present? %>
                     <%= image_tag comment.user.intro.image, class: "show-top-icon", alt: "ユーザーアイコン" %>
@@ -125,6 +128,7 @@
                   <% end %>
                 <% end %>
                 <%= link_to comment.user.nickname, user_path(comment.user.id), class: "show-top-username" %>
+              <% end %>
               </div>
               <div class="comment-btn-box-right">
                 <%= comment.created_at.strftime('%Y-%m-%d %H:%M')%>

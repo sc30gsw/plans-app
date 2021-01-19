@@ -24,6 +24,7 @@
         <% @tag.notes.each do |note| %>
           <li class="tag-notes-index">
             <div class="tag-notes-user">
+            <% if user_signed_in? %>
               <%= link_to user_path(note.user.id), class: 'upper-usericon' do %>
                 <% if note.user.intro.present? %>
                   <%= image_tag note.user.intro.image, class: "tag-page-user-icon", alt: "ユーザーアイコン" %>
@@ -34,6 +35,7 @@
               <div class="tag-note-user-nickname">
                 <b><%=link_to note.user.nickname, user_path(note.user.id), class: "tag-page-user-link" %></b>が<%= note.created_at.to_s(:datetime_jp) %>に投稿
               </div>
+            <% end %>
             </div>
             <div class="tag-note-title">
               <%= link_to note.title, note_path(note.id),class: "tag-note-link" %>

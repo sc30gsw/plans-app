@@ -1,4 +1,5 @@
 <div class="note-user">
+<% if user_signed_in? %>
   <%= link_to user_path(notes.user.id) do %>
     <% if notes.user.intro.present? %>
       <div class="session-usericon">
@@ -14,6 +15,7 @@
   <div class="created-at">
     が<%= notes.created_at.to_s(:datetime_jp) %>に投稿
   </div>
+<% end %>
 </div>
 <%= link_to note_path(notes.id), class: "note_show_links" do %>
   <div class="note-title">
