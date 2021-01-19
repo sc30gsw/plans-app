@@ -242,11 +242,26 @@
 }
 
 @media (max-width: 599px) {
-  .regist-left a {
+  .header-link {
     font-size: 15px;
+  }
+  .welcome {
+    font-size: 20px;
+  }
+
+  .welcome-sub {
+    font-size: 12px;
+  }
+
+  .regist-left a {
+    font-size: 10px;
   }
 
   .regist-left p {
+    font-size: 10px;
+  }
+
+  .regist-icon {
     font-size: 15px;
   }
 
