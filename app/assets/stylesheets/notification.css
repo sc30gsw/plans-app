@@ -60,3 +60,22 @@
   margin: 10px 100px 10px 5px;
   width: 30%;
 }
+
+@media (max-width: 599px) {
+  .notification-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notification-index {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .top-right-norificate {
+    width: 100%;
+    margin: 10px;
+  }
+}
