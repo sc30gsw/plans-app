@@ -1,5 +1,3 @@
-const { post } = require("jquery");
-
 function check() {
   const memos = document.querySelectorAll(".memo");
   memos.forEach(function (memo) {
