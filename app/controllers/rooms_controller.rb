@@ -10,13 +10,12 @@ class RoomsController < ApplicationController
   end
 
   def show
-    if Entry.where(user_id: current_user.id, room_id: @room.id).present?
-      @messages = @room.messages
-      @message = Message.new
-      @entries = @room.entries
-    else
+    unless current_user.id == @room.user_id
       redirect_to root_path
     end
+    @messages = @room.messages
+    @message = Message.new
+    @entries = @room.entries
   end
 
   def destroy
