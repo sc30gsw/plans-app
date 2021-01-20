@@ -16,7 +16,12 @@
     </div>
   <% end %>
 </div>
-<h4 class="rooms-title">気になる同士</h4>
+<div class="room-title-icon">
+  <h4 class="rooms-title">気になる同士</h4>
+  <%= link_to room_path(@room.id), method: :delete, class: "room-delete-link" do %>
+    <i class="fas fa-trash-alt room-destroy"></i>チャットを終了する
+  <% end %>
+</div>
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
@@ -55,6 +60,7 @@
                 </div>
               <% end %> 
             <% end %>
+            <%= link_to m.user.nickname, user_path(m.user.id), class:"chat-nickname-link" %>
           </div>
           <div class="chat-hukidashi"> <strong><%= m.text %></strong> <br>
             <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
