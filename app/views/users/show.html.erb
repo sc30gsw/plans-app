@@ -48,7 +48,7 @@
            <% end %>
           <div class="dropdown-divider"></div>
             <% if user_signed_in? && current_user.id == @user.id %>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item logout-item" %>
             <% end %>
         </div>
       </div>
@@ -135,6 +135,24 @@
               <% end %>
           <% end %>
         </div>
+        <% unless current_user.id == @user.id %>
+          <% if (current_user.following?(@user)) && (@user.following?(current_user)) %>
+            <% if @isRoom == true %>
+              <p class="user-show-room">
+                <%= link_to room_path(@roomId), class: "btn btn-primary btn-lg" do %>
+                  <i class="far fa-comments show-room-icon"></i>チャットへ
+                <% end %>
+              </p>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, value: @user.id %>
+                <% end %>
+                <%= f.submit "チャットを始める", class: "btn btn-primary btn-lg user-show-chat" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="mypage-right">

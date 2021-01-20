@@ -34,7 +34,7 @@ RSpec.describe '新規投稿', type: :system do
   end
 
   context 'note投稿ができないとき' do
-    it 'ログインていないと新規投稿ページに遷移できない' do
+    it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
       visit root_path
       # 新規投稿ページへのリンクがない
