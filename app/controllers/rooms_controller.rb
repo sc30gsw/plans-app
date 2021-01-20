@@ -20,6 +20,11 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+    if @room.destroy
+      redirect_to root_path
+    else
+      render action: :show
+    end
   end
 
   private
