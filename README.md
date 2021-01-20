@@ -39,11 +39,13 @@ https://www.plans30.com/
 - 本番環境では AWS の EC2 はデプロイし、自動デプロイまで行なったこと
 - 自動デプロイ後 CircleCI を導入し Capistrano と CI/CD パイプラインをつないだこと
 - 保守性向上のため AWS 各種サービスを利用したこと(EC2,RDS,S3,Route53,ACM,ALB)
-- 合計 178 項目のテスト作成
+- 合計 216 項目のテスト作成
 - SNS 認証ログインができるよう Twitter・Facebook の外部 API を利用したこと
 - UI/UX にレスポンシブ Web デザインを適用し iphone6(画面幅: 375px まで対応)
 - 感覚的に操作ができるようにアイコンを多めに使用したフロント実装
 - 学びや行動のモチベーションが上がるように、ユーザーページにアナリティクスを付け進捗などを視覚化したこと
+- メモ機能にはアクションプランや学んだことをメモでき、ドッラグ & ドロップすることで行動回数を可視化できるようにしたこと
+- メモ機能の既読機能実施後は色を残して、上記のように線が貯まるほど行動していることを可視化してモチベーションにつなげるようにしたこと
 
 # 使用技術
 
@@ -121,6 +123,19 @@ https://www.plans30.com/
 - 通知一覧表示機能
 - 通知削除機能
 
+### DM 機能
+
+- 相互フォローしたユーザー同士でチャットを作成可能
+- チャットルーム内メッセージ投稿機能
+- チャットルーム削除機能
+
+### メモ機能
+
+- アプリ内メモ機能
+- ドラッグ&ドロップ機能(JavaScript)
+- メモ既読機能(Ajax/非同期通信)
+- メモ一括削除機能
+
 ### テスト機能
 
 - RSpec/Rubocop テスト機能
@@ -159,6 +174,9 @@ https://www.plans30.com/
 - has_many :followers, through: :reverse_of_relationships, source: :user
 - has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
 - has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+- has_many :entries, dependent: :destroy
+- has_many :messages, dependent: :destroy
+- has_many :memos
 
 ## intro テーブル
 
@@ -282,3 +300,51 @@ https://www.plans30.com/
 - belongs_to :comment, optional: true
 - belongs_to :visiter, class_name: 'User', foreign_key: 'visiter_id',optional: true
 - belongs_to :visited, class_name: 'User', foreign_key:'visited_id', optional: true
+
+## rooms テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+
+### Associations
+
+- has_many :entries, dependent: :destroy
+- has_many :messages, dependent: :destroy
+
+## entries テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| room   | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :user
+- belongs_to :room
+
+## messages テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| text   | text       | null: false       |
+| user   | references | foreign_key: true |
+| room   | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :user
+- belongs_to :room
+
+## memos テーブル
+
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| content | text       | null: false       |
+| checked | boolean    |                   |
+| user    | references | foreign_key: true |
+
+### Associations
+
+- belongs_to :user
