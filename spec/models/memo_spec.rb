@@ -12,7 +12,7 @@ RSpec.describe Memo, type: :model do
       end
     end
 
-    context 'メモ投稿がうまくいかないとき' do 
+    context 'メモ投稿がうまくいかないとき' do
       it 'contentが存在しなければ保存できない' do
         @memo.content = nil
         @memo.valid?

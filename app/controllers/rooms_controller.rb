@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_room, only: [:show, :destroy]
+  before_action :set_room, only: %i[show destroy]
 
   def create
     @room = Room.create

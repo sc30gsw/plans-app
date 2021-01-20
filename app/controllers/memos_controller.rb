@@ -1,12 +1,10 @@
 class MemosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:index, :destroy]
+  before_action :set_user, only: %i[index destroy]
 
   def index
     @memos = Memo.all.order('created_at DESC')
-    unless current_user.id == @user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @user.id
   end
 
   def create
@@ -37,7 +35,7 @@ class MemosController < ApplicationController
     end
 
     item = Memo.find(params[:id])
-    render json: {memo: item}
+    render json: { memo: item }
   end
 
   private
@@ -49,5 +47,4 @@ class MemosController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end

@@ -16,7 +16,7 @@ RSpec.describe Message, type: :model do
       it 'roomが空だと投稿できない' do
         @message.room_id = nil
         @message.valid?
-        expect(@message.errors.full_messages).to include("Roomを入力してください")
+        expect(@message.errors.full_messages).to include('Roomを入力してください')
       end
     end
   end

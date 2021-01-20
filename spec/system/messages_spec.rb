@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "メッセージ投稿機能", type: :system do
+RSpec.describe 'メッセージ投稿機能', type: :system do
   before do
     @user1 = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user)
@@ -44,7 +44,7 @@ RSpec.describe "メッセージ投稿機能", type: :system do
         find('input[name="commit"]').click
       end.to change { Message.count }.by(1)
       # 送信した値がブラウザに表示されることを確認する
-      expect(page).to have_content (@message.text)
+      expect(page).to have_content(@message.text)
     end
   end
 

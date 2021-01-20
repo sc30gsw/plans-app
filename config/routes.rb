@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   # メモ既読機能
   get 'memos/:id', to: 'memos#checked'
 
-  resources :memos, only: [:create, :destroy]
+  resources :memos, only: %i[create destroy]
 
   # マイページ
   resources :users, only: [:show]
@@ -68,5 +68,5 @@ Rails.application.routes.draw do
 
   # DM機能のルーティング
   resources :messages, only: [:create]
-  resources :rooms, only: [:create, :show, :destroy]
+  resources :rooms, only: %i[create show destroy]
 end
