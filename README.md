@@ -23,6 +23,8 @@ https://www.plans30.com/
 
 <img width="1661" alt="plans-myp" src="https://user-images.githubusercontent.com/74711118/104876421-fd091a80-599a-11eb-8ac9-73bf8274644d.png">
 
+https://user-images.githubusercontent.com/74711118/105157382-4484d780-5b50-11eb-8e03-f24de4b38181.mp4
+
 # 制作背景
 
 現在コロナの自粛期間中でお家で過ごす人が増え読書量が増えている、ということを耳にしました。
