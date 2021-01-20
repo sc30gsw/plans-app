@@ -165,6 +165,23 @@
   padding: 5px 30px;
 }
 
+.user-show-room {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  padding: 8px 20px;
+  font-size: 13px;
+}
+
+.user-show-chat {
+  margin-top: 15px;
+}
+
 .mypage-right {
   width: 60vw;
   margin: 30px;
@@ -358,6 +375,12 @@
   background-color: #3e3e3e;
 }
 
+@media (max-width: 1024px) {
+  .new_room {
+    text-align: center;
+  }
+}
+
 @media (max-width: 599px) {
   .mypage {
     display: flex;
@@ -394,6 +417,11 @@
 
   .follow {
     margin-top: 20px;
+  }
+
+  .new_room {
+    margin-top: 10px;
+    text-align: center;
   }
 
   .mypage-right {
