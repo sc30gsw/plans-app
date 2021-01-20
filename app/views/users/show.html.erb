@@ -138,7 +138,7 @@
         <% unless current_user.id == @user.id %>
           <% if (current_user.following?(@user)) && (@user.following?(current_user)) %>
             <% if @isRoom == true %>
-              <p class="user-show-room"><a href="/rooms/<%= @roomId%>" class="btn btn-primary btn-lg">チャットへ</a>
+              <p class="user-show-room"><a href="/rooms/<%= @roomId%>" class="btn btn-primary btn-lg"><i class="far fa-comments room-icon"></i>チャットへ</a>
             <% else %>
               <%= form_for @room do |f| %>
                 <%= fields_for @entry do |e| %>
