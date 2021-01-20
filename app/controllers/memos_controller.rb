@@ -1,9 +1,9 @@
 class MemosController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:index, :destroy]
 
   def index
     @memos = Memo.all.order('created_at DESC')
-    @user = User.find(params[:id])
     unless current_user.id == @user.id
       redirect_to root_path
     end
@@ -20,6 +20,12 @@ class MemosController < ApplicationController
   end
 
   def destroy
+    if current_user.id == @user.id
+      Memo.destroy_all
+      redirect_to "/memos/user/#{current_user.id}"
+    else
+      render action: :index
+    end
   end
 
   def checked
@@ -38,6 +44,10 @@ class MemosController < ApplicationController
 
   def memo_params
     params.permit(:content).merge(user_id: current_user.id)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

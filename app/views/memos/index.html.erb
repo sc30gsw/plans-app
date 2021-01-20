@@ -45,5 +45,10 @@
     </div>
     <div class="box box2">
       <span>Cleared Action's</span>
-  </div>
+    </div>
+    <div class="memo-destroy-box">
+      <%= link_to memo_path, method: :delete, class: "memo-delete-link" do %>
+        <i class="fas fa-trash-alt memo-destroy"></i>一括削除
+      <% end %>
+    </div>
 </div>
