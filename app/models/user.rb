@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :relationships
   has_many :memos
   has_many :messages, dependent: :destroy
-  has_many :romms, through: :room_users, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   # コメントした投稿を取得するための記述
   has_many :commented_notes, through: :comments, source: :note
