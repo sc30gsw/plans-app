@@ -271,7 +271,7 @@ https://www.plans30.com/
 - belongs_to :note
 - belongs_to :tag
 
-## Comments テーブル
+## comments テーブル
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
