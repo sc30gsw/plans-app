@@ -65,4 +65,8 @@ Rails.application.routes.draw do
 
   # 通知機能のルーティング
   resources :notifications, only: %i[index destroy]
+
+  # DM機能のルーティング
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, :destroy]
 end
