@@ -10,9 +10,6 @@ class RoomsController < ApplicationController
   end
 
   def show
-    unless current_user.id == @room.user_id
-      redirect_to root_path
-    end
     @messages = @room.messages
     @message = Message.new
     @entries = @room.entries
