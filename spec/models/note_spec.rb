@@ -17,7 +17,7 @@ RSpec.describe Note, type: :model do
       end
     end
 
-    context '新規投稿がうまく行かないとき' do
+    context '新規投稿がうまくいかないとき' do
       it 'titleが空だと投稿できない' do
         @note.title = nil
         @note.valid?
