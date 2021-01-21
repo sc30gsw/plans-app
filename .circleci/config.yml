@@ -13,6 +13,10 @@ jobs:
           - MYSQL_USERNAME: "root"
           - MYSQL_PASSWORD: ""
           - MYSQL_PORT: 3306
+      - image: circleci/mysql:5.6.50
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+          - MYSQL_ROOT_HOST: "%"
     working_directory: ~/repo
     steps:
       - checkout
