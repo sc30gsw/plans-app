@@ -19,7 +19,7 @@ RSpec.describe '新規投稿', type: :system do
       fill_in 'note_tag_relation_text', with: @note.text
       fill_in 'note_tag_relation_plan', with: @note.plan
       # 画像選択フォームに画像を添付する
-      attach_file "note_tag_relation_image", 'public/images/test_image.png'
+      attach_file 'note_tag_relation_image', 'public/images/test_image.png'
       # 送信するとNoteモデルのカウントが1上がることを確認する
       expect do
         find('input[name="commit"]').click
@@ -108,7 +108,7 @@ RSpec.describe '投稿編集', type: :system do
       fill_in 'note_text', with: @note1.text
       fill_in 'note_plan', with: @note1.plan
       # 画像選択フォームに画像を添付する
-      attach_file "note_image", 'public/images/test_image2.png'
+      attach_file 'note_image', 'public/images/test_image2.png'
       # 編集してもNoteモデルのカウントは変わらないことを確認する
       expect do
         find('input[name="commit"]').click

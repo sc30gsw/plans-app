@@ -1,7 +1,7 @@
 class Note < ApplicationRecord
   with_options presence: true do
     validates :title
-    validates :text  
+    validates :text
     validates :plan
   end
 
