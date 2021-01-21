@@ -141,6 +141,16 @@
   text-decoration: none;
 }
 
+.profile-memo {
+  color: black;
+  text-decoration: none;
+}
+
+.profile-memo:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .follow {
   text-align: center;
 }

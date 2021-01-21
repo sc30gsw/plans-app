@@ -42,7 +42,7 @@
               <div class="dropdown-divider"></div>
               <% if current_user.id == @user.id %>
                 <div class="dropdown-item">
-                  <%= link_to 'アクションをメモする', "/memos/user/#{current_user.id}", class: "profile-edit" %>
+                  <%= link_to 'アクションをメモする', "/memos/user/#{current_user.id}", class: "profile-memo" %>
                 </div>
               <% end %>
            <% end %>
