@@ -10,6 +10,7 @@ jobs:
         environment:
           - RAILS_ENV: "test"
           - MYSQL_HOST: 127.0.0.1
+          - MYSQL_PASSWORD: ""
           - BUNDLER_VERSION: 2.1.4
       - image: circleci/mysql:5.7
         environment:
