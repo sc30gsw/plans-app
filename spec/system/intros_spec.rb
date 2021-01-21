@@ -162,27 +162,15 @@ RSpec.describe 'プロフィール編集', type: :system do
     it 'ログインしていないと@intor1の編集画面へ遷移できない' do
       # トップページへ遷移する
       visit root_path
-      # user1の詳細ページに遷移する
-      visit user_path(@user1.id)
-      # ドロップダウンメニューがあることを確認する
-      expect(page).to have_selector '.nav-link'
-      # ドロップダウンメニューをクリックする
-      find('.nav-link').click
-      # ドロップダウンメニューに「プロフィールを編集する」がないこと確認する
-      expect(page).to have_no_content('プロフィールを編集する')
+      # user1の詳細ページに遷移できない
+      expect(page).to have_no_link(user_path(@user1.id))
     end
 
     it 'ログインしていないと@intro2の編集画面へ遷移できない' do
       # トップページへ遷移する
       visit root_path
-      # user2の詳細ページに遷移する
-      visit user_path(@user2.id)
-      # ドロップダウンメニューがあることを確認する
-      expect(page).to have_selector '.nav-link'
-      # ドロップダウンメニューをクリックする
-      find('.nav-link').click
-      # ドロップダウンメニューに「プロフィールを編集する」がないこと確認する
-      expect(page).to have_no_content('プロフィールを編集する')
+      # user2の詳細ページに遷移できないことを確認する
+      expect(page).to have_no_link(user_path(@user2.id))
     end
   end
 end
