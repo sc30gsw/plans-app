@@ -59,6 +59,6 @@ production:
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: plans_app_production
-  username: root
+  username: <%= ENV.fetch("MYSQL_USERNAME") %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
