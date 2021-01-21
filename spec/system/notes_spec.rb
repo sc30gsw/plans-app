@@ -18,10 +18,8 @@ RSpec.describe '新規投稿', type: :system do
       fill_in 'note_tag_relation_title', with: @note.title
       fill_in 'note_tag_relation_text', with: @note.text
       fill_in 'note_tag_relation_plan', with: @note.plan
-      # 添付する画像を定義する
-      image_path = Rails.root.join('public/images/test_image.png')
       # 画像選択フォームに画像を添付する
-      attach_file('note_tag_relation[image]', image_path, make_visible: true)
+      attach_file "note_tag_relation_image", 'public/images/test_image.png'
       # 送信するとNoteモデルのカウントが1上がることを確認する
       expect do
         find('input[name="commit"]').click
@@ -109,10 +107,8 @@ RSpec.describe '投稿編集', type: :system do
       fill_in 'note_title', with: @note1.title
       fill_in 'note_text', with: @note1.text
       fill_in 'note_plan', with: @note1.plan
-      # 添付する画像を定義する
-      image_path = Rails.root.join('public/images/test_image2.png')
       # 画像選択フォームに画像を添付する
-      attach_file('note[image]', image_path, make_visible: true)
+      attach_file "note_image", 'public/images/test_image2.png'
       # 編集してもNoteモデルのカウントは変わらないことを確認する
       expect do
         find('input[name="commit"]').click

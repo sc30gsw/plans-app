@@ -83,9 +83,8 @@
 }
 
 .note-img {
-  font-size: 30px;
-  margin-bottom: 30px;
-  position: relative;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
 .note-smile:hover {
@@ -93,11 +92,7 @@
 }
 
 .input-note-image {
-  position: absolute;
-  font-size: 1px;
-  opacity: 0;
-  left: -150px;
-  top: 7px;
+  font-size: 10px;
 }
 
 .input-note-image:hover {
