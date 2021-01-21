@@ -49,6 +49,11 @@
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 
+.new-right-note-rule {
+  float: right;
+  margin-right: 10px;
+}
+
 .tag-box {
   margin-top: 5px;
   border: solid 1px transparent;
@@ -243,6 +248,10 @@
 
   .note-img {
     display: flex;
+  }
+
+  .new-right-note-rule {
+    font-size: 10px;
   }
 
   .input-note-image {
