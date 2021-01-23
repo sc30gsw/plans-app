@@ -38,9 +38,9 @@ https://www.plans30.com/
 # 工夫した点
 
 - 開発環境に Docker と docker-compose を用いて、より実務に近い形で制作を行ったこと
-- 本番環境では AWS の EC2 はデプロイし、自動デプロイまで行なったこと
+- 本番環境では AWS の EC2 にデプロイし、自動デプロイまで行なったこと
 - 自動デプロイ後 CircleCI を導入し Capistrano と CI/CD パイプラインをつないだこと
-- 保守性向上のため AWS 各種サービスを利用したこと(EC2,RDS,S3,Route53,ACM,ALB)
+- 保守性向上のため AWS 各種サービスを利用したこと(EC2,RDS,S3,Route53,ACM,ALB)
 - 合計 209 項目のテスト作成
 - SNS 認証ログインができるよう Twitter・Facebook の外部 API を利用したこと
 - UI/UX にレスポンシブ Web デザインを適用し iphone6(画面幅: 375px まで対応)
