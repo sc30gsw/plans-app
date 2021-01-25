@@ -6,7 +6,9 @@
 
 # URL
 
-https://www.plans30.com/
+https://plans-app30.herokuapp.com/
+
+https://www.plans30.com/(インスタンス解放前)
 
 - 常時 SSL 化(AWS,ACM,Route53,ALB)
 - トップページのヘッダーにゲストログインリンクを設置しております。

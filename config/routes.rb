@@ -4,10 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # ゲストログインのルーティング
-  devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
-  end
+   # マイページ
+   resources :users, only: [:show]
+
   root to: 'notes#index'
 
   # 新着順(投稿)を取得
@@ -38,9 +37,6 @@ Rails.application.routes.draw do
   get 'memos/:id', to: 'memos#checked'
 
   resources :memos, only: %i[create destroy]
-
-  # マイページ
-  resources :users, only: [:show]
 
   # プロフィール編集ページ
   resources :intros, only: %i[new create edit update]
