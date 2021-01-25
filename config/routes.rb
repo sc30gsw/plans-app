@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # ゲストログインのルーティング
   devise_scope :user do
-    post 'users/guest_sigin_in', to: 'users/sessions#new_guest'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   root to: 'notes#index'
 
