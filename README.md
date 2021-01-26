@@ -19,7 +19,7 @@ https://www.plans30.com/(インスタンス解放前)
 
 # Web ページサンプル
 
-<img width="1674" alt="plans-top" src="https://user-images.githubusercontent.com/74711118/104876400-f4184900-599a-11eb-80c8-e15c6aa676d3.png">
+<img width="1544" alt="132d29097b2252448c6ca0e303c0401b" src="https://user-images.githubusercontent.com/74711118/105814228-67056d80-5ff4-11eb-9bb8-50a3533e599c.png">
 
 <img width="1643" alt="plans-show" src="https://user-images.githubusercontent.com/74711118/104876419-faa6c080-599a-11eb-8321-77ff44e9caa1.png">
 
