@@ -55,6 +55,12 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', nickname: 'guest') do |user|
+      user.password = 'guest4040'
+    end
+  end
+
   # 自分をフォローしないようにするため
   def follow(other_user)
     relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
