@@ -6,7 +6,7 @@
 
 # URL
 
-https://www.myplans303.com/
+https://www.myplans303.com/(インスタンス停止しました)
 
 - 常時 SSL 化(AWS,ACM,Route53,ALB)
 - トップページのヘッダーにゲストログインリンクを設置しております。
