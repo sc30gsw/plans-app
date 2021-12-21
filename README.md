@@ -13,9 +13,9 @@ https://www.myplans303.com/(インスタンス停止しました)
 ## Heroku URL
 https://my-plans.herokuapp.com/
 
-※S3バケット解放したため、画像投稿・表示ができません
-※若干AWS環境よりレイアウト異なります
-※SNS認証もDeveloperTool側でURLの登録を解除しているため使用不可です
+- S3バケット解放したため、画像投稿・表示ができません
+- 若干AWS環境よりレイアウト異なります
+- SNS認証もDeveloperTool側でURLの登録を解除しているため使用不可です
 
 # AWS 構成図
 
