@@ -7,11 +7,11 @@
 # URL
 https://www.myplans303.com/(インスタンス停止しました)
 
-## Heroku URL
-https://my-plans.herokuapp.com/
-
 - 常時 SSL 化(AWS,ACM,Route53,ALB)
 - トップページのヘッダーにゲストログインリンクを設置しております。
+
+## Heroku URL
+https://my-plans.herokuapp.com/
 
 # AWS 構成図
 
